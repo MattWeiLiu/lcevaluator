@@ -81,6 +81,7 @@ class CLTestCases(object):
     self.checklist = self.evaluatted.evaluate_checklist(self.config, self.general)
 
     if save_path is not None:
+      print(save_path)
       with open(save_path, 'w') as outfile:
           json.dump(self.checklist, outfile, ensure_ascii=False, indent=2)
 
@@ -109,17 +110,17 @@ class CLTestCases(object):
     result_str = '[I] Check documenat {}'.format(self.doc_path)
 
     # print('[I] Check documenat {}'.format(self.doc_path))
-    try:
-      self.testFormattor()
-      self.testEvaluator(save_path)
-      result = self.testRequirementDocument()
-      # ends = time.time()
-      for key, item in result.items():
-        if item[0] < 0:
-          result_str += '\n[E] 46A {} reuslt: {}'.format(key, item)
-          # print('[I] 46A {} reuslt: {}'.format(key, item))
-    except Exception as e:
-      result_str += '\n[E] {}'.format(e)
+    # try:
+    self.testFormattor()
+    self.testEvaluator(save_path)
+    result = self.testRequirementDocument()
+    # ends = time.time()
+    for key, item in result.items():
+      if item[0] < 0:
+        result_str += '\n[E] 46A {} reuslt: {}'.format(key, item)
+        # print('[I] 46A {} reuslt: {}'.format(key, item))
+    # except Exception as e:
+    #   result_str += '\n[E] {}'.format(e)
         # print('[E] {}'.format(e))
     return result_str
 

@@ -395,34 +395,42 @@ def replaceDuplicates(content):
     return value
 
 def reformatInParagraphs(content, target_code):
-    listOfLines = content.split('\n')
-    pats = ['\d[\. ]', '[a-zA-Z][\. ]', '[\+] ?']
-    target_pats = listOfLines[0].startswith
-    paragraphs = []
-    temp_text = ''
-    target_pat = None
-    for idx, pat in enumerate(pats):
-        matched = re.match(pats[idx], listOfLines[0])
-        if matched and matched.start() == 0:
-            target_pat = pat
-            break
+    ### check if content can be groupped in paragraphs
+    matched = re.match('[.\s\S]*\n\n', content)
+    paragraphs = None 
+    if matched is not None:
+        tmp_para = re.compile("\n\n").split(content)
+        paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para])
+    else:
+        listOfLines = content.split('\n')
+        pats = ['\d[\. ]', '[a-zA-Z][\. ]', '[\+] ?']
+        target_pats = listOfLines[0].startswith
+        temp_text = ''
+        target_pat = None
+        for idx, pat in enumerate(pats):
+            matched = re.match(pats[idx], listOfLines[0])
+            if matched and matched.start() == 0:
+                target_pat = pat
+                break
 
-    if target_pat is None:
-        print('[W] Unable to detect paragraph prefix')
-        return content
-
-    for line in listOfLines:
-        if target_pat is not None:
-            matched = re.match(target_pat, line) 
-            if (matched and matched.start() == 0):
-                line = line[matched.end():].strip()           
-                paragraphs.append(line)
-            else:
-                if len(paragraphs) == 0:
-                  paragraphs.append(line)
-                else:
-                  paragraphs[-1] = paragraphs[-1] + ' ' + line
-    return '\n'.join(paragraphs)
+        if target_pat is None:
+            print('[W] Unable to detect paragraph prefix')
+            paragraphs = content
+        else:
+            tmp_para = []
+            for line in listOfLines:
+                if target_pat is not None:
+                    matched = re.match(target_pat, line) 
+                    if (matched and matched.start() == 0):
+                        line = line[matched.end():].strip()           
+                        tmp_para.append(line)
+                    else:
+                        if len(tmp_para) == 0:
+                          tmp_para.append(line)
+                        else:
+                          tmp_para[-1] = tmp_para[-1] + ' ' + line
+            paragraphs = '\n'.join(tmp_para)
+    return paragraphs
 
 def get_shipping_docs(content):
     value = ""    
