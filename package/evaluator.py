@@ -530,7 +530,7 @@ class CLEvaluator(object):
 
   def dumpToDict(self):
     result = self.formatted.dumpToDict()
-    result.update(self.checklist)
+    result.update({'checklist': self.checklist})
     return result
 
   def get_product_list(self, config, target_div):

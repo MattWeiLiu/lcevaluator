@@ -122,7 +122,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
         info_text['swifts'] = newswift
 
         final_result.update(info_text)
-        final_result.update(checklist)
+        final_result.update({'checklist':checklist})
 
     if result_root is not None:
         result_path = os.path.join(result_root, 'checklist.json')

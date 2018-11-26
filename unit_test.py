@@ -6,6 +6,18 @@ import package.reformatter as formatter
 import package.evaluator as evaluator
 
 class CLTestCases(object):
+  @staticmethod
+  def runTestWithService(credential, directory, target_bank=None, target_doc=None, save=True, iteration = 10):
+    file_gen = utils.traverseDirectories(jpg_root)
+    for root, jpg_list in file_gen:
+      jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
+      res_root = root
+      if not 'citi' in root: continue
+      result_info = service.annotateCreditLetter(credential, '0001', jpg_list, root)
+      assert 'header' in result_info, '[E] Missing header info in checklist'
+      assert 'swifts' in result_info, '[E] Missing swifts info in checklist'
+      assert 'checklist' in result_info, '[E] Missing checklist info in checklist'
+
 
   @staticmethod
   def runTestWithDir(directory, target_bank=None, target_doc=None, save=True, iteration = 10):
@@ -79,14 +91,11 @@ class CLTestCases(object):
     swifts_info = self.formatted.extractSwiftsInfo(self.config, self.general)
 
     
-  def testEvaluator(self, save_path=None):
+  def testEvaluator(self):
     self.testFormattor()
     self.evaluatted = evaluator.CLEvaluator(self.formatted)      
     self.checklist = self.evaluatted.evaluate_checklist(self.config, self.general)
 
-    if save_path is not None:
-      with open(save_path, 'w') as outfile:
-          json.dump(self.checklist, outfile, ensure_ascii=False, indent=2)
 
   def testRequirementDocument(self):
     assert self.checklist is not None, '[E] "Please run testFormattor and testEvaluator first.'
@@ -112,11 +121,17 @@ class CLTestCases(object):
     # starts = time.time()
     result_str = '[I] Check documenat {}'.format(self.doc_path)
     self.testFormattor()
-    self.testEvaluator(save_path)
+    self.testEvaluator()
     result = self.testRequirementDocument()
     for key, item in result.items():
       if item[0] < 0:
         result_str += '\n[E] 46A {} reuslt: {}'.format(key, item)
+
+    if save_path is not None:
+      findal = self.evaluatted.dumpToDict()
+      with open(save_path, 'w') as outfile:
+          json.dump(findal, outfile, ensure_ascii=False, indent=2)
+
     return result_str
 
     
