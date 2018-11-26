@@ -20,13 +20,14 @@ class CLTestCases(object):
 
 
   @staticmethod
-  def runTestWithDir(directory, target_bank=None, target_doc=None, save=True, iteration = 10):
+  def runTestWithDir(directory, target_bank=None, target_doc=None, save=True, iteration = -1):
     file_gen = utils.traverseDirectories(directory)
     count_docs = 0
     count_bl = 0
     count_inv = 0
     count_pl = 0
     count_other = 0
+    count_failed = 0
     checklistpath = None
     error_reports = ''
     for root, jpg_list in file_gen:
@@ -40,28 +41,39 @@ class CLTestCases(object):
         tester = CLTestCases(vis_res_path)
         if save:
           checklistpath = os.path.join(root, 'checklist.json')
-        result_str = tester.runTests(checklistpath)
-        count_docs += 1
-        if '46A bl' in result_str:
-          count_bl += 1
-        if '46A inv' in result_str:
-          count_inv += 1
-        if '46A pl' in result_str:
-          count_pl += 1
-        if '[E]' in result_str and '46A' not in result_str:
-          count_other += 1
-        if '[E]' in result_str:
+        try:
+          count_docs += 1
+          result_str = tester.runTests(checklistpath)
+          tester.assertFinalJsonStructure()          
+          if '46A bl' in result_str:
+            count_bl += 1
+          if '46A inv' in result_str:
+            count_inv += 1
+          if '46A pl' in result_str:
+            count_pl += 1
+          if '[E]' in result_str and '46A' not in result_str:
+            count_other += 1
+          if '[E]' in result_str:
+            error_reports += result_str
+        except AssertionError as e:
+          count_failed += 1
+          result_str = '[E] ' + e.args[0]
           error_reports += result_str
+          # print('[E] Assert Error with {}'.format(root))
           # print(result_str)
-        iteration -= 1
-        if iteration == 0:
-          break
+
+        if iteration >= 0:
+          iteration -= 1
+          if iteration == 0:
+            break
+
     test_result = {
       'Total docs': count_docs,
       'Bill of lading': "{}/{} = {}".format(count_bl, count_docs, count_bl/count_docs),
       'Commercial invoice': "{}/{} = {}".format(count_inv, count_docs, count_inv/count_docs),
       'Packing list': "{}/{} = {}".format(count_pl, count_docs, count_pl/count_docs),
-      'Other errors': "{}".format(error_reports)
+      'Other errors': "{}".format(error_reports),
+      'Failed documents': "{}".format(count_failed)
     }
     print(json.dumps(test_result, indent=2))
 
@@ -76,6 +88,11 @@ class CLTestCases(object):
     self.general = None  
     self.config = None  
     self.checklist = None
+
+  def assertFinalJsonStructure():
+    assert 'header' in self.checklist, '[E] Missing header info in checklist'
+    assert 'swifts' in self.checklist, '[E] Missing swifts info in checklist'
+    assert 'checklist' in self.checklist, '[E] Missing checklist info in checklist'
 
     
   def testFormattor(self):
@@ -100,6 +117,7 @@ class CLTestCases(object):
   def testRequirementDocument(self):
     assert self.checklist is not None, '[E] "Please run testFormattor and testEvaluator first.'
     shipping_docs = self.checklist['shipping_docs']
+    assert shipping_docs is not None, 'b_l is not in the key list {}'.format(shipping_docs.keys())
 
     def varify(target):
       original = target['original']
@@ -109,6 +127,10 @@ class CLTestCases(object):
         return [-1, original, copies, unspecified, target['text']]
       else:
         return [0, original, copies, unspecified, target['text']]
+
+    assert 'b_l' in shipping_docs.keys(), 'b_l is not in the key list {}'.format(shipping_docs.keys())
+    assert 'inv' in shipping_docs.keys(), 'inv is not in the key list {}'.format(shipping_docs.keys())
+    assert 'p_l' in shipping_docs.keys(), 'p_l is not in the key list {}'.format(shipping_docs.keys())
 
     result = {
       'bl': varify(shipping_docs['b_l']),

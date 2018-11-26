@@ -171,3 +171,26 @@ swift_codes:
   - code: '79'
     desc: 'Narrative'
     must: False  
+req_docs:
+  - name: 'bill of lading'
+    keys: ['b_l', 'b/l', 'bill of lading', 'bills of lading']
+  - name: 'commercial invoice'
+    keys: ['inv', 'commercial invoice', 'commercial invoices']
+  - name: 'packing list'
+    keys: ['p_l', 'packing list']
+  - name: 'insurance policy'
+    keys: ['i_p', 'insurance policy', 'insurance certificate']
+  - name: 'customs invoice'
+    keys: ['csi', 'customs invoice', 'certified invoice']
+  - name: 'consular invoice'
+    keys: ['ci', 'consular invoice']
+  - name: 'certificate of origin'
+    keys: ['coo', 'certificate of origin']
+  - name: 'certificate of analysis'
+    keys: ['coa', 'certificate of analysis']
+  - name: 'inspection certificate'
+    keys: ['ic', 'inspection certificate']
+  - name: 'importer'
+    keys: ['importer', 'importer agent']
+  - name: 'weight list'
+    keys: ['wl', 'weight list']

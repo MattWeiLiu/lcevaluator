@@ -22,11 +22,11 @@ def requestOCR(credential, jpg_paths):
     return vision_results
 
 def retrieveVisionResponse(credential, jpg_paths, result_root=None):
-    assert isinstance(jpg_paths, list), '[E] "jpg_paths" must be instinace of list'
+    assert isinstance(jpg_paths, list), '[E] "jpg_paths" must be instance of list'
     vision_results = None
     response_path = None
     if result_root is not None:
-        assert isinstance(result_root, str), '[E] "response_path" must be instinace of string'
+        assert isinstance(result_root, str), '[E] "response_path" must be instance of string'
         response_file = 'vision_result.json'
         response_path = os.path.join(result_root, response_file)
         if os.path.exists(response_path):
@@ -46,7 +46,7 @@ def retrieveVisionResponse(credential, jpg_paths, result_root=None):
 def validateAllParameters(credential, general_path, jpg_path_list, result_root):
     assert (isinstance(credential, str) and 
             isinstance(general_path, str) and 
-            isinstance(result_root, str)), '[E] All paramters has to be string type'
+            isinstance(result_root, str)), '[E] All parameters has to be string type'
     assert os.path.exists(credential), '[E] Credential file "{}" not found'.format(credential)
     assert os.path.exists(general_path), '[E] Config file "{}" not found'.format(general_path)
     
@@ -57,7 +57,7 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
         assert os.path.exists(jpg_path), '[E] JPG file "{}" not found'.format(jpg_path)
 
     if not os.path.exists(result_root):
-        createDirIfNotExist(result_root)
+        utils.createDirIfNotExist(result_root)
 
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
     # Validate all parameters
@@ -73,12 +73,12 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
     
     ### THIRD  
-    # . Initialize a formater
+    # . Initialize a formatter
     final_result = {}
     
-    clfomatted = formatter.GeneralCLFormatter(vision_doc)
+    clformatted = formatter.GeneralCLFormatter(vision_doc)
     general = utils.loadFileIfExisted(general_path)
-    bank_name = clfomatted.identifyBankName(general)
+    bank_name = clformatted.identifyBankName(general)
     config_path = os.path.join('./configs', bank_name + '_config.yaml')
     config = utils.loadFileIfExisted(config_path)
     if config is None:
@@ -86,20 +86,20 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             'error':'[E] Unable to find config file with bank: {}'.format(bank_name)
             }
     else:
-        header_info = clfomatted.extractHeaderInfo(config)
-        swifts_info = clfomatted.extractSwiftsInfo(config, general)
+        header_info = clformatted.extractHeaderInfo(config)
+        swifts_info = clformatted.extractSwiftsInfo(config, general)
         
-        evaluatted = evaluator.CLEvaluator(clfomatted)
-        checklist = evaluatted.evaluate_checklist(config, general)
-        final_result = evaluatted.dumpToDict()
+        evaluated = evaluator.CLEvaluator(clformatted)
+        checklist = evaluated.evaluate_checklist(config, general)
+        final_result = evaluated.dumpToDict()
 
         ### 
-        # adding prefix for C# aaplication (C# cannot read key starting with _ or numeric value)
+        # adding prefix for C# application (C# cannot read key starting with _ or numeric value)
         newswift = {}
         for key, value in final_result['swifts'].items():
             newswift['code_'+key] = final_result['swifts'][key]
         final_result['swifts'] = newswift
-        
+
     if result_root is not None:
         result_path = os.path.join(result_root, 'checklist.json')
         with open(result_path, 'w') as outfile:
@@ -123,7 +123,7 @@ class RequestCloudMile:
         output = '[INFO] Request Received.'
         if (len(str(req_str)) == 0):
             status = falcon.HTTP_501
-            output = '[ERROR] Invalid Reqeust Found.'
+            output = '[ERROR] Invalid Request Found.'
         else:
             data = json.loads(req_str.decode('utf8'))
             if not checkIfKeyExists(data, 'jpg_path_list'):
@@ -164,7 +164,7 @@ class RequestPdfToJpg:
         output = '[INFO] Request Received.'
         if (len(str(req_str)) == 0):
             status = falcon.HTTP_501
-            output = '[ERROR] Invalid Reqeust Found.'
+            output = '[ERROR] Invalid Request Found.'
         else:
             data = json.loads(req_str.decode('utf8'))
             if not checkIfKeyExists(data, 'pdf_path'):

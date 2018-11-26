@@ -432,7 +432,11 @@ def reformatInParagraphs(content, target_code):
             paragraphs = '\n'.join(tmp_para)
     return paragraphs
 
-def get_shipping_docs(content):
+def get_shipping_docs(content, config):
+    # print(config['req_docs'])
+    # req_docs = config['req_docs']
+    # for item in req_docs:
+
     value = ""    
     if '46A' in content.keys():
         temp = content['46A']
@@ -617,7 +621,7 @@ class CLEvaluator(object):
     checkLists.update(tmp)
     
     ### get shipping documents
-    req_docs = get_shipping_docs(ocr_value) 
+    req_docs = get_shipping_docs(ocr_value, gen_config) 
     checkLists['shipping_docs'] = req_docs
 
     ### get additional documents
