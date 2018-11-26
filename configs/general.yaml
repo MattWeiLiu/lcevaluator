@@ -1,0 +1,173 @@
+bank_titles:
+  - name: citi
+    boundingbox: [940,570,1515,790]
+    text: CITI
+  - name: huanan
+    boundingbox: [406,235,1325,295]
+    text: HUA NAN
+  - name: chartered
+    boundingbox: [1300,110,1530,215]
+    text: Chartered
+  - name: wellsfargo
+    boundingbox: [195,190,585,270]
+    text: Wells Fargo Bank
+  - name: mega
+    boundingbox: [515,15,1350,70]
+    text: MEGA INTERNATIONAL
+divisions: 
+  - name: 營業一處
+    code: '0001' 
+    products: 
+      - PVC SUSPENSION RESIN
+      - PVC RESIN
+      - PVC PASTE RESIN
+      - PVC COPOLUMER
+      - METHYLENE CHLORIDE
+      - CAUSTIC SODA
+      - IMPACT MODIFIER
+      - PROCESSING AID
+swift_codes:
+  - code: '27'
+    desc: 'Sequence of Total'
+    must: True
+  - code: '40A'
+    code2: '40B'
+    desc: 'Form of Documentary Credit'
+    must: True
+  - code: '26E'
+    desc: 'Number Of Amendments'
+    must: False
+  - code: '20'
+    desc: 'Documentary Credit Number'
+    must: True
+  - code: '21'
+    desc: "Receiver's Reference"
+    must: False
+  - code: '23'
+    desc: 'Reference to Pre-Advice'
+    must: False
+  - code: '30'
+    desc: 'DATE OF AMENDMENT'
+    must: False
+  - code: '31C'
+    desc: 'Date of Issue'
+    must: False
+  - code: '40E'
+    desc: 'Applicable Rules'
+    must: False
+  - code: '31D'
+    desc: 'Date and Place of Expiry'
+    must: True
+  - code: '32B'
+    desc: 'Current Code, Amount'
+    must: True
+  - code: '51A'
+    desc: 'Applicant Bank'
+    must: False
+  - code: '51D'
+    desc: 'Sending Institution'
+    must: False
+  - code: '50'
+    desc: 'Applicant'
+    must: True
+  - code: '59'
+    desc: 'Beneficiary'
+    must: True
+    phrase: FORMOSA PLASTICS CORPORATION
+  - code: '39A'
+    desc: 'Percentage Credit Amount Tolerance'
+    must: False
+  - code: '39B'
+    desc: 'Maximum Credit Amount'
+    must: False
+  - code: '39C'
+    desc: 'Additional Amount Covered'
+    must: False
+  - code: '41A'
+    code2: '41D'
+    desc: 'Available with/by'
+    must: True
+  - code: '42C'
+    desc: 'Draft at'
+    must: False  
+  - code: '42A'
+    code2: '42D'
+    desc: 'Drawee'
+    must: False  
+  - code: '42P'
+    desc: 'Deferred Payment Detail'
+    must: False  
+  - code: '42M'
+    desc: 'Mixed Payment Detail'
+    must: False  
+  - code: '43P'
+    desc: 'Partial Chipment'
+    must: False  
+  - code: '43T'
+    desc: 'Transshipment'
+    must: False  
+  - code: '44A'
+    desc: 'Place of Taking in Charge/ Dispatch From/ Place of Receipt'
+    must: False  
+  - code: '44B'
+    desc: 'Place of Final Destination/ Place of Delivery/ For Transportation to'
+    must: False  
+  - code: '44E'
+    desc: 'Port of Loading/ Airport of Destination'
+    must: False  
+  - code: '44F'
+    desc: 'Port of Discharge/ Airport of Destination'
+    must: False  
+  - code: '44C'
+    desc: 'Latest Date of shipment'
+    must: False  
+  - code: '44D'
+    desc: 'Shipment Period'
+    must: False  
+  - code: '45A'
+    # code2: '45B'
+    desc: 'Description of Goods and/or Services'
+    must: False  
+  - code: '46A'
+    # code2: '46B'
+    desc: 'Documents Required'
+    must: False
+  - code: '47A'
+    desc: 'Additional Conditions'
+    must: False
+  - code: '47B'
+    desc: 'Additional Conditions'
+    must: False  
+  - code: '71B'
+    desc: 'Charges'
+    must: False  
+  - code: '48'
+    desc: 'Period of Presentation'
+    must: False  
+  - code: '49'
+    desc: 'Confirmation Instructions'
+    must: True
+  - code: '52A'
+    desc: 'Issuing Bank'
+    must: False
+  - code: '53A'
+    desc: 'Reimbursing Bank'
+    must: False
+  - code: '53D'
+    desc: 'Reimbursement'
+    must: False  
+  - code: '78'
+    desc: 'Instructions to Instructions To Pay / Accept / Negotiating Bank'
+    must: False  
+  - code: '57A'
+    desc: 'Advise Through Bank'
+    must: False
+  - code: '57D'
+    desc: 'Account With Bank'
+    must: False
+  - code: '72'
+    desc: 'Sender to Receiver Information'
+    must: False
+  - code: '79'
+    desc: 'Narrative'
+    must: False  

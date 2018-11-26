@@ -1,0 +1,33 @@
+project_name: vendor_invoice
+vendor_name: megga
+template_version: v_00_01
+image_size: [1653, 2338]
+line_height: 30
+header:
+  - label: Date of Registration
+    field: date_of_registration
+    boundingbox: [810,205,1125,255]
+    format: 
+      type: DATE
+      regex: ['%b. %d, %Y', '%b. %d,%Y']
+  - label: Advising Bank
+    field: advising_bank
+    boundingbox: [515,15,1350,70]
+  - label: OUR REF
+    field: advising_no_of_bank
+    boundingbox: [817,285,1260,330]
+  - label: L/C Received from
+    field: issuing_bank
+    boundingbox: [16,548,1245,630]
+    pattern: 'message from *([.\s\S]*)'
+main_body:
+  - label: Page 0
+    field: page_0
+    index: 0
+    boundingbox: [10,980,1630,1960]
+  - label: Page N
+    field: page_n
+    index: n
+    boundingbox: [10,450,1630,1960]
+swift_regex: ' ?(\d{1,2}[A-Z]?) ?:'
+swift_content: ' ?\d{1,2}[A-Z]? ?:'

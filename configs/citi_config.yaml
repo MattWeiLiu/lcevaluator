@@ -1,0 +1,46 @@
+project_name: vendor_invoice
+vendor_name: citi
+template_version: v_00_01
+image_size: [1653, 2338]
+line_height: 30
+header:
+  - label: Date of Registration
+    field: date_of_registration
+    boundingbox: [130,400,470,460]
+    pattern: 'DATE ?:? ?(.*)'
+    format: 
+      type: DATE
+      regex: ['%b %d, %Y', '%b. %d, %Y']
+  - label: Advising Bank
+    field: advising_bank
+    boundingbox: [940,570,1515,790]
+    pattern: 'FROM ?:?[ \n]?([.\s\S]*)'
+  - label: Field Group
+    field: field_group
+    boundingbox: [130,770,930,1080]
+    line_height: 30
+    readby: byline
+    item_list:
+      - label: 'OUR REF'
+        field: 'advising_no_of_bank'
+      - label: 'LETTER OF CREDIT NO'
+        field: 'lc_no'
+      - label: 'OPENED BY'
+        field: 'issuing_bank'
+      - label: 'BY ORDER OF'
+        field: 'applicant'
+      - label: 'AMOUNT'
+        field: 'amount'
+      - label: 'EXPIRY DATE'
+        field: 'expiry_date'
+main_body:
+  - label: Page 0
+    field: page_0
+    index: 0
+    boundingbox: [98,1084,1611,2124]
+  - label: Page N
+    field: page_n
+    index: n
+    boundingbox: [98,300,1603,2120]
+swift_regex: ':?: ?(\d{1,2}[A-Z]?) ?:'  # used to get swift code
+swift_content: ': ?\(.*\) ?\n?'            # used to get swift content 

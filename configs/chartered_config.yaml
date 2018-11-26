@@ -1,0 +1,35 @@
+project_name: vendor_invoice
+vendor_name: chartered
+template_version: v_00_01
+image_size: [1653, 2338]
+line_height: 30
+header:
+  - label: Date of Registration
+    field: date_of_registration
+    boundingbox: [960,490,1160,536]
+    pattern: 'DATE ?:? ?(.*)'
+    format: 
+      type: DATE
+      regex: ['%d%b%y', '%d %b%y']
+  - label: Advising Bank
+    field: advising_bank
+    boundingbox: [1300,110,1530,215]
+  - label: OUR REF
+    field: advising_no_of_bank
+    boundingbox: [1105,340,1415,390]
+  - label: L/C Received from
+    field: issuing_bank
+    boundingbox: [565,635,1355,705]
+  - label: Applicant
+    field: applicant
+    boundingbox: [520,695,1380,770]
+  - label: AMOUNT
+    field: amount
+    boundingbox: [955,575,1315,625]
+main_body:
+  - label: Page N
+    field: page_n
+    index: n
+    boundingbox: [280,380,1440,1625]
+swift_regex: ': ?(\d{1,2}[A-Z]?) ?:' # used to get swift code
+swift_content: ': ?\d{1,2}[A-Z]? ?:' # used to get swift content 
