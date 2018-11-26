@@ -1,4 +1,4 @@
-deployhermin() {
+deployment() {
 ##
 # This commend will guide you initialize your gcloud configuration
 # Step 0: you will be asked to pick a configuration.
@@ -42,9 +42,9 @@ gcloud init
 
 ##
 # Launch a Google Cloud Engine instance and deploy using a start-script
-# 'textile-restful' is the instance's name. change it if needed
+# 'clevaluate-demo-restful' is the instance's name. change it if needed
 ##
-gcloud compute instances create clevaluate-restful \
+gcloud compute instances create clevaluate-demo-restful \
 --image-family=centos-7 \
 --image-project=centos-cloud \
 --machine-type=n1-standard-2 \
@@ -71,7 +71,7 @@ startup-script: [2018-01-25 09:53:27 +0000] [8886] [INFO] Booting worker with pi
 
 gcloudcheck() {
   if hash gcloudcheck 2>/dev/null; then
-    deployhermin
+    deployment
   else
     # MACHINE_TYPE=`uname -m`
     # if [ ${MACHINE_TYPE} == 'x86_64' ]; then
