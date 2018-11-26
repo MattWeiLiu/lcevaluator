@@ -59,24 +59,6 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
     if not os.path.exists(result_root):
         createDirIfNotExist(result_root)
 
-def identifyBankName(visdoc, config):
-    assert isinstance(visdoc, visionapi.VisionDocument), '[E] VisionDocument instance as input'
-    titles = config['bank_titles']
-    bank = 'unknown'
-    for item in titles:
-        name = item['name']
-        box = item['boundingbox']
-        expect = item['text'].upper()
-
-        objectList = visdoc.getObjectInBoundaryInPage(0, box, depth=visionapi.VisionObject.DEPTH.WORDS)
-        textList, boundList = visionapi.VisionObject.getTextAndBoundingbox(objectList)
-        extracted = ''.join(textList)
-        if expect in extracted.upper():
-            bank = name
-            break
-
-    return bank
-
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
@@ -89,41 +71,35 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     ### SECOND 
     # . Preparing and organizing vision api's result with config file
     vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
-    general = utils.loadFileIfExisted(general_path)
+    
+    ### THIRD  
+    # . Initialize a formater
     final_result = {}
-
-    ### THIRD 
-    if bank_name is None:
-        bank_name = identifyBankName(vision_doc, general)
-    print('[I] evaluate letter of credit with {} config'.format(bank_name))
+    
+    clfomatted = formatter.GeneralCLFormatter(vision_doc)
+    general = utils.loadFileIfExisted(general_path)
+    bank_name = clfomatted.identifyBankName(general)
     config_path = os.path.join('./configs', bank_name + '_config.yaml')
     config = utils.loadFileIfExisted(config_path)
-    
     if config is None:
         final_result = {
-                'error':'[E] Unable to find config file with bank: {}'.format(bank_name)
-                }
+            'error':'[E] Unable to find config file with bank: {}'.format(bank_name)
+            }
     else:
-    ### FORTH
-    # . Reformat vision response and then evaluate it.     
-        clfomatted = formatter.GeneralCLFormatter(vision_doc)
         header_info = clfomatted.extractHeaderInfo(config)
         swifts_info = clfomatted.extractSwiftsInfo(config, general)
-        info_text = clfomatted.dumpToDict()
         
         evaluatted = evaluator.CLEvaluator(clfomatted)
         checklist = evaluatted.evaluate_checklist(config, general)
+        final_result = evaluatted.dumpToDict()
 
         ### 
         # adding prefix for C# aaplication (C# cannot read key starting with _ or numeric value)
         newswift = {}
-        for key, value in info_text['swifts'].items():
-            newswift['code_'+key] = info_text['swifts'][key]
-        info_text['swifts'] = newswift
-
-        final_result.update(info_text)
-        final_result.update({'checklist':checklist})
-
+        for key, value in final_result['swifts'].items():
+            newswift['code_'+key] = final_result['swifts'][key]
+        final_result['swifts'] = newswift
+        
     if result_root is not None:
         result_path = os.path.join(result_root, 'checklist.json')
         with open(result_path, 'w') as outfile:

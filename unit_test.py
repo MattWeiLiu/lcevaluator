@@ -8,7 +8,7 @@ import package.evaluator as evaluator
 class CLTestCases(object):
   @staticmethod
   def runTestWithService(credential, directory, target_bank=None, target_doc=None, save=True, iteration = 10):
-    file_gen = utils.traverseDirectories(jpg_root)
+    file_gen = utils.traverseDirectories(directory)
     for root, jpg_list in file_gen:
       jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
       res_root = root
