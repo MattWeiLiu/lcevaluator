@@ -33,6 +33,8 @@ class CLTestCases(object):
     for root, jpg_list in file_gen:
         jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
         res_root = root   
+        ###
+        # , test specified bank or doc. 
         if target_bank is not None:
           if not target_bank in root: continue     
         if target_doc is not None:
@@ -89,10 +91,10 @@ class CLTestCases(object):
     self.config = None  
     self.checklist = None
 
-  def assertFinalJsonStructure():
-    assert 'header' in self.checklist, '[E] Missing header info in checklist'
-    assert 'swifts' in self.checklist, '[E] Missing swifts info in checklist'
-    assert 'checklist' in self.checklist, '[E] Missing checklist info in checklist'
+  def assertFinalJsonStructure(self):
+    assert 'header' in self.checklist.keys(), 'Missing header info in checklist\n'
+    assert 'swifts' in self.checklist.keys(), 'Missing swifts info in checklist\n'
+    assert 'checklist' in self.checklist.keys(), 'Missing checklist info in checklist\n'
 
     
   def testFormattor(self):
@@ -111,12 +113,13 @@ class CLTestCases(object):
   def testEvaluator(self):
     self.testFormattor()
     self.evaluatted = evaluator.CLEvaluator(self.formatted)      
-    self.checklist = self.evaluatted.evaluate_checklist(self.config, self.general)
+    self.evaluatted.evaluate_checklist(self.config, self.general)
+    self.checklist = self.evaluatted.dumpToDict()
 
 
   def testRequirementDocument(self):
     assert self.checklist is not None, '[E] "Please run testFormattor and testEvaluator first.'
-    shipping_docs = self.checklist['shipping_docs']
+    shipping_docs = self.checklist['checklist']['shipping_docs']
     assert shipping_docs is not None, 'b_l is not in the key list {}'.format(shipping_docs.keys())
 
     def varify(target):

@@ -355,14 +355,17 @@ def find_org_cop(line):
 
     org_patts = ['IN (\d+) ORIGINAL', '(\d+) ORIGINAL', 'IN (\d+) PLUS \d+']
     cop_patts = ['IN (\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']
-    fold_patts = ['IN (\d+) FOLD']
+    
     gen_patts = ['IN (\d+)']
     org_res = find_val_with_patterns(line, org_patts)
     cop_res = find_val_with_patterns(line, cop_patts)
     gen_res = 0
-    if org_res + cop_res == 0:
+    if org_res + cop_res == 0:        
+        ###
+        # Check Folds
         containsCopTerms = 'NON NEGOTIABLE' in line or 'NON-NEGOTIABLE' in line or 'COPY' in line or 'COPIES' in line
         containsOrgTerms = 'ORIGINAL' in line
+        fold_patts = ['IN (\d+) FOLD']
         fold_res = find_val_with_patterns(line, fold_patts)
         if containsOrgTerms == containsCopTerms:
             org_res = 1
@@ -371,6 +374,11 @@ def find_org_cop(line):
             org_res = fold_res
         else:
             gen_res = find_val_with_patterns(line, gen_patts)
+
+        ### 
+        # Telex release means at least one copy
+        if 'TELEX RELEASE' in line and cop_res < 1:
+            cop_res = 1
 
     return org_res, cop_res, gen_res
 
@@ -433,39 +441,34 @@ def reformatInParagraphs(content, target_code):
     return paragraphs
 
 def get_shipping_docs(content, config):
-    # print(config['req_docs'])
-    # req_docs = config['req_docs']
-    # for item in req_docs:
-
-    value = ""    
-    if '46A' in content.keys():
+    res_req_docs = {}
+    req_docs = config['req_docs']
+       
+    if '46A' not in content.keys():
+        for item in req_docs:
+            tmp_key_name = item['name']
+            key_list = item['keys']
+            tmp_key = key_list[0]
+            res_req_docs[tmp_key] = {
+                    'original': 0, 
+                    'copies': 0, 
+                    'unspecified': 0, 
+                    'text': "[W] 提單: Missing key: 46A"}
+    else:
         temp = content['46A']
         temp = reformatInParagraphs(temp, '46A')
-        req_docs = {}
-
-        bl_keys = ['b_l', 'b/l', 'bill of lading', 'bills of lading']
-        inv_keys = ['inv', 'commercial invoice', 'commercial invoices']
-        pl_keys = ['p_l', 'packing list']
-        ip_keys = ['i_p', 'insurance policy', 'insurance certificate']
-        csi_keys = ['csi', 'customs invoice', 'certified invoice']
-        ci_keys = ['ci', 'consular invoice']
-        coo_keys = ['coo', 'certificate of origin']
-        coa_keys = ['coa', 'certificate of analysis']
-        ic_keys = ['ic', 'inspection certificate']
-        importer_agent_keys = ['importer', 'importer agent']
-        wl_keys = ['wl', 'weight list']
-        doc_keyset = [bl_keys, inv_keys, pl_keys, ip_keys, csi_keys, ci_keys, coo_keys, coa_keys, ic_keys, importer_agent_keys, wl_keys]
-
         splitted = re.split(r'\n', temp)
 
-        for doc_keys in doc_keyset:
-            cur_key = doc_keys[0]
+        for item in req_docs:
             candidate_line = None
+            tmp_key_name = item['name']
+            key_list = item['keys']
+            tmp_key = key_list[0]
             org_res, cop_res, gen_res = 0, 0, 0
-            ### get the candidate line that contains current keyword
+
             for idx, line in enumerate(splitted):
                 contained = False
-                for k in doc_keys:
+                for k in key_list:
                     contained = k.upper() in line
                     if contained:
                         break
@@ -473,41 +476,31 @@ def get_shipping_docs(content, config):
                     candidate_line = line
                     splitted.remove(candidate_line)
                     break
+
             if candidate_line is None:
-                req_docs[cur_key] = {
-                    'original': 0, 
-                    'copies': 0, 
-                    'unspecified': 0, 
-                    'text': "[W] 提單: Unable to find document about {}".format(doc_keys[1])}
-
+                res_req_docs[tmp_key] = {
+                        'original': 0, 
+                        'copies': 0, 
+                        'unspecified': 0, 
+                        'text': "[W] 提單: Unable to find document about {}".format(tmp_key_name)}
             else:
-                for trial in range(0, 1):
-                    target_line = utils.text2number(candidate_line)
-                    target_line = replaceFullset(target_line, cur_key)
-                    target_line = replaceDuplicates(target_line)
-                    tmp_org, tmp_cop, tmp_gen = find_org_cop(target_line)
-                    
-                    org_res = max(org_res, tmp_org)
-                    cop_res = max(cop_res, tmp_cop)
-                    gen_res = max(gen_res, tmp_gen) 
-                    if (tmp_org > 0 and tmp_cop > 0) or (tmp_gen) > 0:
-                        break
+                target_line = utils.text2number(candidate_line)
+                target_line = replaceFullset(target_line, tmp_key)
+                target_line = replaceDuplicates(target_line)
+                tmp_org, tmp_cop, tmp_gen = find_org_cop(target_line)
+                
+                org_res = max(org_res, tmp_org)
+                cop_res = max(cop_res, tmp_cop)
+                gen_res = max(gen_res, tmp_gen)
 
-                req_docs[cur_key] = {
+                res_req_docs[tmp_key] = {
                     'original': org_res, 
                     'copies': cop_res, 
                     'unspecified': gen_res, 
                     'text': candidate_line}
-        req_docs['remained'] = splitted
-        value = req_docs
-    else:
-        value = {
-            'original': 0, 
-            'copies': 0, 
-            'unspecified': 0, 
-            'text': "[W] 提單: Missing 46A"}
+        res_req_docs['remained'] = splitted
 
-    return value
+    return res_req_docs
 
 def get_other_docs(content):
     value = ""
