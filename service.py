@@ -59,6 +59,24 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
     if not os.path.exists(result_root):
         createDirIfNotExist(result_root)
 
+def identifyBankName(visdoc, config):
+    assert isinstance(visdoc, visionapi.VisionDocument), '[E] VisionDocument instance as input'
+    titles = config['bank_titles']
+    bank = 'unknown'
+    for item in titles:
+        name = item['name']
+        box = item['boundingbox']
+        expect = item['text'].upper()
+
+        objectList = visdoc.getObjectInBoundaryInPage(0, box, depth=visionapi.VisionObject.DEPTH.WORDS)
+        textList, boundList = visionapi.VisionObject.getTextAndBoundingbox(objectList)
+        extracted = ''.join(textList)
+        if expect in extracted.upper():
+            bank = name
+            break
+
+    return bank
+
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
