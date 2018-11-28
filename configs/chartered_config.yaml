@@ -17,6 +17,9 @@ header:
   - label: OUR REF
     field: advising_no_of_bank
     boundingbox: [1105,340,1415,390]
+  - label: 'LETTER OF CREDIT NO'
+    field: 'lc_no'
+    boundingbox: []
   - label: L/C Received from
     field: issuing_bank
     boundingbox: [565,635,1355,705]
@@ -26,10 +29,13 @@ header:
   - label: AMOUNT
     field: amount
     boundingbox: [955,575,1315,625]
+  - label: EXPIRY DATE
+    field: expiry_date
+    boundingbox: []
 main_body:
   - label: Page N
     field: page_n
     index: n
     boundingbox: [280,380,1440,1625]
 swift_regex: ': ?(\d{1,2}[A-Z]?) ?:' # used to get swift code
-swift_content: ': ?\d{1,2}[A-Z]? ?:' # used to get swift content 
+swift_content: ': ?\d{1,2}[A-Z]? ?: ?.*\n' # used to get swift content 

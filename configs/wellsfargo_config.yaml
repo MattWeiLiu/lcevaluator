@@ -41,4 +41,4 @@ main_body:
     index: n
     boundingbox: [158,470,1560,2240]
 swift_regex: ' ?(\d{1,2}[A-Z]?) ?:'
-swift_content: ' ?\d{1,2}[A-Z]? ?:'
+swift_content: ' ?\d{1,2}[A-Z]? ?: ?.*\n'

@@ -83,7 +83,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     config = utils.loadFileIfExisted(config_path)
     if config is None:
         final_result = {
-            'error':'[E] Unable to find config file with bank: {}'.format(bank_name)
+            'error':'[E] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0])
             }
     else:
         header_info = clformatted.extractHeaderInfo(config)

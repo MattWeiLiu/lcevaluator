@@ -10,7 +10,7 @@ header:
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
-      regex: ['%b %d, %Y', '%b. %d, %Y']
+      regex: ['%b %d, %Y', '%b. %d, %Y', '%b, %d, %Y']
   - label: Advising Bank
     field: advising_bank
     boundingbox: [940,570,1515,790]
@@ -43,4 +43,4 @@ main_body:
     index: n
     boundingbox: [98,300,1603,2120]
 swift_regex: ':?: ?(\d{1,2}[A-Z]?) ?:'  # used to get swift code
-swift_content: ': ?\(.*\) ?\n?'            # used to get swift content 
+swift_content: ':?: ?\d{1,2}[A-Z]? ?: ?\(.*\) ?\n?' # used to get swift content 

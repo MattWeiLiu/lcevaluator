@@ -30,44 +30,45 @@ class CLTestCases(object):
     count_failed = 0
     checklistpath = None
     error_reports = ''
+    iteration_idx = 0
     for root, jpg_list in file_gen:
-        jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
-        res_root = root   
-        ###
-        # , test specified bank or doc. 
-        if target_bank is not None:
-          if not target_bank in root: continue     
-        if target_doc is not None:
-          if not target_doc in root: continue
-        vis_res_path = os.path.join(root,'vision_result.json')
-        tester = CLTestCases(vis_res_path)
-        if save:
-          checklistpath = os.path.join(root, 'checklist.json')
-        try:
-          count_docs += 1
-          result_str = tester.runTests(checklistpath)
-          tester.assertFinalJsonStructure()          
-          if '46A bl' in result_str:
-            count_bl += 1
-          if '46A inv' in result_str:
-            count_inv += 1
-          if '46A pl' in result_str:
-            count_pl += 1
-          if '[E]' in result_str and '46A' not in result_str:
-            count_other += 1
-          if '[E]' in result_str:
-            error_reports += result_str
-        except AssertionError as e:
-          count_failed += 1
-          result_str = '[E] ' + e.args[0]
+      jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
+      res_root = root   
+      ###
+      # , test specified bank or doc. 
+      if target_bank is not None:
+        if not target_bank in root: continue     
+      if target_doc is not None:
+        if not target_doc in root: continue
+      vis_res_path = os.path.join(root,'vision_result.json')
+      tester = CLTestCases(vis_res_path)
+      if save:
+        checklistpath = os.path.join(root, 'checklist.json')
+      try:
+        count_docs += 1
+        result_str = tester.runTests(checklistpath)
+        tester.assertFinalJsonStructure()          
+        if '46A bl' in result_str:
+          count_bl += 1
+        if '46A inv' in result_str:
+          count_inv += 1
+        if '46A pl' in result_str:
+          count_pl += 1
+        if '[E]' in result_str and '46A' not in result_str:
+          count_other += 1
+        if '[E]' in result_str:
           error_reports += result_str
-          # print('[E] Assert Error with {}'.format(root))
-          # print(result_str)
+      except AssertionError as e:
+        count_failed += 1
+        result_str = '[E] ' + e.args[0]
+        error_reports += result_str
+        # print('[E] Assert Error with {}'.format(root))
+        # print(result_str)
 
-        if iteration >= 0:
-          iteration -= 1
-          if iteration == 0:
-            break
+      if iteration >= 0:
+        iteration -= 1
+        if iteration == 0:
+          break
 
     test_result = {
       'Total docs': count_docs,

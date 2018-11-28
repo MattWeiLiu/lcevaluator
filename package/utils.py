@@ -55,19 +55,6 @@ def loadFileIfExisted(dstPath):
         print('[E] While opening file at {}. error:{}'.format(dstPath, e))
     return content
 
-# def draw_boxes(image, bounds, color='red', width = 3):
-#     """Draw a border around the image using the hints in the vector list."""
-#     if len(bounds) > 0 and isinstance(bounds[0], Number):
-#         bounds = [bounds]
-
-#     draw = ImageDraw.Draw(image)
-#     for bound in bounds:
-#         for i in range(width):
-#             rect_start = (bound[0] - i, bound[1] - i)
-#             rect_end = (bound[2] + i, bound[3] + i)
-#             draw.rectangle((rect_start, rect_end), None, color)
-#     return image
-
 def draw_boxes(draw, bounds, color='red', width = 3):
     """Draw a border around the image using the hints in the vector list."""
     if len(bounds) > 0 and isinstance(bounds[0], Number):

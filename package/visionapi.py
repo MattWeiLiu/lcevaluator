@@ -296,7 +296,7 @@ class VisionDocument(VisionObject):
     @staticmethod
     def createWithVisionResponse(response):
         vision_doc = None
-        for idx, (key, res) in enumerate(response.items()):
+        for idx, (key, res) in enumerate(sorted(response.items())):
             if vision_doc is None:
                 vision_doc = VisionDocument(res)
             else:

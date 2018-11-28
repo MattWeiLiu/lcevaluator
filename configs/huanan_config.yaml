@@ -24,10 +24,6 @@ header:
     field: amount
     boundingbox: [1190,630,1595,680]
 main_body:
-  - label: Page 0
-    field: page_0
-    index: 0
-    boundingbox: [5,850,1650,2230]
   - label: Page 1
     field: page_1
     index: 1
@@ -35,7 +31,7 @@ main_body:
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [5,500,1650,2230]
+    boundingbox: [5,360,1650,2230]
 swift_regex: '\*?(\d{1,2}.? +[A-Z]?) ?:'
 swift_end_regx: '- - - - -'
 swift_content: '\*?\d{1,2}.? +[A-Z]? ?:'

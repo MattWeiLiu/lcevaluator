@@ -214,23 +214,27 @@ class GeneralCLFormatter(CLFormatterAbstract):
   def extractHeaderInfo(self, config):
     super().extractHeaderInfo(config)
     header_config = config['header']
+    # print(json.dumps(header_config, indent=2))
     result_info = {}
     for item in header_config:
       field = item['field']
       target_box = item['boundingbox']
-      item_info = ''
-      objectList = self.visdoc.getObjectInBoundaryInPage(0, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
-      textList, boundList = visionapi.VisionObject.getTextAndBoundingbox(objectList)
-      ### extract the field with as a group of subfields
-      if 'group' in field:
-        field_info = self.__extractGroupFields(textList, boundList, item)
+      if len(target_box) == 0:
+        field_info = {field: {'text':"", 'boundingbox':target_box}}
       else:
-        field_info = self.__extractFields(textList, boundList, item)
+        item_info = ''
+        objectList = self.visdoc.getObjectInBoundaryInPage(0, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
+        textList, boundList = visionapi.VisionObject.getTextAndBoundingbox(objectList)
+        ### extract the field with as a group of subfields
+        if 'group' in field:
+          field_info = self.__extractGroupFields(textList, boundList, item)
+        else:
+          field_info = self.__extractFields(textList, boundList, item)
       result_info.update(field_info)
     self.header_info = result_info
     return result_info
 
-  def extractSwiftsInfo(self, config, swifts_config, detail=False):
+  def extractSwiftsInfo(self, config, swifts_config, detail=True):
     super().extractSwiftsInfo(config)
 
     body_config = config['main_body']
@@ -265,7 +269,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
 
       ### Merge and clean up extracted infomation
       for key, value in tmp_result.items():
-        texts = tmp_result[key]['text'].strip()
+        texts = tmp_result[key]['text'].strip() + '\b'
         boxes = visionapi.VisionObject.fuseBoundingBox(tmp_result[key]['boundingbox'])
         try:
           swifts_result[key]['text'] += texts
@@ -295,7 +299,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
     result = {}
     ### Extract swift code infomation from line list
     for idx, line in enumerate(line_list):
-      # print(line)
       key_regex = codeRegex
       searched = re.search(key_regex, line)  
 

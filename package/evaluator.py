@@ -411,7 +411,7 @@ def reformatInParagraphs(content, target_code):
         paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para])
     else:
         listOfLines = content.split('\n')
-        pats = ['\d[\. ]', '[a-zA-Z][\. ]', '[\+] ?']
+        pats = ['\+?\d[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?']
         target_pats = listOfLines[0].startswith
         temp_text = ''
         target_pat = None
