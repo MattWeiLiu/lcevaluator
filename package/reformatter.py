@@ -1,6 +1,7 @@
 import io, os, json, base64, pathlib, re, math
 import package.utils as utils
 import package.visionapi as visionapi
+import package.logger as logger
 import numpy as np
 import pandas as pd
 from collections import OrderedDict
@@ -186,7 +187,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
           tmp_info['error'] += err
         else:
           tmp_info['error'] = err
-
     tmp_info.update({
                 'text': text,
                 'boundingbox': utils.fuseBoundingBox(bound_list)
@@ -214,7 +214,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
   def extractHeaderInfo(self, config):
     super().extractHeaderInfo(config)
     header_config = config['header']
-    # print(json.dumps(header_config, indent=2))
     result_info = {}
     for item in header_config:
       field = item['field']
@@ -330,3 +329,11 @@ class GeneralCLFormatter(CLFormatterAbstract):
           }
 
     return result, last_found
+  
+  def updateHeaderWithSwiftCode(self, config):
+    swift_reg = config['swift_content']
+    if '20' in self.swifts_info:
+      text = self.swifts_info['20']['text']
+      plitted = re.compile(swift_reg).split(text)
+      self.header_info['lc_no']['text'] = plitted
+

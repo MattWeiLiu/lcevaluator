@@ -1,6 +1,7 @@
 import io, os, json, base64, pathlib, re
 import package.utils as utils
 import package.reformatter as reformatter
+import package.logger as logger
 import numpy as np
 from collections import OrderedDict
 from datetime import datetime

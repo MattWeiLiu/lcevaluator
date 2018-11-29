@@ -16,10 +16,22 @@ header:
   - label: OUR REF
     field: advising_no_of_bank
     boundingbox: [817,285,1260,330]
+  - label: 'LETTER OF CREDIT NO'
+    field: 'lc_no'
+    boundingbox: []
   - label: L/C Received from
     field: issuing_bank
     boundingbox: [16,548,1245,630]
     pattern: 'message from *([.\s\S]*)'
+  - label: Applicant
+    field: applicant
+    boundingbox: []
+  - label: AMOUNT
+    field: amount
+    boundingbox: []
+  - label: EXPIRY DATE
+    field: expiry_date
+    boundingbox: []
 main_body:
   - label: Page 0
     field: page_0

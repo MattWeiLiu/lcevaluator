@@ -248,7 +248,8 @@ class VisionObject(object):
             for content in self.content_list:
                 if isinstance(content, VisionObject):
                     tmp_list = content.getObjectInBoundary(boundary, threshold, depth);
-                    overlap_list.extend(tmp_list)
+                    if len(tmp_list) > 0:
+                        overlap_list.extend(tmp_list)
             return overlap_list
 
 class VisionSymbol(VisionObject):

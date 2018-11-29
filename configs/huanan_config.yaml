@@ -14,24 +14,33 @@ header:
   - label: Advising Bank
     field: advising_bank
     boundingbox: [406,235,1325,295]
-  - label: L/C Received from
-    field: issuing_bank
-    boundingbox: [210,690,990,845]
   - label: OUR REF
     field: advising_no_of_bank
     boundingbox: [1305,505,1545,550]
+  - label: 'LETTER OF CREDIT NO'
+    field: 'lc_no'
+    boundingbox: [1170,560,1485,600]
+  - label: L/C Received from
+    field: issuing_bank
+    boundingbox: [210,690,990,845]
+  - label: Applicant
+    field: applicant
+    boundingbox: []
   - label: AMOUNT
     field: amount
     boundingbox: [1190,630,1595,680]
+  - label: EXPIRY DATE
+    field: expiry_date
+    boundingbox: []
 main_body:
   - label: Page 1
     field: page_1
     index: 1
-    boundingbox: [5,800,1650,2230]
+    boundingbox: [5,710,1650,2050]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [5,360,1650,2230]
-swift_regex: '\*?(\d{1,2}.? +[A-Z]?) ?:'
+    boundingbox: [5,360,1650,2050]
+swift_regex: '\*?(\d{1,2}.? +[A-Z]?) ?[:;]'
 swift_end_regx: '- - - - -'
 swift_content: '\*?\d{1,2}.? +[A-Z]? ?:'

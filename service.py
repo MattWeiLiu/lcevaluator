@@ -40,7 +40,6 @@ def retrieveVisionResponse(credential, jpg_paths, result_root=None):
         if response_path is not None:
             with open(response_path, 'w') as outfile:
                 json.dump(vision_results, outfile, ensure_ascii=False, indent=2, sort_keys=True)
-
     return vision_results
 
 def validateAllParameters(credential, general_path, jpg_path_list, result_root):
@@ -86,11 +85,11 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             'error':'[E] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0])
             }
     else:
-        header_info = clformatted.extractHeaderInfo(config)
-        swifts_info = clformatted.extractSwiftsInfo(config, general)
+        clformatted.extractHeaderInfo(config)
+        clformatted.extractSwiftsInfo(config, general)
         
         evaluated = evaluator.CLEvaluator(clformatted)
-        checklist = evaluated.evaluate_checklist(config, general)
+        evaluated.evaluate_checklist(config, general)
         final_result = evaluated.dumpToDict()
 
         ### 

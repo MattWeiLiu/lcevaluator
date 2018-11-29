@@ -1,0 +1,894 @@
+[
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/201612HZML-160004FLCS00172/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/201612SICO-1624014I023908/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/201612SICO-1624014I023908_01/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/201612YMIC-001LM01163500004/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_113454/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_113539/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_113725/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_113816/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_113900/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_113944/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_114028/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_114115/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_114203/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_114330/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_114554/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_114625/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130205/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130613/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130715/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130835/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130859/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130926/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_130949/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_131024/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_134824/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_134844/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_134900/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_134944/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_135003/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_135021/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_135040/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_135126/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_135144/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_135203/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143017/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143035/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143053/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143502/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143745/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143827/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_143848/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_144014/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_144046/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_144104/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_144122/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_144154/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_144214/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_152959/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153024/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153046/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153104/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153130/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153155/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153216/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153240/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153452/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153520/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153542/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153616/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153637/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153709/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153730/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153748/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_153818/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154053/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154110/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154134/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154153/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154214/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154243/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154347/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154414/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154437/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154456/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '+1/3 SET ORIGINAL CLEAN ON BOARD MARINE BILLS OF LADING PLUS TWO']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154518/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154537/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154558/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154632/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154654/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_154721/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_155539/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_155601/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_155635/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180705_155654/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_134816/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_134838/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_134915/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_134934/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_134959/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_135021/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_135045/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_135107/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_135133/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_135151/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_135214/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142048/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142125/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142150/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, 'ORIGINAL PACKING LIST SHOWING NET AND GROSS WEIGHTS IN']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142220/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142246/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142310/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142357/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142420/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142448/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142739/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142804/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142825/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142848/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142908/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_142936/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143014/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143041/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143102/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143151/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143219/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143240/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143303/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143324/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143357/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '2/3 SET OF ORIGINAL CLEAN ON BOARD BILLS OF LADING MADE OUT TO THE ORDER OF CATHAY UNITED BANK MARKED FREIGHT PREPAID AND NOTIFY AS ACE ELITE CO., LTD , NO.2 VSIP II-A STREET 24 VSIP II-A TAN UYEN DISTRICT, BINH DUONG PROVINCE VIETNAM. ALSO NOTIFY AS NGOC YEN LINH LOGISTICS,NO. 383/3, THANH BÌNH HAMLET, AN THANH WARD, THUAN AN TOWN, BINH DUONG,VIET NAM. ATTN: LY COONG PHAT ,TEL:0933.733.466 AND INDICATING THIS CREDIT NUMBER.']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143427/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143511/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143533/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143554/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143615/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143637/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143710/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143730/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143753/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143843/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143908/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143929/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_143950/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_144014/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_144036/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_144100/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151634/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151654/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151719/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151807/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151900/vision_result.json\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151920/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_151946/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152008/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152135/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152209/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152237/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152259/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152319/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152339/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152401/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152422/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152447/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152507/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152534/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152559/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152619/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152640/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152700/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152721/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152749/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152810/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152936/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_152959/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153027/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153050/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153110/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153133/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153158/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153220/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153245/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153308/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Missing key: 46A']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153331/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153352/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153412/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153431/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180706_153452/vision_result.json\n[E] 46A bl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about bill of lading']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_082411/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_082430/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092123/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092140/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092201/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092220/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092241/vision_result.json\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092259/vision_result.json"
+  },
+  {
+    "status": false,
+    "message": "[E] Unable to read bank config at path ./configs/unknown_config.yaml"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092338/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092354/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092411/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092432/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092449/vision_result.json"
+  },
+  {
+    "status": true,
+    "message": "[I] Check documenat ../../local/src/jpg_root/citi/MX-M314N_20180711_092506/vision_result.json"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/wellsfargo/MX-M314N_20180906_151427\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/wellsfargo/MX-M314N_20180906_151625\n[E] Unable to read bank config at path ./configs/unknown_config.yaml",
+    "status": false
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/wellsfargo/MX-M314N_20180906_152120\n",
+    "status": true
+  }
+]

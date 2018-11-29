@@ -19,7 +19,7 @@ header:
     boundingbox: [1105,340,1415,390]
   - label: 'LETTER OF CREDIT NO'
     field: 'lc_no'
-    boundingbox: []
+    boundingbox: [1115,400,1415,455]
   - label: L/C Received from
     field: issuing_bank
     boundingbox: [565,635,1355,705]
