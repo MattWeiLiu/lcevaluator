@@ -105,7 +105,8 @@ class CLFormatterAbstract(object):
         content = content.replace('\n', '').strip()
         datetime_object = try_parsing_date(content, format_regex_list)
         if datetime_object is None:
-          res = '[E] Unrecognized date {} with formats: {}\n'.format(content, format_regex_list)
+          res = '[E] {}'.format(content)
+          # res = '[E] Unrecognized date {} with formats: {}\n'.format(content, format_regex_list)
         else:
           res = datetime_object.strftime('%m/%d/%Y')
       else:
