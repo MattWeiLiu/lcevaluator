@@ -1,14 +1,42 @@
 [
   {
-    "message": "[I] Evaluaing document for ../../local/src/jpg_root/wellsfargo/MX-M314N_20180906_151427\n",
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/201612HZML-160004FLCS00172\n",
     "status": true
   },
   {
-    "message": "[I] Evaluaing document for ../../local/src/jpg_root/wellsfargo/MX-M314N_20180906_151625\n[E] Unable to read bank config at path ./configs/unknown_config.yaml",
-    "status": false
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/201612SICO-1624014I023908\n",
+    "status": true
   },
   {
-    "message": "[I] Evaluaing document for ../../local/src/jpg_root/wellsfargo/MX-M314N_20180906_152120\n",
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/201612SICO-1624014I023908_01\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/201612YMIC-001LM01163500004\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/MX-M314N_20180705_113454\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/MX-M314N_20180705_113539\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/MX-M314N_20180705_113725\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/MX-M314N_20180705_113816\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/MX-M314N_20180705_113900\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ../../local/src/jpg_root/citi/MX-M314N_20180705_113944\n",
     "status": true
   }
 ]

@@ -1,7 +1,7 @@
 import io, os, json, base64, pathlib, re, math
 import package.utils as utils
 import package.visionapi as visionapi
-import package.logger as logger
+from package.logger import cmLog
 import numpy as np
 import pandas as pd
 from collections import OrderedDict
@@ -9,10 +9,35 @@ from datetime import datetime
 
 
 def checkIfKeyExists(content, target_key):
-  assert isinstance(content, dict), '[E] content must be an instance of dict'
-  assert target_key in content.keys(), '[E] Missing key "{}" in keylist: {}'.format(target_key, content.keys())
+    """
+    Check if target key is in the content
+    Parameters
+    ----------
+    content: dict
+        a dictionary of swift codes
+    target_key: str
+        specified swift code
+    Returns
+    ----------
+    """
+    assert isinstance(content, dict), '[E] content must be an instance of dict'
+    assert target_key in content.keys(), '[E] Missing key "{}" in keylist: {}'.format(target_key, content.keys())
 
 def groupbyLines(dataframe, threshold = 15):
+    """
+    In case two groups of words are seperated with lots of 
+    whitespace, but shall be considered as the same height. 
+    Parameters
+    ----------
+    dataframe: pandas dataframe
+        dataframe representation of lines
+    threshold: int
+        line height
+    Returns
+    ----------
+    line_list: list
+        list of lines that 
+    """
     dataframe = dataframe.sort_values(['ys', 'xs'], ascending=[True, True])
     pre_row = None
     df_list = [pd.DataFrame()]
@@ -48,6 +73,19 @@ def groupbyLines(dataframe, threshold = 15):
     return line_list
 
 def mergeLinesWithFields(line_list, field_list):
+    """
+    Merge lines based on given fields (read from config file)
+    Parameters
+    ----------
+    line_list: list
+        list of lines
+    field_list: list
+        list of fields read from config file
+    Returns
+    ----------
+    result: dict
+        dictionary representatiion of each field and corresponded text
+    """
     found_field = ''
     result = {}
     for idx, line in enumerate(line_list):
@@ -71,6 +109,34 @@ def mergeLinesWithFields(line_list, field_list):
     return result
 
 class CLFormatterAbstract(object):
+  """
+  An base class used for CL formatter in case there different format will be required in the future. This 
+  class also contains general functions that might be needed for formatters.
+  Variables
+  ----------
+  visdoc: visionapi.VisionDoc
+      a custom class type defined in visionapi.py
+  header_info: dict
+      dict representation of checklist's header information (shall move this information to evaluater instead)
+  swifts_info: dict
+      dict representation of swift code
+  Functions:
+  extractHeaderInfo:
+      extracting header infomation from visdoc
+  extractSwiftsInfo:
+      extracting swift code infomation from visdoc
+  extract_with_pattern:
+      extracting infomation with a regex pattern
+  extract_with_format:
+      extracting infomation with a spcific format
+  orderByLines:
+      ensure line's order starts from top. 
+  dumpToFile:
+      write variables into a file. 
+  dumpToDict:
+      dump variables in dict
+  ----------
+  """
   def __init__(self, visdoc):
     assert isinstance(visdoc, visionapi.VisionDocument), '[E] CLFormatter only accept VisionDocument instance as input'
     self.visdoc = visdoc
@@ -78,12 +144,35 @@ class CLFormatterAbstract(object):
     self.swifts_info = {}
 
   def extractHeaderInfo(self, config):
+    """
+    Extract header info matin from visdoc
+    Parameters
+    ----------
+    config: dict 
+        dictionary read from confige file
+    """
     checkIfKeyExists(config, 'header')
 
   def extractSwiftsInfo(self, config):
+    """
+    Extract header info matin from visdoc
+    Parameters
+    ----------
+    config: dict 
+        dictionary read from confige file
+    """
     checkIfKeyExists(config, 'main_body')
 
   def extract_with_pattern(self, content, pattern):
+    """
+    Extract information 
+    Parameters
+    ----------
+    content: str 
+        text that wish to be found with given pattern
+    pattern: str
+        regex that is given to extract the text. 
+    """
     text_res = re.findall(pattern, content, re.IGNORECASE)
     if len(text_res) > 0 and len(text_res[0]) > 0:
       return text_res[0]
@@ -276,7 +365,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
           swifts_result[key]['boundingbox'].append(boxes)
           swifts_result[key]['page'].append(p)
         except KeyError as e:
-          print('[W] Swift code {} is not in the config file. Content: {}'.format(key,texts))
+          cmLog('[W] Swift code {} is not in the config file. Content: {}'.format(key,texts))
 
     if not detail:
       final_result = {}
@@ -311,6 +400,10 @@ class GeneralCLFormatter(CLFormatterAbstract):
         clenedline = line
         boxes = bound_list[idx]
         if last_found in result.keys():
+          ###
+          # For swift code that contains custom paragraphs, tried to 
+          # add addtional new line if the gap in bwteen current line and 
+          # last line is greater than the average line height's 60%
           if '46' in last_found or '47' in last_found:
             cur_line_height = boxes[3] - boxes[1]
             last_box = result[last_found]['boundingbox'][-1]

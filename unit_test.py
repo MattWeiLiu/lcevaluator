@@ -41,7 +41,6 @@ class CLTestCases(object):
         if not target_bank in root: continue     
       if target_doc is not None:
         if not target_doc in root: continue
-      print(root)
       vis_res_path = os.path.join(root,'vision_result.json')
       tester = CLTestCases(vis_res_path)
       if save:
@@ -76,12 +75,15 @@ class CLTestCases(object):
         if iteration == 0:
           break
 
+    if count_docs == 0:
+      count_docs = -1
+      
     test_report = {
       'Total docs': count_docs,
-      'Bill of lading': "{}/{} = {}%".format(count_bl, count_docs, 1-count_bl/count_docs),
-      'Commercial invoice': "{}/{} = {}%".format(count_inv, count_docs, 1-count_inv/count_docs),
-      'Packing list': "{}/{} = {}%".format(count_pl, count_docs, 1-count_pl/count_docs),
-      'Other errors': "{}/{} = {}%".format(count_other, count_docs, 1-count_other/count_docs),
+      'Bill of lading': "{}/{} = {}%".format(count_bl, count_docs, (1-count_bl/count_docs) * 100),
+      'Commercial invoice': "{}/{} = {}%".format(count_inv, count_docs, (1-count_inv/count_docs) * 100),
+      'Packing list': "{}/{} = {}%".format(count_pl, count_docs, (1-count_pl/count_docs) * 100),
+      'Other errors': "{}/{} = {}%".format(count_other, count_docs, (1-count_other/count_docs) * 100),
       'Failed documents': "{}".format(count_failed)
     }
     print(json.dumps(test_report, indent=2))

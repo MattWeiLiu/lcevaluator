@@ -125,19 +125,17 @@ swift_codes:
     desc: 'Shipment Period'
     must: False  
   - code: '45A'
-    # code2: '45B'
+    code2: '45B'
     desc: 'Description of Goods and/or Services'
     must: False  
   - code: '46A'
-    # code2: '46B'
+    code2: '46B'
     desc: 'Documents Required'
     must: False
   - code: '47A'
+    code2: '47B'
     desc: 'Additional Conditions'
     must: False
-  - code: '47B'
-    desc: 'Additional Conditions'
-    must: False  
   - code: '71B'
     desc: 'Charges'
     must: False  
@@ -172,25 +170,31 @@ swift_codes:
     desc: 'Narrative'
     must: False  
 req_docs:
-  - name: 'bill of lading'
-    keys: ['b_l', 'b/l', 'bill of lading', 'bills of lading']
-  - name: 'commercial invoice'
-    keys: ['inv', 'commercial invoice', 'commercial invoices']
-  - name: 'packing list'
-    keys: ['p_l', 'packing list']
-  - name: 'insurance policy'
-    keys: ['i_p', 'insurance policy', 'insurance certificate']
-  - name: 'customs invoice'
-    keys: ['csi', 'customs invoice', 'certified invoice']
-  - name: 'consular invoice'
-    keys: ['ci', 'consular invoice']
-  - name: 'certificate of origin'
-    keys: ['coo', 'certificate of origin']
-  - name: 'certificate of analysis'
-    keys: ['coa', 'certificate of analysis']
-  - name: 'inspection certificate'
-    keys: ['ic', 'inspection certificate']
-  - name: 'importer'
-    keys: ['importer', 'importer agent']
-  - name: 'weight list'
-    keys: ['wl', 'weight list']
+  items:
+    - name: 'bill of lading'
+      keys: ['b_l', 'b/l', 'bill of lading', 'bills of lading']
+    - name: 'commercial invoice'
+      keys: ['inv', 'commercial invoice', 'commercial invoices']
+    - name: 'packing list'
+      keys: ['p_l', 'packing list']
+    - name: 'insurance policy'
+      keys: ['i_p', 'insurance policy', 'insurance certificate']
+    - name: 'customs invoice'
+      keys: ['csi', 'customs invoice', 'certified invoice']
+    - name: 'consular invoice'
+      keys: ['ci', 'consular invoice']
+    - name: 'certificate of origin'
+      keys: ['coo', 'certificate of origin']
+    - name: 'certificate of analysis'
+      keys: ['coa', 'certificate of analysis']
+    - name: 'inspection certificate'
+      keys: ['ic', 'inspection certificate']
+    - name: 'importer'
+      keys: ['importer', 'importer agent']
+    - name: 'weight list'
+      keys: ['wl', 'weight list']
+  paragraph_patterns: ['\+?\d[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?']
+  count_patterns:
+    - original: ['IN (\d+) ORIGINAL', '(\d+) ORIGINAL', 'IN (\d+) PLUS \d+']
+    - copy: ['IN (\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']
+    - fold: ['IN (\d+) FOLD']

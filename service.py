@@ -3,6 +3,7 @@ import package.reformatter as formatter
 import package.evaluator as evaluator
 import package.utils as utils
 import package.visionapi as visionapi
+from package.logger import cmLog
 import falcon
 from falcon_cors import CORS
 
@@ -18,7 +19,8 @@ def requestOCR(credential, jpg_paths):
         tmp_key = os.path.basename(path)
         vision_results[tmp_key] = vis_response
         if error is not None:
-            print('[E] Vision API Error: {}'.format(error))
+            cmLog('[E] Vision API Error: {}'.format(error))
+            # print('[E] Vision API Error: {}'.format(error))
     return vision_results
 
 def retrieveVisionResponse(credential, jpg_paths, result_root=None):
@@ -29,14 +31,14 @@ def retrieveVisionResponse(credential, jpg_paths, result_root=None):
         assert isinstance(result_root, str), '[E] "response_path" must be instance of string'
         response_file = 'vision_result.json'
         response_path = os.path.join(result_root, response_file)
+        cmLog('[I] Reading existed ocr response from {} ...'.format(response_path))
         if os.path.exists(response_path):
-            print('[I] Reading existed ocr response from {} ...'.format(response_path))
             vision_results = utils.loadFileIfExisted(response_path)
 
     if vision_results is None:
-        print('[I] Sending ocr request to Google Vision API...')
+        cmLog('[I] Sending ocr request to Google Vision API...')
         vision_results = requestOCR(credential, jpg_paths)
-        print('[I] Saving ocr response to {} ...'.format(response_path))
+        cmLog('[I] Saving Google Vision API ocr response to {} ...'.format(response_path))
         if response_path is not None:
             with open(response_path, 'w') as outfile:
                 json.dump(vision_results, outfile, ensure_ascii=False, indent=2, sort_keys=True)
@@ -69,6 +71,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
 
     ### SECOND 
     # . Preparing and organizing vision api's result with config file
+    cmLog('[I] Preparing and organizing ocr response ...')
     vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
     
     ### THIRD  
@@ -77,17 +80,23 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     
     clformatted = formatter.GeneralCLFormatter(vision_doc)
     general = utils.loadFileIfExisted(general_path)
-    bank_name = clformatted.identifyBankName(general)
+    if bank_name is None:
+        cmLog('[I] Identifying bank name')
+        bank_name = clformatted.identifyBankName(general)
+
     config_path = os.path.join('./configs', bank_name + '_config.yaml')
     config = utils.loadFileIfExisted(config_path)
     if config is None:
+        cmLog('[C] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0]))
         final_result = {
             'error':'[E] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0])
             }
     else:
+        cmLog('[I] Extracting Header and Swift codes for bank {} ...'.format(bank_name))
         clformatted.extractHeaderInfo(config)
         clformatted.extractSwiftsInfo(config, general)
         
+        cmLog('[I] Evaluating letter of credit ...')
         evaluated = evaluator.CLEvaluator(clformatted)
         evaluated.evaluate_checklist(config, general)
         final_result = evaluated.dumpToDict()
@@ -101,6 +110,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
 
     if result_root is not None:
         result_path = os.path.join(result_root, 'checklist.json')
+        cmLog('[I] Saving evaluation result in {} ...'.format(result_path))
         with open(result_path, 'w') as outfile:
             json.dump(final_result, outfile, ensure_ascii=False, indent=2)
 
