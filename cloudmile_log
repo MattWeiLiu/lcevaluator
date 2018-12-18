@@ -304,3 +304,36 @@ BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
 [2018-12-18 18:16:53,830]: WARNING : 提單: Unable to find document about importer
 [2018-12-18 18:16:53,830]: WARNING : 提單: Unable to find document about weight list
 [2018-12-18 18:16:53,830]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:23:00,383]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:23:00,587]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:23:00,915]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:23:00,926]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:23:01,629]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:23:01,629]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:23:01,629]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:23:01,629]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:23:01,630]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:23:01,630]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:23:01,630]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:23:01,630]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:23:01,630]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:23:01,630]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:23:01,630]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:23:01,630]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:23:01,630]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:23:01,631]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:23:01,631]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:23:01,631]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:23:01,631]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:23:01,631]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:23:01,631]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
