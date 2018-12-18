@@ -863,7 +863,7 @@ def get_shipping_docs(content, config):
 
                 ### if original and copies are both zero but keyword is catched, then it 
                 ### is assume to have at least one original
-                if org_res <= 0 && cop_res <= 0:
+                if org_res <= 0 and cop_res <= 0:
                     org_res = 1
                     cop_res = 0
 
