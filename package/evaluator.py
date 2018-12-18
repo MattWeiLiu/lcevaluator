@@ -861,6 +861,12 @@ def get_shipping_docs(content, config):
                 cop_res = max(cop_res, tmp_cop)
                 gen_res = max(gen_res, tmp_gen)
 
+                ### if original and copies are both zero but keyword is catched, then it 
+                ### is assume to have at least one original
+                if org_res <= 0 && cop_res <= 0:
+                    org_res = 1
+                    cop_res = 0
+
                 res_req_docs[tmp_key] = {
                     'original': org_res, 
                     'copies': cop_res, 
