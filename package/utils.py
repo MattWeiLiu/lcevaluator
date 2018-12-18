@@ -8,6 +8,13 @@ from PIL import Image, ImageDraw
 from numbers import Number
 
 def createDirIfNotExist(path):
+    """
+    Create a directory of given path does not exist
+    Parameters
+    ----------
+    path: str
+        path of directory
+    """
     if isinstance(path, str):
         if not os.path.exists(path):
             os.makedirs(path)
@@ -20,6 +27,18 @@ def createDirIfNotExist(path):
     return False
 
 def traverseDirectories(root_dir, exts=['jpg', 'png']):
+    """
+    Iterable functions that traverse a given directory and find files with specified extension names
+    Parameters
+    ----------
+    root_dir: str
+        path of directory
+    exts: list
+        list of extenstions that with to be filtered. 
+    Return
+    ----------
+        directory and its files. whoever is calling this functin shall use a loop to iterate the result. 
+    """
     assert os.path.isdir(root_dir), '{} has to be a valid directory'.format(root_dir)
     assert isinstance(exts, str) or isinstance(exts, list), 'parameter "exts" must be instance of str or list but get {}'.format(type(exts))
     if isinstance(exts, str): exts = [exts] # convert string to array
@@ -39,6 +58,16 @@ def traverseDirectories(root_dir, exts=['jpg', 'png']):
         yield root, files
 
 def loadFileIfExisted(dstPath):
+    """
+    Load file from the path with known file extension (json, yaml, csv)
+    Parameters
+    ----------
+    path: str
+        path of file
+    Return
+    ----------
+        the content in the file 
+    """
     assert isinstance(dstPath, str), '[E] parameter \"dstPath\" must be a string'
     content = None
     try:

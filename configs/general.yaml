@@ -27,16 +27,6 @@ divisions:
       - IMPACT MODIFIER
       - PROCESSING AID
 swift_codes:
-  - code: '27'
-    desc: 'Sequence of Total'
-    must: True
-  - code: '40A'
-    code2: '40B'
-    desc: 'Form of Documentary Credit'
-    must: True
-  - code: '26E'
-    desc: 'Number Of Amendments'
-    must: False
   - code: '20'
     desc: 'Documentary Credit Number'
     must: True
@@ -46,14 +36,17 @@ swift_codes:
   - code: '23'
     desc: 'Reference to Pre-Advice'
     must: False
+  - code: '26E'
+    desc: 'Number Of Amendments'
+    must: False
+  - code: '27'
+    desc: 'Sequence of Total'
+    must: True
   - code: '30'
     desc: 'DATE OF AMENDMENT'
     must: False
   - code: '31C'
     desc: 'Date of Issue'
-    must: False
-  - code: '40E'
-    desc: 'Applicable Rules'
     must: False
   - code: '31D'
     desc: 'Date and Place of Expiry'
@@ -61,19 +54,6 @@ swift_codes:
   - code: '32B'
     desc: 'Current Code, Amount'
     must: True
-  - code: '51A'
-    desc: 'Applicant Bank'
-    must: False
-  - code: '51D'
-    desc: 'Sending Institution'
-    must: False
-  - code: '50'
-    desc: 'Applicant'
-    must: True
-  - code: '59'
-    desc: 'Beneficiary'
-    must: True
-    phrase: FORMOSA PLASTICS CORPORATION
   - code: '39A'
     desc: 'Percentage Credit Amount Tolerance'
     must: False
@@ -83,16 +63,23 @@ swift_codes:
   - code: '39C'
     desc: 'Additional Amount Covered'
     must: False
+  - code: '40A'
+    code2: '40B'
+    desc: 'Form of Documentary Credit'
+    must: True
+  - code: '40E'
+    desc: 'Applicable Rules'
+    must: True
   - code: '41A'
     code2: '41D'
     desc: 'Available with/by'
     must: True
-  - code: '42C'
-    desc: 'Draft at'
-    must: False  
   - code: '42A'
     code2: '42D'
     desc: 'Drawee'
+    must: False  
+  - code: '42C'
+    desc: 'Draft at'
     must: False  
   - code: '42P'
     desc: 'Deferred Payment Detail'
@@ -112,17 +99,17 @@ swift_codes:
   - code: '44B'
     desc: 'Place of Final Destination/ Place of Delivery/ For Transportation to'
     must: False  
-  - code: '44E'
-    desc: 'Port of Loading/ Airport of Destination'
-    must: False  
-  - code: '44F'
-    desc: 'Port of Discharge/ Airport of Destination'
-    must: False  
   - code: '44C'
     desc: 'Latest Date of shipment'
     must: False  
   - code: '44D'
     desc: 'Shipment Period'
+    must: False  
+  - code: '44E'
+    desc: 'Port of Loading/ Airport of Destination'
+    must: False  
+  - code: '44F'
+    desc: 'Port of Discharge/ Airport of Destination'
     must: False  
   - code: '45A'
     code2: '45B'
@@ -136,15 +123,21 @@ swift_codes:
     code2: '47B'
     desc: 'Additional Conditions'
     must: False
-  - code: '71B'
-    desc: 'Charges'
-    must: False  
   - code: '48'
     desc: 'Period of Presentation'
     must: False  
   - code: '49'
     desc: 'Confirmation Instructions'
     must: True
+  - code: '50'
+    desc: 'Applicant'
+    must: True
+  - code: '51A'
+    desc: 'Applicant Bank'
+    must: False
+  - code: '51D'
+    desc: 'Sending Institution'
+    must: False
   - code: '52A'
     desc: 'Issuing Bank'
     must: False
@@ -154,18 +147,25 @@ swift_codes:
   - code: '53D'
     desc: 'Reimbursement'
     must: False  
-  - code: '78'
-    desc: 'Instructions to Instructions To Pay / Accept / Negotiating Bank'
-    must: False  
   - code: '57A'
     desc: 'Advise Through Bank'
     must: False
   - code: '57D'
     desc: 'Account With Bank'
     must: False
+  - code: '59'
+    desc: 'Beneficiary'
+    must: True
+    phrase: FORMOSA PLASTICS CORPORATION
+  - code: '71B'
+    desc: 'Charges'
+    must: False  
   - code: '72'
     desc: 'Sender to Receiver Information'
     must: False
+  - code: '78'
+    desc: 'Instructions to Instructions To Pay / Accept / Negotiating Bank'
+    must: False  
   - code: '79'
     desc: 'Narrative'
     must: False  

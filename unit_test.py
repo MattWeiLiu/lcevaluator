@@ -16,7 +16,7 @@ class CLTestCases(object):
         if not target_bank in root: continue     
       if target_doc is not None:
         if not target_doc in root: continue
-      result_info = service.annotateCreditLetter(credential, '0001', jpg_list, root)
+      result_info = service.annotateCreditLetter(credential, '0001', jpg_list, root, target_bank)
       
 
   @staticmethod

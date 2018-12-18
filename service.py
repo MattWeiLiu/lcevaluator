@@ -80,10 +80,11 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     
     clformatted = formatter.GeneralCLFormatter(vision_doc)
     general = utils.loadFileIfExisted(general_path)
-    if bank_name is None:
-        cmLog('[I] Identifying bank name')
-        bank_name = clformatted.identifyBankName(general)
 
+    if bank_name is None:
+        bank_name = clformatted.identifyBankName(general)
+        cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
+    
     config_path = os.path.join('./configs', bank_name + '_config.yaml')
     config = utils.loadFileIfExisted(config_path)
     if config is None:
