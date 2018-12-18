@@ -80,8 +80,9 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     
     clformatted = formatter.GeneralCLFormatter(vision_doc)
     general = utils.loadFileIfExisted(general_path)
+    bank_list = [b['name'] for b in general['bank_titles']]
 
-    if bank_name is None:
+    if bank_name is None or bank_name.lower() not in bank_list:
         bank_name = clformatted.identifyBankName(general)
         cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
     

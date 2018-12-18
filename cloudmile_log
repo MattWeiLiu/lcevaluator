@@ -1,0 +1,306 @@
+[2018-12-18 17:35:40,992]: WARNING : Swift code 71D is not in the config file. Content: :71D: (CHARGES)
+ALL BANKING CHARGES OUTSIDE INDIA
+ARE FOR THE ACCOUNT OF THE
+BENEFICIARY.
+*
+[2018-12-18 17:35:40,993]: WARNING : Swift code 72Z is not in the config file. Content: :72Z: (SENDER TO RECVR INFO)
+EXCEPT AS OTHERWISE EXPRESSLY
+STATED THIS DOCUMENTARY CREDIT IS
+SUBJECT TO THE UNIFORM CUSTOMS AND
+PRACTICE FOR DOCUMENTARY CREDITS
+2007 REVISION, ICC PUBLICATION NO.
+600.
+CHK/87909AD59673
+SAC
+=11301212 CB ZMC08450
+[2018-12-18 17:35:40,993]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 17:35:40,995]: WARNING : 交易條件: no term are found in 45A: +1. 80 MT. PVC RESIN, GRADE S-65 AT THE RATE OF USD 915.00 PER
+MT.,
+2. 90 MT. PVC RESIN, GRADE S-65D AT THE RATE OF USD 915.00 PER MT
+AS PER SALES CONTRACT NO.T18B36 DATED 26.11.2018CIF KOLKATA, INDIA ,AS PER INCOTERMS 2010.
+[2018-12-18 17:35:40,995]: WARNING : 交易條件: no term are found in 45A: +1. 80 MT. PVC RESIN, GRADE S-65 AT THE RATE OF USD 915.00 PER
+MT.,
+2. 90 MT. PVC RESIN, GRADE S-65D AT THE RATE OF USD 915.00 PER MT
+AS PER SALES CONTRACT NO.T18B36 DATED 26.11.2018CIF KOLKATA, INDIA ,AS PER INCOTERMS 2010.
+[2018-12-18 17:35:40,995]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 17:35:40,995]: WARNING : 是否即期: Missing 42C
+[2018-12-18 17:35:40,995]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 17:35:40,995]: WARNING : 溢價處理: 90 DAYS FROM BILL OF LADING DATE (目前沒看到過，有待商確)
+[2018-12-18 17:35:40,996]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 17:35:40,996]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 17:35:40,996]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 17:35:40,998]: WARNING : 提單: Unable to find document about commercial invoice
+[2018-12-18 17:35:40,998]: WARNING : 提單: Unable to find document about packing list
+[2018-12-18 17:35:40,998]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 17:35:40,998]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 17:35:40,999]: WARNING : 提單: Unable to find document about consular invoice
+[2018-12-18 17:35:40,999]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 17:35:40,999]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 17:35:40,999]: WARNING : 提單: Unable to find document about inspection certificate
+[2018-12-18 17:35:40,999]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 17:35:40,999]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 17:37:07,407]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 17:37:07,408]: INFO    : Sending ocr request to Google Vision API...
+[2018-12-18 17:37:14,112]: INFO    : Saving Google Vision API ocr response to ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 17:37:15,589]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 17:37:15,842]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 17:37:16,521]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 17:37:16,522]: INFO    : Evaluating letter of credit ...
+[2018-12-18 17:37:16,522]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 17:37:16,522]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 17:37:16,522]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 17:37:16,522]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 17:37:16,522]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 17:37:16,523]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 17:37:16,523]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 17:37:16,523]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 17:37:16,523]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 17:37:16,523]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 17:37:16,524]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 17:37:16,524]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 17:37:16,524]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 17:37:16,525]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 17:37:16,525]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 17:37:16,525]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 17:37:16,525]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:12:35,912]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:12:36,182]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:12:36,431]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:12:36,443]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:12:37,076]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:12:37,076]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:12:37,076]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:12:37,076]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:12:37,077]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:12:37,077]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:12:37,077]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:12:37,077]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:12:37,077]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:12:37,077]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:12:37,077]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:12:37,077]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:12:37,077]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:12:37,078]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:12:37,078]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:12:37,078]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:12:37,078]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:12:37,078]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:12:37,078]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:13:04,880]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:13:05,091]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:13:05,425]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:13:05,438]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:13:06,074]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:13:06,074]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:13:06,075]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:13:06,075]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:13:06,075]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:13:06,075]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:13:06,075]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:13:06,075]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:13:06,075]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:13:06,075]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:13:06,076]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:13:06,076]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:13:06,076]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:13:06,076]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:13:06,076]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:13:06,077]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:13:06,077]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:13:06,077]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:13:06,077]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:14:42,660]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:14:42,869]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:14:43,169]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:14:43,181]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:14:43,819]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:14:43,819]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:14:43,820]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:14:43,820]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:14:43,820]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:14:43,820]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:14:43,821]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:14:43,821]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:14:43,821]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:14:43,821]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:14:43,821]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:14:43,821]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:14:43,821]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:14:43,821]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:14:43,822]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:14:43,822]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:14:43,822]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:14:43,822]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:14:43,822]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:15:14,581]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:15:14,795]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:15:15,104]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:15:15,115]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:15:15,761]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:15:15,762]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:15:15,762]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:15:15,762]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:15:15,762]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:15:15,762]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:15:15,762]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:15:15,762]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:15:15,762]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:15:15,763]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:15:15,763]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:15:15,763]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:15:15,763]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:15:15,763]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:15:15,763]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:15:15,764]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:15:15,764]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:15:15,764]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:15:15,764]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:15:47,119]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:15:47,335]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:15:47,587]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:15:47,598]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:15:48,230]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:15:48,230]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:15:48,230]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:15:48,230]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:15:48,231]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:15:48,231]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:15:48,231]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:15:48,231]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:15:48,231]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:15:48,231]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:15:48,231]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:15:48,231]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:15:48,231]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:15:48,231]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:15:48,232]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:15:48,232]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:15:48,232]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:15:48,232]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:15:48,232]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:16:25,150]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:16:25,420]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:16:25,657]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:16:25,668]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:16:26,323]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:16:26,324]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:16:26,324]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:16:26,324]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:16:26,324]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:16:26,324]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:16:26,324]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:16:26,325]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:16:26,325]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:16:26,325]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:16:26,325]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:16:26,325]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:16:26,325]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:16:26,326]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:16:26,326]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:16:26,326]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:16:26,326]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:16:26,326]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:16:26,326]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...
+[2018-12-18 18:16:52,646]: INFO    : Reading existed ocr response from ./../../lc_files/citi/MF0IML183330002/vision_result.json ...
+[2018-12-18 18:16:52,903]: INFO    : Preparing and organizing ocr response ...
+[2018-12-18 18:16:53,146]: INFO    : Auto-identified bank name: citi
+[2018-12-18 18:16:53,158]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-18 18:16:53,827]: WARNING : Swift code 71D is not in the config file. Content: : 71D: (CHARGES)
+EN
+ALL BANK CHARGES OUTSIDE INDIA
+OTHER THAN USANCE INTEREST ARE FOR
+THE BENEFICIARY'S ACCOUNT
+[2018-12-18 18:16:53,827]: INFO    : Evaluating letter of credit ...
+[2018-12-18 18:16:53,827]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-18 18:16:53,827]: WARNING : 地點『 INDIA』不是台灣!
+[2018-12-18 18:16:53,828]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:16:53,828]: WARNING : 交易條件: no term are found in 45A: 51.00 MTS OF PVC SUSPENSION RESIN B-57 AT USD 910.00 PER MT FOR A
+TOTAL VALUE OF USD 46410.00 AS PER THE SPECIFICATIONS MENTIONED
+IN THE PROFORMA INVOICE NO.18N12M11 DATED 21 NOV2018 OF THE
+BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
+[2018-12-18 18:16:53,828]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-18 18:16:53,828]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-18 18:16:53,828]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-18 18:16:53,828]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-18 18:16:53,828]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-18 18:16:53,828]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-18 18:16:53,829]: WARNING : 提單: Unable to find document about insurance policy
+[2018-12-18 18:16:53,829]: WARNING : 提單: Unable to find document about customs invoice
+[2018-12-18 18:16:53,829]: WARNING : 提單: Unable to find document about certificate of origin
+[2018-12-18 18:16:53,830]: WARNING : 提單: Unable to find document about certificate of analysis
+[2018-12-18 18:16:53,830]: WARNING : 提單: Unable to find document about importer
+[2018-12-18 18:16:53,830]: WARNING : 提單: Unable to find document about weight list
+[2018-12-18 18:16:53,830]: INFO    : Saving evaluation result in ./../../lc_files/citi/MF0IML183330002/checklist.json ...

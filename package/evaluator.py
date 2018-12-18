@@ -804,7 +804,6 @@ def get_shipping_docs(content, config):
     res_req_docs = {}
     req_docs = config['req_docs']['items']
     paragraph_pat = config['req_docs']['paragraph_patterns']
-       
     if not ('46A' in content.keys() or '46B' in content.keys()):
         for item in req_docs:
             tmp_key_name = item['name']
@@ -824,6 +823,7 @@ def get_shipping_docs(content, config):
             temp = content['46B']
             temp = reformatInParagraphs(temp, '46B', paragraph_pat)
             
+        print(temp)
         splitted = re.split(r'\n', temp)
 
         for item in req_docs:

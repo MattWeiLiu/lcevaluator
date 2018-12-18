@@ -1,0 +1,6 @@
+[
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/citi/469LC1183340002/\n\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']",
+    "status": false
+  }
+]
