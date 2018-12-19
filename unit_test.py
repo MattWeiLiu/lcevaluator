@@ -7,6 +7,19 @@ import package.evaluator as evaluator
 
 class CLTestCases(object):
   @staticmethod
+  def runTestPdfWithService(credential, pdf_directory, target_bank=None, target_doc=None, save=True, iteration = 10):
+    utils.convertPdfsToJpegs(pdf_directory, pdf_directory+'_jpgs')
+    file_gen = utils.traverseDirectories(directory)
+    for root, jpg_list in file_gen:
+      jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
+      res_root = root
+      if target_bank is not None:
+        if not target_bank in root: continue     
+      if target_doc is not None:
+        if not target_doc in root: continue
+      result_info = service.annotateCreditLetter(credential, '0001', jpg_list, root, target_bank)
+
+  @staticmethod
   def runTestWithService(credential, directory, target_bank=None, target_doc=None, save=True, iteration = 10):
     file_gen = utils.traverseDirectories(directory)
     for root, jpg_list in file_gen:
@@ -18,7 +31,24 @@ class CLTestCases(object):
         if not target_doc in root: continue
       result_info = service.annotateCreditLetter(credential, '0001', jpg_list, root, target_bank)
       
-
+  @staticmethod
+  def runAndPrintTestWithDir(directory, target_bank=None, target_doc=None, save=True, iteration = -1):
+    file_gen = utils.traverseDirectories(directory)
+    for root, jpg_list in file_gen:
+      jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
+      res_root = root
+      result_str = '[I] Evaluaing document for {}\n'.format(res_root)
+      vis_res_path = os.path.join(root,'vision_result.json')
+      if save:
+        checklistpath = os.path.join(root, 'checklist.json')
+      ### Start a tester
+      tester = CLTestCases(vis_res_path)
+      print('[I] Evaluaing document for {}\n'.format(res_root))
+      tester.testEvaluator()
+      shipping_docs = tester.checklist['checklist']['shipping_docs']
+      print(json.dumps(shipping_docs, indent=2, ensure_ascii=False))
+      break
+      
   @staticmethod
   def runTestWithDir(directory, target_bank=None, target_doc=None, save=True, iteration = -1):
     file_gen = utils.traverseDirectories(directory)
@@ -140,11 +170,10 @@ class CLTestCases(object):
     def varify(target):
       original = target['original']
       copies = target['copies']
-      unspecified = target['unspecified']
-      if (original + copies == 0) or unspecified > 0:
-        return [-1, original, copies, unspecified, target['text']]
+      if (original + copies == 0):
+        return [-1, original, copies, target['text']]
       else:
-        return [0, original, copies, unspecified, target['text']]
+        return [0, original, copies, target['text']]
 
     assert 'b_l' in shipping_docs.keys(), 'b_l is not in the key list {}'.format(shipping_docs.keys())
     assert 'inv' in shipping_docs.keys(), 'inv is not in the key list {}'.format(shipping_docs.keys())

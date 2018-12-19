@@ -1,6 +1,42 @@
 [
   {
-    "message": "[I] Evaluaing document for ./../../lc_files/citi/469LC1183340002/\n\n[E] 46A inv reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about commercial invoice']\n[E] 46A pl reuslt: [-1, 0, 0, 0, '[W] 提單: Unable to find document about packing list']",
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/00050LC81800066\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/003LC01181760014\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/1045000820118\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/169010043416\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/1846IMP001006318\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/2551FLC0402018\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/4070FLCDP180023\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/469LC1183340002\n\n[E] 46A inv reuslt: [-1, 0, 0, '[W] 提單: Unable to find document about commercial invoice']\n[E] 46A pl reuslt: [-1, 0, 0, '[W] 提單: Unable to find document about packing list']",
     "status": false
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/MF0IML183330002\n",
+    "status": true
+  },
+  {
+    "message": "[I] Evaluaing document for ./../../lc_files/20181218_jpg/OLC0005180014167\n",
+    "status": true
   }
 ]

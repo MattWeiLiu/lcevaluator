@@ -645,53 +645,53 @@ def get_nominated_agent(content):
     cmLog("[W] 指定代理商: (此欄位不需要看？)")
     return value
     
-def find_org_cop(line):
-    """
-    Get # of original and copies 
-    Parameters
-    ----------
-    line: str
-        line that wish to get the information from
-    Returns
-    ----------
-        result # of originals and copies
-    """
-    def find_val_with_patterns(src, pattern_list):
-        final_res = 0
-        for pat in pattern_list:
-            res = re.findall(pat, src, re.IGNORECASE)
-            if len(res) > 0:
-                final_res = int(res[0])
-                break 
-        return final_res
+# def find_org_cop(line):
+#     """
+#     Get # of original and copies 
+#     Parameters
+#     ----------
+#     line: str
+#         line that wish to get the information from
+#     Returns
+#     ----------
+#         result # of originals and copies
+#     """
+#     def find_val_with_patterns(src, pattern_list):
+#         final_res = 0
+#         for pat in pattern_list:
+#             res = re.findall(pat, src, re.IGNORECASE)
+#             if len(res) > 0:
+#                 final_res = int(res[0])
+#                 break 
+#         return final_res
 
-    org_patts = ['IN (\d+) ORIGINAL', '(\d+) ORIGINAL', 'IN (\d+) PLUS \d+']
-    cop_patts = ['IN (\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']    
-    gen_patts = ['IN (\d+)']
-    org_res = find_val_with_patterns(line, org_patts)
-    cop_res = find_val_with_patterns(line, cop_patts)
-    gen_res = 0
-    if org_res + cop_res == 0:        
-        ###
-        # Check Folds
-        containsCopTerms = 'NON NEGOTIABLE' in line or 'NON-NEGOTIABLE' in line or 'COPY' in line or 'COPIES' in line
-        containsOrgTerms = 'ORIGINAL' in line
-        fold_patts = ['IN (\d+) FOLD']
-        fold_res = find_val_with_patterns(line, fold_patts)
-        if containsOrgTerms == containsCopTerms:
-            org_res = 1
-            cop_res = fold_res - org_res
-        elif containsOrgTerms is True and containsCopTerms is False:
-            org_res = fold_res
-        else:
-            gen_res = find_val_with_patterns(line, gen_patts)
+#     org_patts = ['IN (\d+) ORIGINAL', '(\d+) ORIGINAL', 'IN (\d+) PLUS \d+']
+#     cop_patts = ['IN (\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']    
+#     gen_patts = ['IN (\d+)']
+#     org_res = find_val_with_patterns(line, org_patts)
+#     cop_res = find_val_with_patterns(line, cop_patts)
+#     gen_res = 0
+#     if org_res + cop_res == 0:        
+#         ###
+#         # Check Folds
+#         containsCopTerms = 'NON NEGOTIABLE' in line or 'NON-NEGOTIABLE' in line or 'COPY' in line or 'COPIES' in line
+#         containsOrgTerms = 'ORIGINAL' in line
+#         fold_patts = ['IN (\d+) FOLD']
+#         fold_res = find_val_with_patterns(line, fold_patts)
+#         if containsOrgTerms == containsCopTerms:
+#             org_res = 1
+#             cop_res = fold_res - org_res
+#         elif containsOrgTerms is True and containsCopTerms is False:
+#             org_res = fold_res
+#         else:
+#             gen_res = find_val_with_patterns(line, gen_patts)
 
-        ### 
-        # Telex release means at least one copy
-        if 'TELEX RELEASE' in line and cop_res < 1:
-            cop_res = 1
+#         ### 
+#         # Telex release means at least one copy
+#         if 'TELEX RELEASE' in line and cop_res < 1:
+#             cop_res = 1
 
-    return org_res, cop_res, gen_res
+#     return org_res, cop_res, gen_res
 
 def replaceFullset(content, key):
     """
@@ -706,14 +706,30 @@ def replaceFullset(content, key):
     ----------
         replaced text
     """
-    # insurance policy
-    if key == 'i_p':
-        value = re.sub(r'FULL SET', '2 original', content, re.IGNORECASE)
-    # bill of lading
-    elif key == 'b_l':
-        value = re.sub(r'FULL SET', '3 original', content, re.IGNORECASE) 
-    else:
-        value = content
+    def getQuentity(line):
+        quantity_pat = '\((\d)/(\d)\)'
+        res = re.findall(quantity_pat, content, re.IGNORECASE)
+        if len(res) > 0:
+            res = res[0]
+            return int(res[0]), int(res[1])
+        else:
+            default = 3
+            if key == 'insurance_policy':
+                default = 2
+            elif key == 'bill_of_lading':
+                default = 3
+            return default, 0
+    value = content
+    text = ['full set', 'complete set']
+    for idx, item in enumerate(text):
+        if item.upper() in content:
+            org_cnt, cop_cnt = getQuentity(content)
+            if cop_cnt > 0:                
+                replacement = '{} original plus {} copies'.format(org_cnt, cop_cnt)
+            else:
+                replacement = '{} original'.format(org_cnt)
+            value = re.sub(item.upper(), replacement.upper(), content, re.IGNORECASE)
+            break
     return value
 
 def replaceDuplicates(content):
@@ -790,6 +806,52 @@ def reformatInParagraphs(content, target_code, pats):
             paragraphs = '\n'.join(tmp_para)
     return paragraphs
 
+def detect_quantity_with_patterns(line, org_pats, cop_pats, fold_pats):
+    """
+    Get # of original and copies 
+    Parameters
+    ----------
+    line: str
+        line that wish to get the information from
+    org_pats: str
+        patterns used to extract quantity of originals
+    cop_pats: str
+        patterns used to extract quantity of copies
+    Returns
+    ----------
+        result # of originals and copies
+    """
+    def find_val_with_patterns(src, pattern_list):
+        final_res = 0
+        for pat in pattern_list:
+            res = re.findall(pat, src, re.IGNORECASE)
+            if len(res) > 0:
+                final_res = int(res[0])
+                break 
+        return final_res
+
+    def breakdown_fold(line, fold_count):
+        ###
+        # Check Folds
+        containsCopTerms = 'NON NEGOTIABLE' in line or 'NON-NEGOTIABLE' in line or 'COPY' in line or 'COPIES' in line
+        containsOrgTerms = 'ORIGINAL' in line
+        tmp_org = 0
+        tmp_cop = 0
+        if containsOrgTerms is True and containsCopTerms is False:
+            tmp_org = fold_count
+        else:
+            tmp_org = 1
+            tmp_cop = fold_count - tmp_org
+        return tmp_org, tmp_cop
+
+    org_res = find_val_with_patterns(line, org_pats)
+    cop_res = find_val_with_patterns(line, cop_pats)
+    fold_res = find_val_with_patterns(line, fold_pats)
+    if fold_res > 0:
+        org_res, cop_res = breakdown_fold(line)
+    return org_res, cop_res
+
+
 def get_shipping_docs(content, config):
     """
     Evaluate session shipping doc (46A)
@@ -802,17 +864,22 @@ def get_shipping_docs(content, config):
         a dictionary containing # of originals and copies of each document. 
     """
     res_req_docs = {}
-    req_docs = config['req_docs']['items']
-    paragraph_pat = config['req_docs']['paragraph_patterns']
+    req_docs = config['req_docs']
+    req_items = req_docs['items']
+    paragraph_pat = req_docs['paragraph_patterns']
+    quantity_pat = req_docs['quantity_patterns']
+    warn_str = ''   
+
+    ###
+    # If 46A or 46B not exists in the swift code then return with empty response
     if not ('46A' in content.keys() or '46B' in content.keys()):
-        for item in req_docs:
+        for item in req_items:
             tmp_key_name = item['name']
             key_list = item['keys']
-            tmp_key = key_list[0]
-            res_req_docs[tmp_key] = {
+            res_req_docs[tmp_key_name] = {
                     'original': 0, 
                     'copies': 0, 
-                    'unspecified': 0, 
+                    'warn': warn_str, 
                     'text': "[W] 提單: Missing key: 46A"}
         cmLog("[W] 提單: Missing key: 46A")
     else:
@@ -822,57 +889,59 @@ def get_shipping_docs(content, config):
         else:
             temp = content['46B']
             temp = reformatInParagraphs(temp, '46B', paragraph_pat)
-            
+        
         splitted = re.split(r'\n', temp)
-
-        for item in req_docs:
-            candidate_line = None
-            tmp_key_name = item['name']
-            key_list = item['keys']
-            tmp_key = key_list[0]
-            org_res, cop_res, gen_res = 0, 0, 0
-
-            for idx, line in enumerate(splitted):
-                contained = False
-                for k in key_list:
-                    contained = k.upper() in line
+        duplicaed = splitted.copy()
+        
+        ###
+        # Loop through all required document items and check if current line
+        # contains the keyword
+        for item in req_items:
+            cur_key_name = item['name']
+            cur_key_list = item['keys']
+            contained = False
+            candidate_line = ''
+            warn_str = ''   
+            org_res, cop_res = 0, 0
+            
+            ###
+            # Loop through all lines to see if keyword exists in a line
+            for idx, line in enumerate(splitted):                
+                ###
+                # Loop through all possible keywords in current item
+                for k in cur_key_list:
+                    contained = k.upper() in line.upper()
                     if contained:
+                        candidate_line = line
+                        duplicaed.remove(candidate_line)
                         break
                 if contained:
-                    candidate_line = line
-                    splitted.remove(candidate_line)
                     break
 
-            if candidate_line is None:
-                res_req_docs[tmp_key] = {
-                        'original': 0, 
-                        'copies': 0, 
-                        'unspecified': 0, 
-                        'text': "[W] 提單: Unable to find document about {}".format(tmp_key_name)}
-                cmLog("[W] 提單: Unable to find document about {}".format(tmp_key_name))
-            else:
+            if contained:
+                ###
+                # Preprocessing candidate line so it will have unified format for evaluation           
                 target_line = utils.text2number(candidate_line)
-                target_line = replaceFullset(target_line, tmp_key)
+                target_line = replaceFullset(target_line, cur_key_name)
                 target_line = replaceDuplicates(target_line)
-                tmp_org, tmp_cop, tmp_gen = find_org_cop(target_line)
+                org_res, cop_res = detect_quantity_with_patterns(target_line, quantity_pat['original'], quantity_pat['copy'], quantity_pat['fold'])
                 
-                org_res = max(org_res, tmp_org)
-                cop_res = max(cop_res, tmp_cop)
-                gen_res = max(gen_res, tmp_gen)
-
-                ### if original and copies are both zero but keyword is catched, then it 
-                ### is assume to have at least one original
-                if org_res <= 0 and cop_res <= 0:
+                ###
+                # if original and copies are both zero but keyword is catched, then it 
+                # is assume to have at least one original
+                if org_res + cop_res <= 0:
                     org_res = 1
                     cop_res = 0
+                    warn_str = '[W] 無法辨識數量，預設為 1 正本'
 
-                res_req_docs[tmp_key] = {
-                    'original': org_res, 
-                    'copies': cop_res, 
-                    'unspecified': gen_res, 
-                    'text': candidate_line}
-        res_req_docs['remained'] = splitted
-
+            res_req_docs[cur_key_name] = {
+                'original': org_res, 
+                'copies': cop_res, 
+                'warn': warn_str, 
+                'text': candidate_line}
+        ###
+        # store the remaining lines for reference
+        res_req_docs['remained'] = duplicaed
     return res_req_docs
 
 def get_other_docs(content):

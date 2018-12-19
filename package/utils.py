@@ -119,6 +119,7 @@ def convertPdfsToJpegs(pdf_root, jpg_root='./jpg_root'):
     Returns
     ----------
     """
+    createDirIfNotExist(jpg_root)
     file_gen = traverseDirectories(pdf_root, 'pdf')
     for root, files in file_gen:
         for file in files:
