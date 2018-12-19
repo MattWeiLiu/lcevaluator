@@ -76,8 +76,10 @@ def cmLog(msg):
         elif level == 'W':
             mylog.warn(msg)
         elif level == 'E':
+            print('[E] ', msg)
             mylog.error(msg)
         elif level == 'C':
+            print('[C] ', msg)
             mylog.critical(msg)
         else:
             print('[O] unhandlered message:', msg)
