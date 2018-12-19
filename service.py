@@ -80,41 +80,51 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     
     clformatted = formatter.GeneralCLFormatter(vision_doc)
     general = utils.loadFileIfExisted(general_path)
-    bank_list = [b['name'] for b in general['bank_titles']]
-
-    if bank_name is None or bank_name.lower() not in bank_list:
-        bank_name = clformatted.identifyBankName(general)
-        cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
-    
-    config_path = os.path.join('./configs', bank_name + '_config.yaml')
-    config = utils.loadFileIfExisted(config_path)
-    if config is None:
-        cmLog('[C] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0]))
+    ###
+    # . General config must exist
+    if general is None:
+        cmLog('[C] Unable to find general config file at: {}'.format(general))
         final_result = {
             'error':'[E] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0])
             }
     else:
-        cmLog('[I] Extracting Header and Swift codes for bank {} ...'.format(bank_name))
-        clformatted.extractHeaderInfo(config)
-        clformatted.extractSwiftsInfo(config, general)
+        bank_list = [b['name'] for b in general['bank_titles']]
+        if bank_name is None or bank_name.lower() not in bank_list:
+            bank_name = clformatted.identifyBankName(general)
+            cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
         
-        cmLog('[I] Evaluating letter of credit ...')
-        evaluated = evaluator.CLEvaluator(clformatted)
-        evaluated.evaluate_checklist(config, general)
-        final_result = evaluated.dumpToDict()
+        config_path = os.path.join('./configs', bank_name + '_config.yaml')
+        config = utils.loadFileIfExisted(config_path)
 
-        ### 
-        # adding prefix for C# application (C# cannot read key starting with _ or numeric value)
-        newswift = {}
-        for key, value in final_result['swifts'].items():
-            newswift['code_'+key] = final_result['swifts'][key]
-        final_result['swifts'] = newswift
+        ###
+        # . Bank config must exist
+        if config is None:
+            cmLog('[C] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0]))
+            final_result = {
+                'error':'[E] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0])
+                }
+        else:
+            cmLog('[I] Extracting Header and Swift codes for bank {} ...'.format(bank_name))
+            clformatted.extractHeaderInfo(config)
+            clformatted.extractSwiftsInfo(config, general)
+            
+            cmLog('[I] Evaluating letter of credit ...')
+            evaluated = evaluator.CLEvaluator(clformatted)
+            evaluated.evaluate_checklist(config, general)
+            final_result = evaluated.dumpToDict()
 
-    if result_root is not None:
-        result_path = os.path.join(result_root, 'checklist.json')
-        cmLog('[I] Saving evaluation result in {} ...'.format(result_path))
-        with open(result_path, 'w') as outfile:
-            json.dump(final_result, outfile, ensure_ascii=False, indent=2)
+            ### 
+            # adding prefix for C# application (C# cannot read key starting with _ or numeric value)
+            newswift = {}
+            for key, value in final_result['swifts'].items():
+                newswift['code_'+key] = final_result['swifts'][key]
+            final_result['swifts'] = newswift
+
+        if result_root is not None:
+            result_path = os.path.join(result_root, 'checklist.json')
+            cmLog('[I] Saving evaluation result in {} ...'.format(result_path))
+            with open(result_path, 'w') as outfile:
+                json.dump(final_result, outfile, ensure_ascii=False, indent=2)
 
     return final_result
 
