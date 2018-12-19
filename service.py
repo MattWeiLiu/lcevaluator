@@ -88,6 +88,8 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             'error':'[E] Unable to find config file with bank: {} for document at: {}'.format(bank_name, jpg_path_list[0])
             }
     else:
+        if 'bank_titles' not in general:
+            print('bank_titles')
         bank_list = [b['name'] for b in general['bank_titles']]
         if bank_name is None or bank_name.lower() not in bank_list:
             bank_name = clformatted.identifyBankName(general)

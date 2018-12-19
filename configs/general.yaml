@@ -184,7 +184,7 @@ req_docs:
     - name: 'consular invoice'
       keys: ['ci', 'consular invoice']
     - name: 'certificate of origin'
-      keys: ['coo', 'certificate of origin']
+      keys: ['coo', 'certificate of origin', 'certificate of taiwan origin']
     - name: 'certificate of analysis'
       keys: ['coa', 'certificate of analysis']
     - name: 'inspection certificate'
