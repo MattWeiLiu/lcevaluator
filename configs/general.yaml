@@ -15,7 +15,7 @@ bank_titles:
     boundingbox: [515,15,1350,70]
     text: MEGA INTERNATIONAL
 divisions: 
-  - name: 營業一處
+  - name: '11A'
     code: '0001' 
     products: 
       - PVC SUSPENSION RESIN
