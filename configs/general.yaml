@@ -182,7 +182,7 @@ req_docs:
       keys: ['packing list']
     ### 保險單據
     - name: 'insurance_policy'
-      keys: ['insurance policy', 'insurance policies', 'insurance certificate', 'insurance policies/certificate']
+      keys: ['insurance policy', 'insurance policies', 'insurance certificate']
     ### 海關發票
     - name: 'customs_invoice'
       keys: ['customs invoice', 'certified invoice']
@@ -201,7 +201,7 @@ req_docs:
     ### 重量證明
     - name: 'weight_list'
       keys: ['weight list']
-  paragraph_patterns: ['\+?\d{2}[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?']
+  paragraph_patterns: ['\+?\(?\d{1,2} ?[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?']
   quantity_patterns:
     original: ['IN ?(\d+) ?ORIGINAL', '(\d+) ?ORIGINAL', 'IN ?(\d+) ?PLUS ?\d+']
     copy: ['IN ?(\d+) ?(?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) ?(?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']

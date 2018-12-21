@@ -247,6 +247,7 @@ def get_descrption(content, productnames):
             temp = content['45A']
         else:
             temp = content['45B']
+        temp = temp.replace('\n', ' ')
         found = False
         value =  '[W] 貨品名稱: Not found in 45A ->' + temp
         ### find name by pattern
@@ -719,6 +720,7 @@ def replaceFullset(content, key):
             elif key == 'bill_of_lading':
                 default = 3
             return default, 0
+
     value = content
     text = ['full set', 'complete set']
     for idx, item in enumerate(text):
@@ -743,12 +745,13 @@ def replaceDuplicates(content):
     ----------
         replaced text
     """
-    text = ['single', 'duplicate', 'triplicate', 'quadruplicate']
+    text_pats = ['single', 'du[a-z]*ate', 'trip[a-z]*ate', 'quad[a-z]*ate', ]
     value = content
-    for idx, item in enumerate(text):
-        if item.upper() in content:
-            value = content.replace(item.upper(), '{} ORIGINALS'.format(idx + 1))
-            break
+    for idx, item in enumerate(text_pats):
+        matched = re.findall(item, content, re.IGNORECASE)
+        if matched and len(matched) > 0:
+            target = matched[0]
+            value = value.replace(target.upper(), '{} ORIGINALS'.format(idx + 1))
     return value
 
 def reformatInParagraphs(content, target_code, pats):
@@ -778,6 +781,8 @@ def reformatInParagraphs(content, target_code, pats):
     # Split into paragraps with special patterns 
     else:
         listOfLines = content.split('\n')
+        if 'MISCELLANEOUS' in listOfLines[0]:
+            del listOfLines[0]
         target_pats = listOfLines[0].startswith
         temp_text = ''
         target_pat = None
@@ -786,7 +791,6 @@ def reformatInParagraphs(content, target_code, pats):
             if matched and matched.start() == 0:
                 target_pat = pat
                 break
-
         if target_pat is None:
             cmLog('[W] Unable to detect paragraph prefix. Read content directly')
             paragraphs = content
@@ -848,7 +852,7 @@ def detect_quantity_with_patterns(line, org_pats, cop_pats, fold_pats):
     cop_res = find_val_with_patterns(line, cop_pats)
     fold_res = find_val_with_patterns(line, fold_pats)
     if fold_res > 0:
-        org_res, cop_res = breakdown_fold(line)
+        org_res, cop_res = breakdown_fold(line, fold_res)
     return org_res, cop_res
 
 
@@ -913,7 +917,11 @@ def get_shipping_docs(content, config):
                     contained = k.upper() in line.upper()
                     if contained:
                         candidate_line = line
-                        duplicaed.remove(candidate_line)
+                        ### 
+                        #  candidate_line shall be in duplicated, this is 
+                        #  in case two different keywords occurs in the same line.
+                        if candidate_line in duplicaed:
+                            duplicaed.remove(candidate_line)
                         break
                 if contained:
                     break
