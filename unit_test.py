@@ -35,7 +35,7 @@ class CLTestCases(object):
   def runAndPrintTestWithDir(directory, target_bank=None, target_doc=None, save=True, iteration = -1):
     file_gen = utils.traverseDirectories(directory)
     for root, jpg_list in file_gen:
-      if target_doc not in root: continue
+      if (not target_doc is None) and target_doc not in root: continue
       jpg_list = list(map(lambda x: os.path.join(root, x), jpg_list))
       res_root = root
       result_str = '[I] Evaluaing document for {}\n'.format(res_root)
@@ -46,7 +46,7 @@ class CLTestCases(object):
       tester.testEvaluator()
       shipping_docs = tester.checklist['checklist']['shipping_docs']
       print(json.dumps(shipping_docs, indent=2, ensure_ascii=False))
-      
+
       if save:
         checklistpath = os.path.join(res_root, 'checklist.json')
         final = tester.evaluatted.dumpToDict()

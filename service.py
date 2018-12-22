@@ -2,6 +2,7 @@ import os, json
 import package.reformatter as formatter
 import package.evaluator as evaluator
 import package.utils as utils
+import package.augmentation as augm
 import package.visionapi as visionapi
 from package.logger import cmLog
 import falcon
@@ -65,21 +66,26 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     general_path = os.path.join('./configs', 'general.yaml')
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
     
-    ### FIRST 
+    ### 
+    # . Preprocessing the image for enhancement
+    cmLog('[I] Preprocessing image for enhencement ...')
+    jpg_path_list = augm.erodeBatchImages(jpg_path_list)
+
+    ###  
     # . Sending image to Google Vision API and save the response
     vision_results = retrieveVisionResponse(credential, jpg_path_list, result_root)
 
-    ### SECOND 
+    ###  
     # . Preparing and organizing vision api's result with config file
     cmLog('[I] Preparing and organizing ocr response ...')
     vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
     
-    ### THIRD  
+    ###   
     # . Initialize a formatter
     final_result = {}
-    
     clformatted = formatter.GeneralCLFormatter(vision_doc)
     general = utils.loadFileIfExisted(general_path)
+    
     ###
     # . General config must exist
     if general is None:
@@ -205,7 +211,6 @@ class RequestPdfToJpg:
 
         resp.status = status
         resp.body = json.dumps(output)
-
 
 app = falcon.API(middleware=[cors.middleware])
 app.add_route('/cloudmile/clevaluator', RequestCloudMile())

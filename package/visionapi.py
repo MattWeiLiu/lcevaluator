@@ -58,6 +58,37 @@ def annotateDocument(image_file, features=[DOC_DETECTION], language_list=['en', 
         err = '[E] ' + json.dumps(json_res['error'])
     return json_res, err
 
+def annotateDocument2(image_data, features=[DOC_DETECTION], language_list=['en', 'zh-CN', 'zh-TW']):
+    # features = features
+    featurelist = formatFeatures(features)
+    json_res = requestProperty2(image_data, featurelist, language_list)
+    json_res = json_res['responses'][0]        
+    err = None
+    if ('error' in json_res):
+        err = '[E] ' + json.dumps(json_res['error'])
+    return json_res, err
+
+def requestProperty2(image_data, feature_list, languageHints=['en']):
+    assert vision_svc is not None, 'vision api credential not set'
+
+    encoded_string = base64.b64encode(image_data)        
+    encoded = encoded_string.decode('ascii')
+    request_dict = [{
+        "image":{
+            'content': encoded
+        },
+        'features': feature_list,
+        'imageContext': {
+            'languageHints': languageHints
+         }
+        }]
+
+    request = vision_svc.images().annotate(body={
+        'requests': request_dict
+    })
+    response = request.execute()
+    return response
+
 class VisionObject(object):
     """
     Basic object created from Vision API's result
