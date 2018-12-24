@@ -284,7 +284,7 @@ def get_quantity(content):
     if '45A' in content.keys():
         temp = content['45A']
         found = False
-        value =  '[W] 貨品數量: Not found in 45A ->' + temp
+        value = None
 
         ### find quantity by pattern
         reg = re.compile('QUANTITY: ?(\d+\.?\d*) *\n', re.IGNORECASE)
@@ -303,11 +303,12 @@ def get_quantity(content):
                 if len(result) > 0:
                     value = result
 
-        if '[W]' in value:
+        if value is None:
             cmLog('[W] 貨品數量: Not found in 45A ->' + temp)
+            value = '[W] 貨品數量: Not found in 45A ->' + temps
     else:
-        cmLog('[W] 數量: Missing 45A')
-        value = '[W] 數量: Missing 45A'
+        cmLog('[W] 貨品數量: Missing 45A')
+        value = '[W] 貨品數量: Missing 45A'
     return value
 
 def get_amount(content):
