@@ -300,7 +300,6 @@ def get_quantity(content):
             for u in units_patterns:
                 reg = re.compile(pattern + u, re.IGNORECASE)
                 result = reg.findall(temp)
-                print(result)
                 if len(result) > 0:
                     value = result[0] + ' ' + u
         if '[W]' in value:
