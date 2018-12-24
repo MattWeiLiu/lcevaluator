@@ -207,3 +207,8 @@ def text2number(content):
         temp = temp.replace(item.upper(), str(idx + 1))
 
     return temp
+
+def removeInvalidChars(content):
+    value = content.replace('\x08', '')
+    value = value.replace('\b', '')
+    return value

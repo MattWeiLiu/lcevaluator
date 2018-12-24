@@ -287,11 +287,11 @@ def get_quantity(content):
         value =  '[W] 貨品數量: Not found in 45A ->' + temp
 
         ### find quantity by pattern
-        reg = re.compile('QUANTITY: ?(.*)\n', re.IGNORECASE)
+        reg = re.compile('QUANTITY: ?(\d+\.?\d*) *\n', re.IGNORECASE)
         result = reg.findall(temp)
         if len(result) > 0:
             found = True
-            value = result[0]
+            value = result
 
         ### find quantity by unit pattern
         if not found:
@@ -301,7 +301,8 @@ def get_quantity(content):
                 reg = re.compile(pattern + u, re.IGNORECASE)
                 result = reg.findall(temp)
                 if len(result) > 0:
-                    value = result[0] + ' ' + u
+                    value = result
+
         if '[W]' in value:
             cmLog('[W] 貨品數量: Not found in 45A ->' + temp)
     else:
@@ -343,7 +344,7 @@ def get_terms(content):
         value for this item
     """
     incoterms = ['CIP', 'DAT', 'DAP', 'DDP', 'CIF', 'EXW', 'FCA', 'CPT', 'FAS', 'FOB', 'CFR']
-
+    
     value = ""
     if '45A' in content.keys():       
         termtext = content['45A']
@@ -357,6 +358,7 @@ def get_terms(content):
                 cmLog('[W] 交易條件: no term are found in 45A: {}'.format(termtext))
                 value = '[W] 交易條件: no term are found in 45A: {}'.format(termtext)
         else:
+            # termtext = utils.removeInvalidChars(termtext)
             splitted = termtext.split(' ')
             inetersects = set(incoterms).intersection(splitted)
             if len(inetersects) == 1:
@@ -1052,6 +1054,7 @@ class CLEvaluator(object):
             else:
                 value += token
         if len(value) > 0:
+            value = utils.removeInvalidChars(value)
             content[key] = value.strip()
     return content
 

@@ -44,6 +44,14 @@ class CLTestCases(object):
       tester = CLTestCases(vis_res_path)
       print('[I] Evaluaing document for {}\n'.format(res_root))
       tester.testEvaluator()
+
+      ###
+      # test trade terms
+      # trade_terms = tester.checklist['checklist']['trade_terms']
+      # print(json.dumps(trade_terms, indent=2, ensure_ascii=False))
+      
+      ###
+      # test shipping docs
       shipping_docs = tester.checklist['checklist']['shipping_docs']
       print(json.dumps(shipping_docs, indent=2, ensure_ascii=False))
 
