@@ -283,18 +283,16 @@ def get_quantity(content):
     value = ""
     if '45A' in content.keys():
         temp = content['45A']
-        found = False
         value = None
 
         ### find quantity by pattern
         reg = re.compile('QUANTITY: ?(\d+\.?\d*) *\n', re.IGNORECASE)
         result = reg.findall(temp)
         if len(result) > 0:
-            found = True
             value = result
 
         ### find quantity by unit pattern
-        if not found:
+        if value is None:
             units_patterns = ['mt[s]?', 'metric tons']
             pattern = '(\d+\.?\d*) *'
             for u in units_patterns:
