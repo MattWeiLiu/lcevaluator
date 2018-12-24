@@ -295,14 +295,14 @@ def get_quantity(content):
 
         ### find quantity by unit pattern
         if not found:
-            units = ['mt', 'mts', 'metric tons']
+            units_patterns = ['mt[s]?', 'metric tons']
             pattern = '(\d+\.?\d*) *'
-            for u in units:
+            for u in units_patterns:
                 reg = re.compile(pattern + u, re.IGNORECASE)
                 result = reg.findall(temp)
+                print(result)
                 if len(result) > 0:
                     value = result[0] + ' ' + u
-
         if '[W]' in value:
             cmLog('[W] 貨品數量: Not found in 45A ->' + temp)
     else:

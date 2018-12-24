@@ -21,3 +21,370 @@
 [2018-12-24 09:12:47,964]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
 [2018-12-24 09:12:47,964]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
 [2018-12-24 09:12:47,964]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 09:58:00,262]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 09:58:01,438]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/469LC1183340002/vision_result.json ...
+[2018-12-24 09:58:01,640]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 09:58:01,923]: INFO    : Auto-identified bank name: citi
+[2018-12-24 09:58:01,934]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 09:58:02,714]: WARNING : Swift code 71D is not in the config file. Content: :71D: (CHARGES)
+ALL BANKING CHARGES OUTSIDE INDIA
+ARE FOR THE ACCOUNT OF THE
+BENEFICIARY.
+[2018-12-24 09:58:02,714]: INFO    : Evaluating letter of credit ...
+[2018-12-24 09:58:02,714]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 09:58:02,715]: WARNING : 交易條件: no term are found in 45A: +1. 80 MT. PVC RESIN, GRADE S-65 AT THE RATE OF USD 915.00 PER
+MT.,
+2. 90 MT. PVC RESIN, GRADE S-65D AT THE RATE OF USD 915.00 PER MT
+AS PER SALES CONTRACT NO.T18B36 DATED 26.11.2018CIF KOLKATA, INDIA ,AS PER INCOTERMS 2010.
+[2018-12-24 09:58:02,715]: WARNING : 交易條件: no term are found in 45A: +1. 80 MT. PVC RESIN, GRADE S-65 AT THE RATE OF USD 915.00 PER
+MT.,
+2. 90 MT. PVC RESIN, GRADE S-65D AT THE RATE OF USD 915.00 PER MT
+AS PER SALES CONTRACT NO.T18B36 DATED 26.11.2018CIF KOLKATA, INDIA ,AS PER INCOTERMS 2010.
+[2018-12-24 09:58:02,715]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 09:58:02,715]: WARNING : 是否即期: Missing 42C
+[2018-12-24 09:58:02,715]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 09:58:02,715]: WARNING : 溢價處理: 90 DAYS FROM BILL OF LADING DATE (目前沒看到過，有待商確)
+[2018-12-24 09:58:02,715]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 09:58:02,715]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 09:58:02,715]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 09:58:02,716]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/469LC1183340002/checklist.json ...
+[2018-12-24 09:58:04,048]: WARNING : Swift code 71D is not in the config file. Content: :71D: (CHARGES)
+ALL BANKING CHARGES OUTSIDE INDIA
+ARE FOR THE ACCOUNT OF THE
+BENEFICIARY.
+[2018-12-24 09:58:04,048]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 09:58:04,048]: WARNING : 交易條件: no term are found in 45A: +1. 80 MT. PVC RESIN, GRADE S-65 AT THE RATE OF USD 915.00 PER
+MT.,
+2. 90 MT. PVC RESIN, GRADE S-65D AT THE RATE OF USD 915.00 PER MT
+AS PER SALES CONTRACT NO.T18B36 DATED 26.11.2018CIF KOLKATA, INDIA ,AS PER INCOTERMS 2010.
+[2018-12-24 09:58:04,048]: WARNING : 交易條件: no term are found in 45A: +1. 80 MT. PVC RESIN, GRADE S-65 AT THE RATE OF USD 915.00 PER
+MT.,
+2. 90 MT. PVC RESIN, GRADE S-65D AT THE RATE OF USD 915.00 PER MT
+AS PER SALES CONTRACT NO.T18B36 DATED 26.11.2018CIF KOLKATA, INDIA ,AS PER INCOTERMS 2010.
+[2018-12-24 09:58:04,048]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 09:58:04,048]: WARNING : 是否即期: Missing 42C
+[2018-12-24 09:58:04,049]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 09:58:04,049]: WARNING : 溢價處理: 90 DAYS FROM BILL OF LADING DATE (目前沒看到過，有待商確)
+[2018-12-24 09:58:04,049]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 09:58:04,049]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 09:58:04,049]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 10:36:52,526]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 10:36:54,348]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/2551FLC0402018/vision_result.json ...
+[2018-12-24 10:36:54,605]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 10:36:54,916]: INFO    : Auto-identified bank name: citi
+[2018-12-24 10:36:54,926]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 10:36:55,661]: INFO    : Evaluating letter of credit ...
+[2018-12-24 10:36:55,661]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 10:36:55,662]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:36:55,662]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:36:55,662]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 10:36:55,662]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 10:36:55,662]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 10:36:55,662]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 10:36:55,662]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 10:36:55,662]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 10:36:55,663]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/2551FLC0402018/checklist.json ...
+[2018-12-24 10:36:57,024]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 10:36:57,025]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:36:57,025]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:36:57,025]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 10:36:57,025]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 10:36:57,025]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 10:36:57,025]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 10:36:57,025]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 10:36:57,025]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 10:37:18,036]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 10:37:18,037]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:37:18,037]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:37:18,037]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 10:37:18,037]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 10:37:18,037]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 10:37:18,037]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 10:37:18,037]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 10:37:18,037]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 10:37:47,503]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 10:37:47,503]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:37:47,504]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:37:47,504]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 10:37:47,504]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 10:37:47,504]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 10:37:47,504]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 10:37:47,504]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 10:37:47,504]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 10:54:14,570]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 10:54:14,571]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:54:14,571]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 10:54:14,571]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 10:54:14,571]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 10:54:14,571]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 10:54:14,571]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 10:54:14,571]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 10:54:14,571]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:01:24,059]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:01:24,059]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:01:24,059]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:01:24,060]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:01:24,060]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:01:24,060]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:01:24,060]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:01:24,060]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:01:24,060]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:01:48,159]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:01:48,159]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:01:48,159]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:01:48,160]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:01:48,160]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:01:48,160]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:01:48,160]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:01:48,160]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:01:48,160]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:02:03,358]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:02:03,359]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:02:03,359]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:02:03,359]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:02:03,359]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:02:03,359]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:02:03,359]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:02:03,359]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:02:03,359]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:02:27,404]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:02:27,405]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:02:27,405]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:02:27,405]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:02:27,405]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:02:27,405]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:02:27,405]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:02:27,405]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:02:27,405]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:02:35,403]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 11:02:37,249]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/2551FLC0402018/vision_result.json ...
+[2018-12-24 11:02:37,472]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 11:02:37,755]: INFO    : Auto-identified bank name: citi
+[2018-12-24 11:02:37,765]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 11:02:38,455]: INFO    : Evaluating letter of credit ...
+[2018-12-24 11:02:38,456]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:02:38,456]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:02:38,456]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:02:38,457]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:02:38,457]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:02:38,457]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:02:38,457]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:02:38,457]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:02:38,457]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:02:38,458]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/2551FLC0402018/checklist.json ...
+[2018-12-24 11:03:20,958]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 11:03:22,752]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/2551FLC0402018/vision_result.json ...
+[2018-12-24 11:03:23,024]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 11:03:23,386]: INFO    : Auto-identified bank name: citi
+[2018-12-24 11:03:23,398]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 11:03:24,103]: INFO    : Evaluating letter of credit ...
+[2018-12-24 11:03:24,103]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:03:24,104]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:03:24,104]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:03:24,104]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:03:24,104]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:03:24,104]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:03:24,104]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:03:24,104]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:03:24,104]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:03:24,105]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/2551FLC0402018/checklist.json ...
+[2018-12-24 11:04:07,612]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 11:04:07,766]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:08,047]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:08,310]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:08,631]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:08,978]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:09,277]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:09,419]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/2551FLC0402018/vision_result.json ...
+[2018-12-24 11:04:09,719]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 11:04:10,001]: INFO    : Auto-identified bank name: citi
+[2018-12-24 11:04:10,010]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 11:04:10,691]: INFO    : Evaluating letter of credit ...
+[2018-12-24 11:04:10,691]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:04:10,692]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:04:10,692]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:04:10,692]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:04:10,692]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:04:10,692]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:04:10,693]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:04:10,693]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:04:10,693]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:04:10,693]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/2551FLC0402018/checklist.json ...
+[2018-12-24 11:04:32,110]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 11:04:32,271]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:32,561]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:32,835]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:33,145]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:33,480]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:33,773]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-24 11:04:33,926]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/2551FLC0402018/vision_result.json ...
+[2018-12-24 11:04:34,203]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 11:04:34,494]: INFO    : Auto-identified bank name: citi
+[2018-12-24 11:04:34,504]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 11:04:35,258]: INFO    : Evaluating letter of credit ...
+[2018-12-24 11:04:35,258]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 11:04:35,259]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:04:35,259]: WARNING : 交易條件: no term are found in 45A: POLYVINYL CHLORIDE RESIN SUSPENSION GRADE PVC RESIN
+QTY-216 MT GRADE S 65DPORT NHAVASHEVA
+OTY-70 MT GRADE B 57 PORT KATTUPALLI
+OTY-32 MT GRADE S 65 PORT KATUPALLI
+QTY-32 MT GRADE B 60 PORT NHAVASHEVA
+QTY-262.5 MT GRADE B 57 PORT PIPAVAV
+INCO TERMS CIF
+[2018-12-24 11:04:35,259]: WARNING : 保險指示: 交易條件有誤 無法判斷
+[2018-12-24 11:04:35,259]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 11:04:35,259]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 11:04:35,259]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 11:04:35,259]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 11:04:35,259]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 11:04:35,260]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/2551FLC0402018/checklist.json ...

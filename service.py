@@ -70,7 +70,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     # . Preprocessing the image for enhancement
     cmLog('[I] Preprocessing image for enhencement ...')
     jpg_path_list = augm.erodeBatchImages(jpg_path_list)
-
+    
     ###  
     # . Sending image to Google Vision API and save the response
     vision_results = retrieveVisionResponse(credential, jpg_path_list, result_root)

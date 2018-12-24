@@ -18,11 +18,15 @@ def erodeBatchImages(src_paths, dst_path=None, grayscaled=True, kernel=(2,2), it
 
 def erodeImage(src_path, dst_path=None, grayscaled=True, kernel=(2,2), iterations = 1):
     assert src_path is not None or not os.path.exists(src_path), '[C] Failed to load image from source: {}'.format(src_path)
-
+    
     if dst_path is None:
         tmp_dir = os.path.dirname(src_path)
         tmp_file = os.path.basename(src_path)
-        dst_path = os.path.join(tmp_dir, tmp_file.split('.')[0]+'_aug.jpg')
+        if not '_aug.jpg' in src_path:
+            dst_path = os.path.join(tmp_dir, tmp_file.split('.')[0]+'_aug.jpg')
+        else:
+            cmLog('[W] augmentated image path already existed will override the existing ')
+            dst_path = src_path
     
     if kernel is None or not isinstance(kernel, (list, tuple)):
         cmLog('[E] Kernel has to be list type, default to (2, 2)')
