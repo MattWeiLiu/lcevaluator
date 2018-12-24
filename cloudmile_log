@@ -1,0 +1,23 @@
+[2018-12-24 09:12:44,155]: INFO    : Preprocessing image for enhencement ...
+[2018-12-24 09:12:45,609]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/1045000820118/vision_result.json ...
+[2018-12-24 09:12:45,798]: INFO    : Preparing and organizing ocr response ...
+[2018-12-24 09:12:46,060]: INFO    : Auto-identified bank name: citi
+[2018-12-24 09:12:46,069]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-24 09:12:46,816]: INFO    : Evaluating letter of credit ...
+[2018-12-24 09:12:46,817]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 09:12:46,820]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-24 09:12:46,820]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 09:12:46,821]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 09:12:46,821]: WARNING : 出口港 : 'ANY TAIWAN MAIN PORT' does not match expectation
+[2018-12-24 09:12:46,821]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 09:12:46,821]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 09:12:46,821]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-24 09:12:46,827]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/1045000820118/checklist.json ...
+[2018-12-24 09:12:47,963]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-24 09:12:47,964]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-24 09:12:47,964]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-24 09:12:47,964]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-24 09:12:47,964]: WARNING : 出口港 : 'ANY TAIWAN MAIN PORT' does not match expectation
+[2018-12-24 09:12:47,964]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-24 09:12:47,964]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-24 09:12:47,964]: WARNING : 指定代理商: (此欄位不需要看？)

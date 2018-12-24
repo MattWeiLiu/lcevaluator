@@ -171,34 +171,24 @@ swift_codes:
     must: False  
 req_docs:
   items:
-    ### 提單
     - name: 'bill_of_lading' 
       keys: ['b/l', 'bill of lading', 'bills of lading']
-    ### 商業發票
     - name: 'commercial_invoice'
       keys: ['commercial invoices', 'commercial invoice']
-    ### 裝箱單
     - name: 'packing_list'
       keys: ['packing list']
-    ### 保險單據
     - name: 'insurance_policy'
       keys: ['insurance policy', 'insurance policies', 'insurance certificate']
-    ### 海關發票
     - name: 'customs_invoice'
       keys: ['customs invoice', 'certified invoice']
-    ### 領事發票
     - name: 'consular_invoice'
       keys: ['consular invoice']
-    ### 產地（商會）證明
     - name: 'certificate_of_origin'
       keys: ['certificate of origin', 'certificate of taiwan origin']
-    ### 檢驗證明
     - name: 'inspection_certificate'
       keys: ['inspection certificate', 'certificate of analysis']
-    ### 押匯單據是否須由進口商貨代理商簽署才能押匯
     - name: 'importer'
       keys: ['importer agent']
-    ### 重量證明
     - name: 'weight_list'
       keys: ['weight list']
   paragraph_patterns: ['\+?\(?\d{1,2} ?[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?']
