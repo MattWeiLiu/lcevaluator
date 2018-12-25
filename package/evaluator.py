@@ -302,8 +302,8 @@ def get_quantity(content):
                     value = result
 
         if value is None:
-            cmLog('[W] 貨品數量: Not found in 45A ->' + temp)
-            value = '[W] 貨品數量: Not found in 45A ->' + temps
+            cmLog('[W] 貨品數量: Not found in 45A -> ' + temp)
+            value = '[W] 貨品數量: Not found in 45A -> ' + temp
     else:
         cmLog('[W] 貨品數量: Missing 45A')
         value = '[W] 貨品數量: Missing 45A'
@@ -645,54 +645,6 @@ def get_nominated_agent(content):
     value = "[W] 指定代理商: (此欄位不需要看？)"
     cmLog("[W] 指定代理商: (此欄位不需要看？)")
     return value
-    
-# def find_org_cop(line):
-#     """
-#     Get # of original and copies 
-#     Parameters
-#     ----------
-#     line: str
-#         line that wish to get the information from
-#     Returns
-#     ----------
-#         result # of originals and copies
-#     """
-#     def find_val_with_patterns(src, pattern_list):
-#         final_res = 0
-#         for pat in pattern_list:
-#             res = re.findall(pat, src, re.IGNORECASE)
-#             if len(res) > 0:
-#                 final_res = int(res[0])
-#                 break 
-#         return final_res
-
-#     org_patts = ['IN (\d+) ORIGINAL', '(\d+) ORIGINAL', 'IN (\d+) PLUS \d+']
-#     cop_patts = ['IN (\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) (?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']    
-#     gen_patts = ['IN (\d+)']
-#     org_res = find_val_with_patterns(line, org_patts)
-#     cop_res = find_val_with_patterns(line, cop_patts)
-#     gen_res = 0
-#     if org_res + cop_res == 0:        
-#         ###
-#         # Check Folds
-#         containsCopTerms = 'NON NEGOTIABLE' in line or 'NON-NEGOTIABLE' in line or 'COPY' in line or 'COPIES' in line
-#         containsOrgTerms = 'ORIGINAL' in line
-#         fold_patts = ['IN (\d+) FOLD']
-#         fold_res = find_val_with_patterns(line, fold_patts)
-#         if containsOrgTerms == containsCopTerms:
-#             org_res = 1
-#             cop_res = fold_res - org_res
-#         elif containsOrgTerms is True and containsCopTerms is False:
-#             org_res = fold_res
-#         else:
-#             gen_res = find_val_with_patterns(line, gen_patts)
-
-#         ### 
-#         # Telex release means at least one copy
-#         if 'TELEX RELEASE' in line and cop_res < 1:
-#             cop_res = 1
-
-#     return org_res, cop_res, gen_res
 
 def replaceFullset(content, key):
     """
