@@ -303,10 +303,10 @@ def get_quantity(content):
 
         if value is None:
             cmLog('[W] 貨品數量: Not found in 45A -> ' + temp)
-            value = '[W] 貨品數量: Not found in 45A -> ' + temp
+            value = ['[W] 貨品數量: Not found in 45A -> ' + temp]
     else:
         cmLog('[W] 貨品數量: Missing 45A')
-        value = '[W] 貨品數量: Missing 45A'
+        value = ['[W] 貨品數量: Missing 45A']
     return value
 
 def get_amount(content):
