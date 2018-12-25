@@ -142,3 +142,170 @@ BENEFICIARY, CIF, NHAVA SHEVA PORT, INDIA. INCOTERMS 2010.
 [2018-12-25 10:40:35,177]: WARNING : 貨品數量: Not found in 45A ->METHLENE CHLORIDE QTY 58.5 KG AT THE RATE USD 730 PER/MT TOTAL
 USD 42705.00 AS PER PROFORMA INVOICE NO A75631 DATED 10TH DEC
 2018 CIF NHAVA SHEVA OF THE BENEFICIARY.
+[2018-12-25 10:43:22,936]: INFO    : Preprocessing image for enhencement ...
+[2018-12-25 10:43:23,074]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-25 10:43:23,306]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-25 10:43:23,536]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-25 10:43:23,769]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-25 10:43:24,014]: WARNING : augmentated image path already existed will override the existing 
+[2018-12-25 10:43:24,121]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/31690NI00017218/vision_result.json ...
+[2018-12-25 10:43:24,381]: INFO    : Preparing and organizing ocr response ...
+[2018-12-25 10:43:24,717]: INFO    : Auto-identified bank name: citi
+[2018-12-25 10:43:24,727]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-25 10:43:25,394]: INFO    : Evaluating letter of credit ...
+[2018-12-25 10:43:25,394]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:43:25,395]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:43:25,395]: WARNING : 貨品名稱: Not found in 45A ->METHLENE CHLORIDE QTY 58.5 KG AT THE RATE USD 730 PER/MT TOTAL USD 42705.00 AS PER PROFORMA INVOICE NO A75631 DATED 10TH DEC 2018 CIF NHAVA SHEVA OF THE BENEFICIARY.
+[2018-12-25 10:43:25,395]: WARNING : 貨品數量: Not found in 45A -> METHLENE CHLORIDE QTY 58.5 KG AT THE RATE USD 730 PER/MT TOTAL
+USD 42705.00 AS PER PROFORMA INVOICE NO A75631 DATED 10TH DEC
+2018 CIF NHAVA SHEVA OF THE BENEFICIARY.
+[2018-12-25 10:43:25,395]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:43:25,395]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:43:25,395]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:43:25,395]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:43:25,395]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:43:25,395]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:43:25,395]: WARNING : Unable to detect paragraph prefix. Read content directly
+[2018-12-25 10:43:25,396]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/31690NI00017218/checklist.json ...
+[2018-12-25 10:43:38,603]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:43:38,603]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:43:38,603]: WARNING : 貨品名稱: Not found in 45A ->METHLENE CHLORIDE QTY 58.5 KG AT THE RATE USD 730 PER/MT TOTAL USD 42705.00 AS PER PROFORMA INVOICE NO A75631 DATED 10TH DEC 2018 CIF NHAVA SHEVA OF THE BENEFICIARY.
+[2018-12-25 10:43:38,604]: WARNING : 貨品數量: Not found in 45A -> METHLENE CHLORIDE QTY 58.5 KG AT THE RATE USD 730 PER/MT TOTAL
+USD 42705.00 AS PER PROFORMA INVOICE NO A75631 DATED 10TH DEC
+2018 CIF NHAVA SHEVA OF THE BENEFICIARY.
+[2018-12-25 10:43:38,604]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:43:38,604]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:43:38,604]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:43:38,604]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:43:38,604]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:43:38,604]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:43:38,604]: WARNING : Unable to detect paragraph prefix. Read content directly
+[2018-12-25 10:53:03,537]: INFO    : Preprocessing image for enhencement ...
+[2018-12-25 10:53:04,125]: INFO    : Reading existed ocr response from ./../../lc_files/20181218_jpg/DCTSE850087CC/vision_result.json ...
+[2018-12-25 10:53:04,125]: INFO    : Sending ocr request to Google Vision API...
+[2018-12-25 10:53:10,099]: INFO    : Saving Google Vision API ocr response to ./../../lc_files/20181218_jpg/DCTSE850087CC/vision_result.json ...
+[2018-12-25 10:53:11,502]: INFO    : Preparing and organizing ocr response ...
+[2018-12-25 10:53:11,800]: INFO    : Auto-identified bank name: citi
+[2018-12-25 10:53:11,809]: INFO    : Extracting Header and Swift codes for bank citi ...
+[2018-12-25 10:53:12,388]: INFO    : Evaluating letter of credit ...
+[2018-12-25 10:53:12,388]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:53:12,389]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:53:12,389]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:53:12,389]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:53:12,389]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:53:12,389]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:53:12,389]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:53:12,389]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:53:12,389]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:53:12,389]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:53:12,390]: INFO    : Saving evaluation result in ./../../lc_files/20181218_jpg/DCTSE850087CC/checklist.json ...
+[2018-12-25 10:53:20,830]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:53:20,830]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:53:20,830]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:53:20,830]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:53:20,830]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:53:20,830]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:53:20,830]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:53:20,831]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:53:20,831]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:53:20,831]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:54:41,573]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:54:41,573]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:54:41,573]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:54:41,574]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:54:41,574]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:54:41,574]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:54:41,574]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:54:41,574]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:54:41,574]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:54:41,574]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:55:00,050]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:55:00,051]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:55:00,051]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:55:00,051]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:55:00,051]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:55:00,051]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:55:00,051]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:55:00,051]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:55:00,051]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:55:00,051]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:55:48,487]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:55:48,488]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:55:48,488]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:55:48,488]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:55:48,488]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:55:48,488]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:55:48,488]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:55:48,488]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:55:48,488]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:55:48,488]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:57:35,576]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:57:35,576]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:57:35,576]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:57:35,576]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:57:35,576]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:57:35,576]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:57:35,576]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:57:35,576]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:57:35,576]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:57:35,576]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:57:57,587]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:57:57,588]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:57:57,588]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:57:57,588]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:57:57,588]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:57:57,588]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:57:57,588]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:57:57,588]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:57:57,588]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:57:57,588]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:58:19,660]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:58:19,660]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:58:19,660]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:58:19,661]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:58:19,661]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:58:19,661]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:58:19,661]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:58:19,661]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:58:19,661]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:58:19,661]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:58:30,050]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:58:30,050]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:58:30,050]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:58:30,050]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:58:30,050]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:58:30,050]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:58:30,051]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:58:30,051]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:58:30,051]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:58:30,051]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:58:41,829]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:58:41,829]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:58:41,829]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:58:41,829]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:58:41,829]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:58:41,829]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:58:41,829]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:58:41,830]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:58:41,830]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:58:41,830]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 10:59:13,192]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 10:59:13,192]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 10:59:13,192]: WARNING : 應要求 預設 21 天
+[2018-12-25 10:59:13,193]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 10:59:13,193]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 10:59:13,193]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 10:59:13,193]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 10:59:13,193]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 10:59:13,193]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 10:59:13,193]: WARNING : 指定代理商: (此欄位不需要看？)
+[2018-12-25 11:00:23,730]: WARNING : 押匯期限: 不重要，應該與信用狀有效期限相同
+[2018-12-25 11:00:23,730]: WARNING : 地點『.BENEFICIARY'S COUNTRY/REGION』不是台灣!
+[2018-12-25 11:00:23,730]: WARNING : 應要求 預設 21 天
+[2018-12-25 11:00:23,730]: WARNING : 保險指示: CIF 需要再從 Document Req 中確認一致性
+[2018-12-25 11:00:23,730]: WARNING : 利息負擔: Missing 39C 預設『客戶負擔』
+[2018-12-25 11:00:23,730]: WARNING : 溢價處理: Missing 42P (目前沒看到過，有待商確)
+[2018-12-25 11:00:23,730]: WARNING : 出口港 : 'TAIWANESE PORT, TAIWAN' does not match expectation
+[2018-12-25 11:00:23,730]: WARNING : 指定船公司: 在 47A 中 要在與船公司資料庫比對
+[2018-12-25 11:00:23,731]: WARNING : 裝船方式: unable to find movement info in 45A (此欄位不需要看？)
+[2018-12-25 11:00:23,731]: WARNING : 指定代理商: (此欄位不需要看？)

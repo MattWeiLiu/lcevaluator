@@ -660,11 +660,11 @@ def replaceFullset(content, key):
         replaced text
     """
     def getQuentity(line):
-        quantity_pat = '\((\d)/(\d)\)'
+        quantity_pat = '\(?(\d)/(\d)\)?'
         res = re.findall(quantity_pat, content, re.IGNORECASE)
         if len(res) > 0:
             res = res[0]
-            return int(res[0]), int(res[1])
+            return int(res[0]), int(res[1]) - int(res[0])
         else:
             default = 3
             if key == 'insurance_policy':
@@ -674,7 +674,7 @@ def replaceFullset(content, key):
             return default, 0
 
     value = content
-    text = ['full set', 'complete set']
+    text = ['full set', 'complete set', 'set original']
     for idx, item in enumerate(text):
         if item.upper() in content:
             org_cnt, cop_cnt = getQuentity(content)
