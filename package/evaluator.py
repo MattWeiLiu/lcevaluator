@@ -660,8 +660,12 @@ def replaceFullset(content, key):
         replaced text
     """
     def getQuentity(line):
-        quantity_pat = '\(?(\d)/(\d)\)?'
-        res = re.findall(quantity_pat, content, re.IGNORECASE)
+        quantity_pats = ['\((\d)/(\d)\)', '(\d)/(\d) ?SET ORIGINAL']
+        res = None
+        for pat in quantity_pats:
+            res = re.findall(pat, content, re.IGNORECASE)
+            if len(res) > 0:
+                break
         if len(res) > 0:
             res = res[0]
             return int(res[0]), int(res[1]) - int(res[0])
