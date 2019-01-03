@@ -191,7 +191,7 @@ req_docs:
       keys: ['importer agent']
     - name: 'weight_list'
       keys: ['weight list']
-  paragraph_patterns: ['\+?\(?\d{1,2} ?[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?']
+  paragraph_patterns: ['\+?\(?\d{1,2} ?[\.\) ] ?', '[a-zA-Z][\. ]', '[\+] ?', '\d{1,2} ?\/ ?']
   quantity_patterns:
     original: ['IN ?(\d+) ?ORIGINAL', '(\d+) ?ORIGINAL', 'IN ?(\d+) ?PLUS ?\d+']
     copy: ['IN ?(\d+) ?(?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) ?(?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']

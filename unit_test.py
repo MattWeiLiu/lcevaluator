@@ -47,9 +47,9 @@ class CLTestCases(object):
 
       ###
       # test trade terms
-      # trade_terms = tester.checklist['checklist']['trade_terms']
-      # print(json.dumps(trade_terms, indent=2, ensure_ascii=False))
-      
+      trade_terms = tester.checklist['checklist']['trade_terms']
+      print(json.dumps(trade_terms, indent=2, ensure_ascii=False))
+
       ###
       # test shipping docs
       shipping_docs = tester.checklist['checklist']['shipping_docs']

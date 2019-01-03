@@ -249,20 +249,23 @@ def get_descrption(content, productnames):
             temp = content['45B']
         temp = temp.replace('\n', ' ')
         found = False
-        value =  '[W] 貨品名稱: Not found in 45A ->' + temp
+        # value =  '[W] 貨品名稱: Not found in 45A ->' + temp
+        value = None
+
         ### find name by pattern
         reg = re.compile('GOODS DESCRIPTION: ?(.*)\n', re.IGNORECASE)
         result = reg.findall(temp)
         if len(result) > 0:
             found = True
             value = result[0]
+
         ### find name by vlookup
         if not found:
             for item in productnames:
-                if item in value:
+                if item in temp:
                     value = item
                     break
-        if '[W]' in value:
+        if value is None:
             cmLog('[W] 貨品名稱: Not found in 45A ->' + temp)
     else:
         cmLog('[W] 貨品名稱: Missing 45A')
@@ -286,8 +289,9 @@ def get_quantity(content):
         value = None
 
         ### find quantity by pattern
-        reg = re.compile('QUANTITY: ?(\d+\.?\d*) *\n', re.IGNORECASE)
+        reg = re.compile('QUANTITY: ?(\d+\.?\d*) *\n?', re.IGNORECASE)
         result = reg.findall(temp)
+        
         if len(result) > 0:
             value = result
 
@@ -344,7 +348,7 @@ def get_terms(content):
     """
     incoterms = ['CIP', 'DAT', 'DAP', 'DDP', 'CIF', 'EXW', 'FCA', 'CPT', 'FAS', 'FOB', 'CFR']
     
-    value = ""
+    value = None
     if '45A' in content.keys():       
         termtext = content['45A']
         if 'INCOTERMS' in termtext:
@@ -353,10 +357,7 @@ def get_terms(content):
                 if term in token:
                     value = term
                     break
-            if len(value) <= 0:
-                cmLog('[W] 交易條件: no term are found in 45A: {}'.format(termtext))
-                value = '[W] 交易條件: no term are found in 45A: {}'.format(termtext)
-        else:
+        if value is None:
             # termtext = utils.removeInvalidChars(termtext)
             splitted = termtext.split(' ')
             inetersects = set(incoterms).intersection(splitted)
@@ -710,7 +711,7 @@ def replaceDuplicates(content):
             value = value.replace(target.upper(), '{} ORIGINALS'.format(idx + 1))
     return value
 
-def reformatInParagraphs(content, target_code, pats):
+def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCELLANEOUS', 'DOCUMENTS REQUIRED']):
     """
     Reformat given content into paragrahs (newline at the end of each paragraph, 
     default is at each line but each line is not neccessary a sentance). 
@@ -737,8 +738,9 @@ def reformatInParagraphs(content, target_code, pats):
     # Split into paragraps with special patterns 
     else:
         listOfLines = content.split('\n')
-        if 'MISCELLANEOUS' in listOfLines[0]:
-            del listOfLines[0]
+        for first_line in ignored_first_line:
+            if first_line in listOfLines[0]:
+                del listOfLines[0]
         target_pats = listOfLines[0].startswith
         temp_text = ''
         target_pat = None
@@ -1053,6 +1055,7 @@ class CLEvaluator(object):
         return '[E] Unable to get product infomation'
 
     swift_reg = config['swift_content']
+
     ocr_value = self.simplifiedContent(swift_reg)
 
     checkLists = {'duration': {}, 'main_part': {}, "trade_terms":{}, 'negociation_amt':{}, 'shipping_argmt':{}, 'shipping_docs':{}}
