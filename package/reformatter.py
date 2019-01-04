@@ -404,7 +404,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
     if len(objectList) > 0:
       line_list, bound_list = visionapi.VisionObject.getLinesAndBoundingbox(objectList)
       line_list, bound_list = self.orderByLines(line_list, bound_list, line_height / 2)
-
     last_found = initial_key
     result = {}
     ### Extract swift code infomation from line list

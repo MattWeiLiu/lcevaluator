@@ -249,7 +249,6 @@ def get_descrption(content, productnames):
             temp = content['45B']
         temp = temp.replace('\n', ' ')
         found = False
-        # value =  '[W] 貨品名稱: Not found in 45A ->' + temp
         value = None
 
         ### find name by pattern
@@ -284,8 +283,11 @@ def get_quantity(content):
         value for this item
     """
     value = ""
-    if '45A' in content.keys():
-        temp = content['45A']
+    if '45A' in content.keys() or '45B' in content.keys():
+        if '45A' in content.keys(): 
+            temp = content['45A']
+        else:
+            temp = content['45B']
         value = None
 
         ### find quantity by pattern
@@ -349,8 +351,11 @@ def get_terms(content):
     incoterms = ['CIP', 'DAT', 'DAP', 'DDP', 'CIF', 'EXW', 'FCA', 'CPT', 'FAS', 'FOB', 'CFR']
     
     value = None
-    if '45A' in content.keys():       
-        termtext = content['45A']
+    if '45A' in content.keys() or '45B' in content.keys():
+        if '45A' in content.keys(): 
+            termtext = content['45A']
+        else:
+            termtext = content['45B']
         if 'INCOTERMS' in termtext:
             token = termtext.split('INCOTERMS')[1]
             for term in incoterms:
@@ -437,7 +442,7 @@ def get_nominated_bank(content):
 
 def get_at_sight(content):
     """
-    Get at sight descrption (42C). 
+    Get at sight descrption (42C or 42P). 
     Parameters
     ----------
     content: dict
@@ -447,8 +452,12 @@ def get_at_sight(content):
         value for this item
     """
     value = ""
-    if '42C' in content.keys():
-        value = content['42C']
+    if '42C' in content.keys() or '42P' in content.keys():
+        if '42C' in content.keys():
+            value = content['42C']
+        else:
+            value = content['42P']
+
         temp = re.findall('at sight', value, re.IGNORECASE)
         if len(temp) > 0:
             value = 'AT SIGHT'
@@ -711,6 +720,25 @@ def replaceDuplicates(content):
             value = value.replace(target.upper(), '{} ORIGINALS'.format(idx + 1))
     return value
 
+
+def replaceSpecialCase(content):
+    """
+    Replace special cases with numeric values to simply the evaluation of text. 
+    Parameters
+    ----------
+    content: str
+        text that wish to be replaced
+    Returns
+    ----------
+        replaced text
+    """
+    ###
+    # when Original and copy are specified without actual number treat it 
+    # as 1 for each
+    specials = '(ORIGINAL PLUS COPY)'
+    value = content.replace(specials, '1 ORIGINAL PLUS 1 COPY')
+    return value
+
 def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCELLANEOUS', 'DOCUMENTS REQUIRED']):
     """
     Reformat given content into paragrahs (newline at the end of each paragraph, 
@@ -726,14 +754,14 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
         a list of paragraphs
     """
     ### check if content can be groupped in paragraphs
-    matched = re.findall('\n\n', content)
     paragraphs = None 
 
     ###
     # Split into paragraphs with double newline
+    matched = re.findall('\n\n', content)
     if matched is not None and len(matched) > 3:
         tmp_para = re.compile("\n\n").split(content)
-        paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para])
+        paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para])        
     ###
     # Split into paragraps with special patterns 
     else:
@@ -742,6 +770,7 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
             if first_line in listOfLines[0]:
                 del listOfLines[0]
         target_pats = listOfLines[0].startswith
+        
         temp_text = ''
         target_pat = None
         for idx, pat in enumerate(pats):
@@ -811,6 +840,7 @@ def detect_quantity_with_patterns(line, org_pats, cop_pats, fold_pats):
     fold_res = find_val_with_patterns(line, fold_pats)
     if fold_res > 0:
         org_res, cop_res = breakdown_fold(line, fold_res)
+
     return org_res, cop_res
 
 
@@ -890,8 +920,9 @@ def get_shipping_docs(content, config):
                 target_line = utils.text2number(candidate_line)
                 target_line = replaceFullset(target_line, cur_key_name)
                 target_line = replaceDuplicates(target_line)
+                target_line = replaceSpecialCase(target_line)
                 org_res, cop_res = detect_quantity_with_patterns(target_line, quantity_pat['original'], quantity_pat['copy'], quantity_pat['fold'])
-                
+    
                 ###
                 # if original and copies are both zero but keyword is catched, then it 
                 # is assume to have at least one original
