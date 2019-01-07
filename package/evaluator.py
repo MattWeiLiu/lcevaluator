@@ -757,10 +757,10 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
     paragraphs = None 
     ### 
     # Remove + if exists in every line. 
-    listOfLines = content.split('\n')
+    tmp_list = content.split('\n')
     tmp_content = ""
     exists = True
-    for l in listOfLines:
+    for l in tmp_list:
         if len(l) > 1:
             exists &= l.startswith('+')
             tmp_content += l[1:] + '\n'
@@ -771,8 +771,12 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
     # Split into paragraphs with double newline
     matched = re.findall('\n\n', content)
     if matched is not None and len(matched) > 3:
-        tmp_para = re.compile("\n\n").split(content)
-        paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para])        
+        tmp_para = re.compile('(?:\n\+\n|\n\n)').split(content)
+        paragraphs = ''
+        for s in tmp_para:
+            paragraphs += re.sub('\n\+|\n',' ', s) + '\n'
+            # paragraphs += s.replace('\n', ' ') + '\n' 
+        # paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para]) 
     ###
     # Split into paragraps with special patterns 
     else:
