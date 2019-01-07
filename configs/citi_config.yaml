@@ -21,8 +21,9 @@ header:
     line_height: 30
     readby: byline
     item_list:
+      # use the advising number at the end of first page
       - label: 'OUR REF'
-        field: 'advising_no_of_bank'
+        field: 'advising_no_of_bank' 
       - label: 'LETTER OF CREDIT NO'
         field: 'lc_no'
       - label: 'OPENED BY'
@@ -33,6 +34,9 @@ header:
         field: 'amount'
       - label: 'EXPIRY DATE'
         field: 'expiry_date'
+  - label: OUR REF
+    field: advising_no_of_bank
+    boundingbox: [110,2105,565,2160]
 main_body:
   - label: Page 0
     field: page_0

@@ -755,7 +755,18 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
     """
     ### check if content can be groupped in paragraphs
     paragraphs = None 
-
+    ### 
+    # Remove + if exists in every line. 
+    listOfLines = content.split('\n')
+    tmp_content = ""
+    exists = True
+    for l in listOfLines:
+        if len(l) > 1:
+            exists &= l.startswith('+')
+            tmp_content += l[1:] + '\n'
+    if exists:
+        content = tmp_content
+    
     ###
     # Split into paragraphs with double newline
     matched = re.findall('\n\n', content)
@@ -769,8 +780,6 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
         for first_line in ignored_first_line:
             if first_line in listOfLines[0]:
                 del listOfLines[0]
-        target_pats = listOfLines[0].startswith
-        
         temp_text = ''
         target_pat = None
         for idx, pat in enumerate(pats):
