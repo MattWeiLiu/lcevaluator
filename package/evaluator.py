@@ -289,9 +289,10 @@ def get_quantity(content):
         else:
             temp = content['45B']
         value = None
+        numbers_pat = '(\d+\.?\d*)'
 
         ### find quantity by pattern
-        reg = re.compile('QUANTITY: ?(\d+\.?\d*) *\n?', re.IGNORECASE)
+        reg = re.compile('QUANTITY: ?{} *\n?'.format(numbers_pat), re.IGNORECASE)
         result = reg.findall(temp)
         
         if len(result) > 0:
@@ -299,8 +300,8 @@ def get_quantity(content):
 
         ### find quantity by unit pattern
         if value is None:
-            units_patterns = ['mt[s]?', 'metric tons']
-            pattern = '(\d+\.?\d*) *'
+            units_patterns = ['mt[s]? ?\(?.*\)?', 'metric tons']
+            pattern = '{} *'.format(numbers_pat)
             for u in units_patterns:
                 reg = re.compile(pattern + u, re.IGNORECASE)
                 result = reg.findall(temp)
