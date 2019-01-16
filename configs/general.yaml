@@ -186,7 +186,7 @@ req_docs:
     - name: 'certificate_of_origin'
       keys: ['certificate of origin', 'certificate of taiwan origin']
     - name: 'inspection_certificate'
-      keys: ['inspection certificate', 'certificate of analysis']
+      keys: ['inspection certificate', 'certificate of analysis', 'certificate of quality']
     - name: 'importer'
       keys: ['importer agent']
     - name: 'weight_list'

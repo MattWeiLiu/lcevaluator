@@ -289,7 +289,7 @@ def get_quantity(content):
         else:
             temp = content['45B']
         value = None
-        numbers_pat = '(\d+\.?\d*)'
+        numbers_pat = '(\d+[\.,]?\d{0,3}?[\.,]?\d*)'
 
         ### find quantity by pattern
         reg = re.compile('QUANTITY: ?{} *\n?'.format(numbers_pat), re.IGNORECASE)
