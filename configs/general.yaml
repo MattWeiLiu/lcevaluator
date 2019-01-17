@@ -1,7 +1,10 @@
 bank_titles:
+  # - name: citi
+  #   boundingbox: [940,570,1515,790]
+  #   text: CITI
   - name: citi
-    boundingbox: [940,570,1515,790]
-    text: CITI
+    boundingbox: [41,114,310,211]
+    text: ORIGINAL
   - name: huanan
     boundingbox: [406,235,1325,295]
     text: HUA NAN
@@ -191,7 +194,7 @@ req_docs:
       keys: ['importer agent']
     - name: 'weight_list'
       keys: ['weight list']
-  paragraph_patterns: ['\+?\(?\d{1,2} ?[\.\) ,] ?', '[a-zA-Z][\. ]', '[\+] ?', '\d{1,2} ?\/ ?']
+  paragraph_patterns: ['\+?\(?\d{1,2} ?[\.\) ,] ?', '[a-zA-Z][\. ,]', '[\+] ?', '\d{1,2} ?\/ ?']
   quantity_patterns:
     original: ['IN ?(\d+) ?ORIGINAL', '(\d+) ?ORIGINAL', 'IN ?(\d+) ?PLUS ?\d+']
     copy: ['IN ?(\d+) ?(?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)','(\d+) ?(?:NON NEGOTIABLE|NON-NEGOTIABLE|COPY|COPIES)']

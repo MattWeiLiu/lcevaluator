@@ -72,26 +72,6 @@ def groupbyLines(dataframe, threshold = 15):
         line_list.append([texts, bounds])
     return line_list
 
-# def groupByLines(text_list, bound_list, threshold = 15):
-#     line_list = []
-#     line_bounds = []
-#     tmp_t = ''
-#     tmp_b = []
-#     for idx, text in enumerate(text_list):
-#       tmp_t += text
-#       tmp_b.append(bound_list[idx])
-
-#       if '\n' in text:
-#         line_list.append(tmp_t)
-#         line_bounds.append(utils.fuseBoundingBox(tmp_b))
-#         tmp_t = ''
-#         tmp_b = []
-
-#     newdf = pd.DataFrame(line_bounds, columns=['xs', 'ys', 'xe', 'ye'])
-#     newdf['text'] = line_list
-#     newdf = newdf.sort_values(['ys', 'xs'], ascending=[True, True])
-    
-
 def mergeLinesWithFields(line_list, field_list):
     """
     Merge lines based on given fields (read from config file)

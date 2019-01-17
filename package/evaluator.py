@@ -754,10 +754,26 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
     ----------
         a list of paragraphs
     """
+
+
+    def findPrefixPattern(line_list, pat_list):
+        idx_list = [0] * len(pat_list)
+        for line in line_list:
+            for idx, pat in enumerate(pat_list):
+                matched = re.match(pat, line)
+                if matched and matched.start() == 0:
+                    idx_list[idx] += 1
+        if sum(idx_list) == 0:
+            return None
+        else:
+            maximum = max(idx_list)
+            return pat_list[idx_list.index(maximum)]
+                    
     ### check if content can be groupped in paragraphs
     paragraphs = None 
+    
     ### 
-    # Remove + if exists in every line. 
+    # Remove + if exists in every line.
     tmp_list = content.split('\n')
     tmp_content = ""
     exists = True
@@ -786,12 +802,13 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
             if first_line in listOfLines[0]:
                 del listOfLines[0]
         temp_text = ''
-        target_pat = None
-        for idx, pat in enumerate(pats):
-            matched = re.match(pats[idx], listOfLines[0])
-            if matched and matched.start() == 0:
-                target_pat = pat
-                break
+        # target_pat = None
+        # for idx, pat in enumerate(pats):
+        #     matched = re.match(pats[idx], listOfLines[0])
+        #     if matched and matched.start() == 0:
+        #         target_pat = pat
+        #         break
+        target_pat = findPrefixPattern(listOfLines, pats)
         if target_pat is None:
             cmLog('[W] Unable to detect paragraph prefix. Read content directly')
             paragraphs = content
