@@ -430,4 +430,3 @@ class GeneralCLFormatter(CLFormatterAbstract):
       text = self.swifts_info['20']['text']
       plitted = re.compile(swift_reg).split(text)
       self.header_info['lc_no']['text'] = plitted
-
