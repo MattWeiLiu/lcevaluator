@@ -1,4 +1,4 @@
-import io, os, json, base64, pathlib, re, cv2
+import io, os, json, base64, pathlib, re, cv2, math
 from package.logger import cmLog
 import numpy as np
 from PIL import Image
@@ -44,6 +44,7 @@ def augmentBatchImages(src_paths, dst_paths=None, grayscaled=True, kernel=(2,2),
 
             tmp_img = img
             # tmp_img = skrewImage(tmp_img)
+            tmp_img = denoiseImage(tmp_img)
             tmp_img = erodeImage(tmp_img, kernel)
             # tmp_img = cv2.bitwise_not(tmp_img) 
             # tmp_img = morphologyImage(tmp_img)
@@ -155,3 +156,30 @@ def morphologyImage(image, morph_type=cv2.MORPH_CLOSE, kernel=(2,2)):
     augmented = image
     augmented = cv2.morphologyEx(augmented, morph_type, kernel)
     return augmented
+
+def denoiseImage(image):
+    small = cv2.pyrDown(image)
+
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+    grad = cv2.morphologyEx(small, cv2.MORPH_GRADIENT, kernel)
+
+    _, bw = cv2.threshold(grad, 0.0, 255.0, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (9, 1))
+    connected = cv2.morphologyEx(bw, cv2.MORPH_CLOSE, kernel)
+    # using RETR_EXTERNAL instead of RETR_CCOMP
+    im2, contours, hierarchy = cv2.findContours(connected.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
+    mask = np.zeros(bw.shape, dtype=np.uint8)
+    for idx in range(len(contours)):
+        x, y, w, h = cv2.boundingRect(contours[idx])
+        mask[y:y+h, x:x+w] = 0
+        if w > 4 and h > 4:
+            cv2.rectangle(mask, (x, y), (x+w-1, y+h-1), (255, 255, 255), -1)
+
+    masked = image
+    mask = cv2.pyrUp(mask, dstsize=(masked.shape[1], masked.shape[0]))
+    masked = cv2.bitwise_not(masked)
+    masked = cv2.bitwise_and(masked, mask)
+    masked = cv2.bitwise_not(masked)
+    return masked

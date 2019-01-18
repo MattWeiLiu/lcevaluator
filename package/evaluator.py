@@ -891,7 +891,7 @@ def get_shipping_docs(content, config):
     req_items = req_docs['items']
     paragraph_pat = req_docs['paragraph_patterns']
     quantity_pat = req_docs['quantity_patterns']
-    warn_str = ''   
+    warn_str = ''
 
     ###
     # If 46A or 46B not exists in the swift code then return with empty response
