@@ -41,5 +41,5 @@ main_body:
     field: page_n
     index: n
     boundingbox: [10,450,1630,1960]
-swift_regex: ' ?(\d{2}[A-Z]?) ?:'
-swift_content: ' ?\d{2}[A-Z]? ?: ?.*\n'
+swift_regex: ' ?(\d{2} ?[A-Z]?) ?:'
+swift_content: ' ?\d{2} ?[A-Z]? ?: ?.*\n'

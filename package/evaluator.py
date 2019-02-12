@@ -58,6 +58,8 @@ def get_expiry_date(content):
     key = '31D'
     if key in content.keys():
         result = content[key]
+        ### Some cases contains spaces in between numbers, so remove it. 
+        result = result.replace(' ', '')
         datetime = re.findall('\d+', result)
         if len(datetime) > 0:
             value = datetime[0]
@@ -689,16 +691,27 @@ def replaceFullset(content, key):
             return default, 0
 
     value = content
-    text = ['full set', 'complete set', 'set original']
-    for idx, item in enumerate(text):
-        if item.upper() in content:
-            org_cnt, cop_cnt = getQuentity(content)
-            if cop_cnt > 0:                
-                replacement = '{} original plus {} copies'.format(org_cnt, cop_cnt)
-            else:
-                replacement = '{} original'.format(org_cnt)
-            value = re.sub(item.upper(), replacement.upper(), content, re.IGNORECASE)
-            break
+    
+    tmp_pat = '(\d NEGOTIABLE AND NON-NEGOTIABLE COPIES|\d NEGOTIABLE AND NON-NEGOTIABLE COPY)'
+    founds = re.findall(tmp_pat, content, re.IGNORECASE)
+    if len(founds) > 0:
+        quants = re.findall('\d', founds[0], re.IGNORECASE)
+        if len(quants) == 1:
+            replacement = '{} original plus {} copies'.format(quants[0], quants[0])
+        else:
+            replacement = '{} original plus {} copies'.format(quants[0], quants[1])
+        value = re.sub(founds[0], replacement.upper(), content, re.IGNORECASE)
+    else:
+        text = ['full set', 'complete set', 'set original']
+        for idx, item in enumerate(text):
+            if item.upper() in content:
+                org_cnt, cop_cnt = getQuentity(content)
+                if cop_cnt > 0:                
+                    replacement = '{} original plus {} copies'.format(org_cnt, cop_cnt)
+                else:
+                    replacement = '{} original'.format(org_cnt)
+                value = re.sub(item.upper(), replacement.upper(), content, re.IGNORECASE)
+                break
     return value
 
 def replaceDuplicates(content):
@@ -736,8 +749,10 @@ def replaceSpecialCase(content):
     ###
     # when Original and copy are specified without actual number treat it 
     # as 1 for each
-    specials = '(ORIGINAL PLUS COPY)'
-    value = content.replace(specials, '1 ORIGINAL PLUS 1 COPY')
+    specials = ['(ORIGINAL PLUS COPY)', '(IN ORIGINAL PLUS 1 COPY)']
+    value = content
+    for case in specials:
+        value = re.sub(case, '1 ORIGINAL PLUS 1 COPY', value, re.IGNORECASE)
     return value
 
 def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCELLANEOUS', 'DOCUMENTS REQUIRED']):
@@ -953,7 +968,7 @@ def get_shipping_docs(content, config):
                 target_line = replaceDuplicates(target_line)
                 target_line = replaceSpecialCase(target_line)
                 org_res, cop_res = detect_quantity_with_patterns(target_line, quantity_pat['original'], quantity_pat['copy'], quantity_pat['fold'])
-    
+                
                 ###
                 # if original and copies are both zero but keyword is catched, then it 
                 # is assume to have at least one original

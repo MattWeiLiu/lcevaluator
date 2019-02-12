@@ -45,7 +45,7 @@ def augmentBatchImages(src_paths, dst_paths=None, grayscaled=True, kernel=(2,2),
             tmp_img = img
             # tmp_img = skrewImage(tmp_img)
             tmp_img = denoiseImage(tmp_img)
-            tmp_img = erodeImage(tmp_img, kernel)
+            tmp_img = erodeImage(tmp_img, kernel, iterations)
             # tmp_img = cv2.bitwise_not(tmp_img) 
             # tmp_img = morphologyImage(tmp_img)
             # tmp_img = thresholdImage(tmp_img, 60, 255) 
