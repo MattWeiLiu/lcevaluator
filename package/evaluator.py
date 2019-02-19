@@ -725,7 +725,9 @@ def replaceDuplicates(content):
     ----------
         replaced text
     """
-    text_pats = ['single', 'du[a-z]*ate', 'trip[a-z]*ate', 'quad[a-z]*ate', ]
+    text_pats = ['single', 'du[a-z]*ate', 'trip[a-z]*ate', 'quad[a-z]*ate', 
+               'quin[a-z]*ate', 'sext[a-z]*ate', 'sept[a-z]*ate', 'oct[a-z]*ate', 
+               'non[a-z]*ate', 'dec[a-z]*ate']
     value = content
     for idx, item in enumerate(text_pats):
         matched = re.findall(item, content, re.IGNORECASE)
@@ -772,6 +774,7 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
 
 
     def findPrefixPattern(line_list, pat_list):
+        print(pat_list)
         idx_list = [0] * len(pat_list)
         for line in line_list:
             for idx, pat in enumerate(pat_list):
@@ -807,8 +810,6 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
         paragraphs = ''
         for s in tmp_para:
             paragraphs += re.sub('\n\+|\n',' ', s) + '\n'
-            # paragraphs += s.replace('\n', ' ') + '\n' 
-        # paragraphs = '\n'.join([s.replace('\n', '') for s in tmp_para]) 
     ###
     # Split into paragraps with special patterns 
     else:
@@ -817,12 +818,6 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
             if first_line in listOfLines[0]:
                 del listOfLines[0]
         temp_text = ''
-        # target_pat = None
-        # for idx, pat in enumerate(pats):
-        #     matched = re.match(pats[idx], listOfLines[0])
-        #     if matched and matched.start() == 0:
-        #         target_pat = pat
-        #         break
         target_pat = findPrefixPattern(listOfLines, pats)
         if target_pat is None:
             cmLog('[W] Unable to detect paragraph prefix. Read content directly')

@@ -35,7 +35,6 @@ def retrieveVisionResponse(credential, jpg_paths, result_root=None):
         cmLog('[I] Reading existed ocr response from {} ...'.format(response_path))
         if os.path.exists(response_path):
             vision_results = utils.loadFileIfExisted(response_path)
-
     if vision_results is None:
         cmLog('[I] Sending ocr request to Google Vision API...')
         vision_results = requestOCR(credential, jpg_paths)
@@ -62,6 +61,8 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
         utils.createDirIfNotExist(result_root)
 
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
+    print(result_root)
+
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
