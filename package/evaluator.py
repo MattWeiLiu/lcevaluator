@@ -673,7 +673,7 @@ def replaceFullset(content, key):
         replaced text
     """
     def getQuentity(line):
-        quantity_pats = ['\((\d)/(\d)\)', '(\d)/(\d) ?SET ORIGINAL']
+        quantity_pats = ['\((\d)/(\d)\)', '(\d)/(\d) ?SET ORIGINAL', '(\d)/(\d) ?SET']
         res = None
         for pat in quantity_pats:
             res = re.findall(pat, content, re.IGNORECASE)
@@ -702,15 +702,15 @@ def replaceFullset(content, key):
             replacement = '{} original plus {} copies'.format(quants[0], quants[1])
         value = re.sub(founds[0], replacement.upper(), content, re.IGNORECASE)
     else:
-        text = ['full set', 'complete set', 'set original']
+        text = ['FULL SET', 'COMPLETE SET', 'SET ORIGINAL', '\d/\d SET OF', 'ALL THE ORIGINAL']
         for idx, item in enumerate(text):
-            if item.upper() in content:
+            if re.search(item, content):
                 org_cnt, cop_cnt = getQuentity(content)
                 if cop_cnt > 0:                
                     replacement = '{} original plus {} copies'.format(org_cnt, cop_cnt)
                 else:
                     replacement = '{} original'.format(org_cnt)
-                value = re.sub(item.upper(), replacement.upper(), content, re.IGNORECASE)
+                value = re.sub(item, replacement.upper(), content, re.IGNORECASE)
                 break
     return value
 
@@ -774,7 +774,6 @@ def reformatInParagraphs(content, target_code, pats, ignored_first_line=['MISCEL
 
 
     def findPrefixPattern(line_list, pat_list):
-        print(pat_list)
         idx_list = [0] * len(pat_list)
         for line in line_list:
             for idx, pat in enumerate(pat_list):
