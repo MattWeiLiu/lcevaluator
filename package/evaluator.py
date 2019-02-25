@@ -702,7 +702,7 @@ def replaceFullset(content, key):
             replacement = '{} original plus {} copies'.format(quants[0], quants[1])
         value = re.sub(founds[0], replacement.upper(), content, re.IGNORECASE)
     else:
-        text = ['FULL SET', 'COMPLETE SET', 'SET ORIGINAL', '\d/\d SET OF', 'ALL THE ORIGINAL']
+        text = ['FULL SET', 'COMPLETE SET', 'SET ORIGINAL', '\d/\d SET OF','\d/\d OF', '\d/\d CLEAN', 'ALL THE ORIGINAL']
         for idx, item in enumerate(text):
             if re.search(item, content):
                 org_cnt, cop_cnt = getQuentity(content)
@@ -954,7 +954,7 @@ def get_shipping_docs(content, config):
                 if contained:
                     break
 
-            if contained:
+            if contained:                
                 ###
                 # Preprocessing candidate line so it will have unified format for evaluation           
                 target_line = utils.text2number(candidate_line)
