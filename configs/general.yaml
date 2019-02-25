@@ -175,9 +175,9 @@ swift_codes:
 req_docs:
   items:
     - name: 'beneficiary_draft'
-      keys: ['beneficiarys draft', 'beneficiary draft']
+      keys: ['beneficiarys draft', 'beneficiary draft', "beneficiary's certificate"]
     - name: 'bill_of_lading' 
-      keys: ['b/l', 'bill of lading', 'bills of lading']
+      keys: ['b/l', 'bill of lading', 'bills of lading', 'clean on board']
     - name: 'commercial_invoice'
       keys: ['commercial invoices', 'commercial invoice']
     - name: 'packing_list'

@@ -712,6 +712,7 @@ def replaceFullset(content, key):
                     replacement = '{} original'.format(org_cnt)
                 value = re.sub(item, replacement.upper(), content, re.IGNORECASE)
                 break
+        print(value)
     return value
 
 def replaceDuplicates(content):
