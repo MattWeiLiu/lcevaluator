@@ -7,6 +7,9 @@ import package.visionapi as visionapi
 from package.logger import cmLog
 import falcon
 from falcon_cors import CORS
+from PIL import Image
+import glob
+from pdf2image import convert_from_path
 
 cors = CORS(allow_origins_list=['http://127.0.0.1:8080'])
 public_cors = CORS(allow_all_origins=True)
@@ -212,7 +215,60 @@ class RequestPdfToJpg:
 
         resp.status = status
         resp.body = json.dumps(output)
+        
+class RequestImaging:
+    cors = public_cors
+    def on_post(self, req, resp):
+        req_str = req.stream.read()
+        status = falcon.HTTP_200
+        output = '[INFO] Request Received.'
+        if (len(str(req_str)) == 0):
+            status = falcon.HTTP_501
+            output = '[ERROR] Invalid Request Found.'
+        else:
+            data = json.loads(req_str.decode('utf8'))
+            if not checkIfKeyExists(data, 'json_path'):
+                output = '[ERROR] No json_path found.'
+            elif  not checkIfKeyExists(data, 'jpg_path_list'):
+                output = '[ERROR] No jpg_path_list found.'
+            elif not checkIfKeyExists(data, 'result_root'):
+                output = '[ERROR] No result_root found.'
+            else:
+                json_path     = data['json_path']
+                jpg_path_list = data['jpg_path_list']
+                result_root   = data['result_root']
+ 
+                with open(json_path , 'r') as reader:
+                    jf = json.loads(reader.read())
+                
+                ## read jpg file
+                jpg_list = []
+                for _ in jpg_path_list:
+                    jpg_list.append(Image.open(_))
+
+                ## Get header image, header image always in page 1
+                empty = []
+                for head in jf['header'].keys():
+                    bbox = tuple(jf['header'][head]['boundingbox'])
+                    if len(bbox) == 4:
+                        jpg_list[0].crop(bbox).save( result_root + '/' +head +'.png' )
+                    else:
+                        empty.append(head)
+
+                
+                ## Get swift image, swift image maybe cross mutiple page
+                for swift in jf['swifts'].keys():
+                    for i, page in enumerate(jf['swifts'][swift]['page']):
+                        bbox = tuple(jf['swifts'][swift]['boundingbox'][i])
+                        if len(bbox) == 4:
+                            jpg_list[jf['swifts'][swift]['page'][i]].crop(bbox).save( result_root + '/' + swift +'_'+str(i)+'.png' )
+                        else:
+                            empty.append(swift)
+                output = ', '.join(str(_) for _ in empty) + ' are empty'
+        resp.status = status
+        resp.body = json.dumps(output)
 
 app = falcon.API(middleware=[cors.middleware])
 app.add_route('/cloudmile/clevaluator', RequestCloudMile())
 app.add_route('/cloudmile/pdfToJpg', RequestPdfToJpg())
+app.add_route('/cloudmile/imaging', RequestImaging())
