@@ -210,8 +210,13 @@ class RequestPdfToJpg:
                     dst_dir = 'tmp'
 
                 pdf_path = data['pdf_path']
-                paths = utils.pdf2Jpg(pdf_path, dst_dir)
-                output = {'jpg_files':paths}
+                # paths = utils.pdf2Jpg(pdf_path, dst_dir)
+                # output = {'jpg_files':paths}
+                convert_from_path(pdf_path,
+                    output_folder=dst_dir,
+                    output_file='page',
+                    fmt='jpg')
+                output = '[INFO] jpg is under dst_dir you given.'
 
         resp.status = status
         resp.body = json.dumps(output)
