@@ -254,9 +254,12 @@ class RequestImaging:
                 ## Get header image, header image always in page 1
                 empty = []
                 for head in jf['header'].keys():
-                    bbox = tuple(jf['header'][head]['boundingbox'])
-                    if len(bbox) == 4:
-                        jpg_list[0].crop(bbox).save( result_root + '/' +head +'.png' )
+                    if type(jf['header'][head]['boundingbox']) is list:
+                        bbox = tuple(jf['header'][head]['boundingbox'])
+                        if len(bbox) == 4:
+                            jpg_list[0].crop(bbox).save( result_root + '/' +head +'.png' )
+                        else:
+                            empty.append(head)
                     else:
                         empty.append(head)
 
