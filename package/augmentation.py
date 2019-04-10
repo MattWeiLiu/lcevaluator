@@ -168,7 +168,7 @@ def denoiseImage(image):
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (9, 1))
     connected = cv2.morphologyEx(bw, cv2.MORPH_CLOSE, kernel)
     # using RETR_EXTERNAL instead of RETR_CCOMP
-    im2, contours, hierarchy = cv2.findContours(connected.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    # im2, contours, hierarchy = cv2.findContours(connected.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     contours = cv2.findContours(connected.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     contours = contours[-2]
 
