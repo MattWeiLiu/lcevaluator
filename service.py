@@ -64,8 +64,6 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
         utils.createDirIfNotExist(result_root)
 
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
-    print(result_root)
-
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
@@ -131,7 +129,38 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             for key, value in final_result['swifts'].items():
                 newswift['code_'+key] = final_result['swifts'][key]
             final_result['swifts'] = newswift
+            
+        ###
+        # 0 replace O
+        if 'O' in final_result['header']['lc_no']['text']:
+            final_result['header']['lc_no']['text'] = '0'.join(final_result['header']['lc_no']['text'].split('O'))
 
+        ###
+        # if applicant is empty replace by code_50
+        if final_result['header']['applicant']['text'] == '':
+            final_result['header']['applicant']['text'] = final_result['swifts']['code_50']['text']
+
+        ###
+        # if lc_no is empty replace by code_20 or code_21 ，only for mega
+        
+        if final_result['header']['lc_no']['text'] == '':
+            if 'DOCUMENTARY CREDIT N' in final_result['swifts']['code_20']['text'].upper():
+                code_20_text = final_result['swifts']['code_20']['text'].replace(':', '\n').split('\n')
+                for i, _ in enumerate(code_20_text):
+                    if 'DOCUMENTARY CREDIT N' in _.upper():
+                        final_result['header']['lc_no']['text'] = code_20_text[i+1].strip()
+                        break
+
+            elif 'DOCUMENTARY CREDIT N' in final_result['swifts']['code_21']['text'].upper():
+                code_20_text = final_result['swifts']['code_21']['text'].replace(':', '\n').split('\n')
+                for i, _ in enumerate(code_20_text):
+                    if 'DOCUMENTARY CREDIT N' in _.upper():
+                        final_result['header']['lc_no']['text'] = code_20_text[i+1].strip()
+                        break
+
+
+        ###
+        # saving checklist.json
         if result_root is not None:
             result_path = os.path.join(result_root, 'checklist.json')
             cmLog('[I] Saving evaluation result in {} ...'.format(result_path))
