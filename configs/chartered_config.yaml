@@ -10,7 +10,7 @@ header:
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
-      regex: ['%d%b%y', '%d %b%y']
+      regex: ['%d%b%y']
   - label: Advising Bank
     field: advising_bank
     boundingbox: [1300,110,1530,215]
