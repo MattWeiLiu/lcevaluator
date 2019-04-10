@@ -245,7 +245,8 @@ class RequestPdfToJpg:
                     output_folder=dst_dir,
                     output_file='page',
                     fmt='jpg')
-                output = '[INFO] jpg is under dst_dir you given.'
+                # output = '[INFO] jpg is under dst_dir you given.'
+                output = {'jpg_files':sorted(glob.glob(dst_dir + '/*.jpg'))}
 
         resp.status = status
         resp.body = json.dumps(output)
