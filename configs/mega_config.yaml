@@ -9,10 +9,10 @@ header:
     boundingbox: [810,205,1125,255]
     format: 
       type: DATE
-      regex: ['%b. %d, %Y', '%b. %d,%Y']
+      regex: ['%b%d%Y']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [515,15,1350,70]
+    boundingbox: [445, 15, 1280, 70]
   - label: OUR REF
     field: advising_no_of_bank
     boundingbox: [817,285,1260,330]
@@ -21,7 +21,7 @@ header:
     boundingbox: []
   - label: L/C Received from
     field: issuing_bank
-    boundingbox: [16,548,1245,630]
+    boundingbox: [16, 528, 1245, 580]
     pattern: 'message from *([.\s\S]*)'
   - label: Applicant
     field: applicant
