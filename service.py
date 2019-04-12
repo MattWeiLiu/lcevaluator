@@ -64,6 +64,7 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
         utils.createDirIfNotExist(result_root)
 
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
+    
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
@@ -71,7 +72,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     ### 
     # . Preprocessing the image for enhancement
     cmLog('[I] Preprocessing image for enhencement ...')
-    jpg_path_list = augm.augmentBatchImages(jpg_path_list)
+    jpg_path_list = augm.augmentBatchImages(jpg_path_list, bank_name)
     
     ###  
     # . Sending image to Google Vision API and save the response
@@ -129,7 +130,6 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             for key, value in final_result['swifts'].items():
                 newswift['code_'+key] = final_result['swifts'][key]
             final_result['swifts'] = newswift
-            
         ###
         # 0 replace O
         if 'O' in final_result['header']['lc_no']['text']:
@@ -232,13 +232,17 @@ class RequestPdfToJpg:
             if not checkIfKeyExists(data, 'pdf_path'):
                 output = '[ERROR] No pdf_path found.'
             else:
-
+                pdf_path = data['pdf_path']
+                
                 if checkIfKeyExists(data, 'dst_dir'):
                     dst_dir = data['dst_dir']
                 else:
                     dst_dir = 'tmp'
-
-                pdf_path = data['pdf_path']
+                    
+                if checkIfKeyExists(data, 'bank_name'):
+                    bank_name = data['bank_name']
+                else:
+                    bank_name = None
                 # paths = utils.pdf2Jpg(pdf_path, dst_dir)
                 # output = {'jpg_files':paths}
                 convert_from_path(pdf_path,
@@ -282,27 +286,26 @@ class RequestImaging:
                     jpg_list.append(Image.open(_))
 
                 ## Get header image, header image always in page 1
-                empty = []
+                output = {}
+                # empty = []
                 for head in jf['header'].keys():
                     if type(jf['header'][head]['boundingbox']) is list:
                         bbox = tuple(jf['header'][head]['boundingbox'])
                         if len(bbox) == 4:
                             jpg_list[0].crop(bbox).save( result_root + '/' +head +'.png' )
-                        else:
-                            empty.append(head)
-                    else:
-                        empty.append(head)
-
-                
+                            output[head] = result_root + '/' +head +'.png'
+  
                 ## Get swift image, swift image maybe cross mutiple page
                 for swift in jf['swifts'].keys():
                     for i, page in enumerate(jf['swifts'][swift]['page']):
                         bbox = tuple(jf['swifts'][swift]['boundingbox'][i])
                         if len(bbox) == 4:
                             jpg_list[jf['swifts'][swift]['page'][i]].crop(bbox).save( result_root + '/' + swift +'_'+str(i)+'.png' )
-                        else:
-                            empty.append(swift)
-                output = ', '.join(str(_) for _ in empty) + ' are empty'
+                            if swift not in output:
+                                output[swift] = {'page_{}'.format(i):result_root + '/' + swift +'_'+str(i)+'.png'}
+                            else:
+                                output[swift]['page_{}'.format(i)] = result_root + '/' + swift +'_'+str(i)+'.png'
+                # output = ', '.join(str(_) for _ in empty) + ' are empty'
         resp.status = status
         resp.body = json.dumps(output)
 
