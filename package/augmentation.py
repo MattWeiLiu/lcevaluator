@@ -30,17 +30,55 @@ def ensureDestinationPath(src_path, dst_path):
             dst_path = src_path
     return dst_path
 
-def augmentBatchImages(src_paths, dst_paths=None, grayscaled=True, kernel=(2,2), iterations = 1):
+def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, kernel=(2,2), iterations = 1):
     if isinstance(src_paths, list):
         tmp_list = []
-        for path in src_paths:
+        for i, path in enumerate(src_paths):
             dst_path = ensureDestinationPath(path, dst_paths)
             tmp_path = path
 
-            if grayscaled:
-                img = cv2.imread(tmp_path, 0)
+            if bank_name == 'mega' and i == 0:  # remove blue seal on mega lc
+                img1 = cv2.imread(tmp_path)
+                # create NumPy arrays from the boundaries
+                lower = np.array([128, 0, 0], dtype = "uint8")
+                upper = np.array([255, 110, 110], dtype = "uint8")
+
+                # find the colors within the specified boundaries and apply
+                # the mask
+                mask = cv2.inRange(img1, lower, upper)
+                if mask.max() == 255:
+                    output = cv2.bitwise_and(img1, img1, mask = mask)
+                    imgray = cv2.cvtColor(output, cv2.COLOR_BGR2GRAY)
+
+                    # contours
+                    contours = cv2.findContours(imgray, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+                    contours = contours[-2]
+
+                    boxes = []
+                    for c in contours:
+                        (x, y, w, h) = cv2.boundingRect(c)
+                        boxes.append([x,y, x+w,y+h])
+
+                    boxes = np.asarray(boxes)
+                    # need an extra "min/max" for contours outside the frame
+                    left = np.min(boxes[:,0])
+                    top = np.min(boxes[:,1])
+                    right = np.max(boxes[:,2])
+                    bottom = np.max(boxes[:,3])
+                    # final_img = cv2.rectangle(img1, (left,top), (right,bottom), (0, 255, 0), 2)
+                    buffer = 10
+                    img = cv2.rectangle(img1, (left-buffer,top-buffer), (right+buffer,bottom+buffer), (255,255,255), -1) # blocking by white block
+                    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                else:
+                    if grayscaled:
+                        img = cv2.imread(tmp_path, 0)
+                    else:
+                        img = cv2.imread(tmp_path)
             else:
-                img = cv2.imread(tmp_path)
+                if grayscaled:
+                    img = cv2.imread(tmp_path, 0)
+                else:
+                    img = cv2.imread(tmp_path)
 
             tmp_img = img
             # tmp_img = skrewImage(tmp_img)
@@ -49,7 +87,7 @@ def augmentBatchImages(src_paths, dst_paths=None, grayscaled=True, kernel=(2,2),
             # tmp_img = cv2.bitwise_not(tmp_img) 
             # tmp_img = morphologyImage(tmp_img)
             # tmp_img = thresholdImage(tmp_img, 60, 255) 
-            # tmp_img = cv2.bitwise_not(tmp_img) 
+            # tmp_img = cv2.bitwise_not(tmp_img)
             
             image = Image.fromarray(tmp_img)
             image.save(dst_path, "JPEG", quality=90)
