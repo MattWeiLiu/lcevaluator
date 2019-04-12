@@ -278,6 +278,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
           tmp_info['error'] += err
         else:
           tmp_info['error'] = err
+    text = text.strip('-\n ').replace('\n',' ')
     tmp_info.update({
                 'text': text,
                 'boundingbox': utils.fuseBoundingBox(bound_list)
