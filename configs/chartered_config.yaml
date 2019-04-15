@@ -6,7 +6,7 @@ line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [960,490,1160,536]
+    boundingbox: [945, 505, 1160, 536]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
@@ -16,19 +16,19 @@ header:
     boundingbox: [1300,110,1530,215]
   - label: OUR REF
     field: advising_no_of_bank
-    boundingbox: [1105,340,1415,390]
+    boundingbox: [1095,340,1415,390]
   - label: 'LETTER OF CREDIT NO'
     field: 'lc_no'
-    boundingbox: [1115,400,1415,455]
+    boundingbox: [1095, 400, 1415, 465]
   - label: L/C Received from
     field: issuing_bank
     boundingbox: [565,635,1355,705]
   - label: Applicant
     field: applicant
-    boundingbox: [520,695,1380,770]
+    boundingbox: [520, 715, 1380, 770]
   - label: AMOUNT
     field: amount
-    boundingbox: [955,575,1315,625]
+    boundingbox: [935,575,1315,625]
   - label: EXPIRY DATE
     field: expiry_date
     boundingbox: []
@@ -36,6 +36,6 @@ main_body:
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [280,380,1440,1625]
+    boundingbox: [280, 380, 1440, 1655]
 swift_regex: ': ?(\d{1,2}[A-Z]?) ?:' # used to get swift code
 swift_content: ': ?\d{1,2}[A-Z]? ?: ?.*\n' # used to get swift content 
