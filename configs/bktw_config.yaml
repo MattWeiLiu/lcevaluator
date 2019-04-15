@@ -1,0 +1,45 @@
+project_name: vendor_invoice
+vendor_name: bktw
+template_version: v_00_01
+image_size: [1653, 2338]
+line_height: 30
+header:
+  - label: Date of Registration
+    field: date_of_registration
+    boundingbox: [800,450,1100,500]
+    pattern: 'DATE ?:? ?(.*)'
+    format: 
+      type: DATE
+      regex: ['%b%d%Y']
+  - label: Advising Bank
+    field: advising_bank
+    boundingbox: [490,245,1150,300]
+  - label: OUR REF
+    field: advising_no_of_bank
+    boundingbox: [250,515,450,550]
+  - label: 'LETTER OF CREDIT NO'
+    field: 'lc_no'
+    boundingbox: [670,515,1050,560]
+  - label: L/C Received from
+    field: issuing_bank
+    boundingbox: [670,555,1150,625]
+  - label: Applicant
+    field: applicant
+    boundingbox: []
+  - label: AMOUNT
+    field: amount
+    boundingbox: []
+  - label: EXPIRY DATE
+    field: expiry_date
+    boundingbox: []
+main_body:
+  - label: Page 0
+    field: page_0
+    index: 0
+    boundingbox: [40,880,1440,1850]
+  - label: Page N
+    field: page_n
+    index: n
+    boundingbox: [40,350,1440,1850]
+swift_regex: ': ?(\d{1,2}[A-Z]?) ?:' # used to get swift code
+swift_content: ': ?\d{1,2}[A-Z]? ?: ?.*\n' # used to get swift content 
