@@ -12,11 +12,15 @@ bank_titles:
     boundingbox: [1300,110,1530,215]
     text: Chartered
   - name: wellsfargo
-    boundingbox: [195,190,585,270]
+    boundingbox: [235, 70, 585, 150]
     text: Wells Fargo Bank
   - name: mega
-    boundingbox: [515,15,1350,70]
+    boundingbox: [455, 15, 1290, 70]
     text: MEGA INTERNATIONAL
+  - name: bktw
+    boundingbox: [490,245,1150,300]
+    text: BANK OF TAIWAN
+
 divisions: 
   - name: '11A'
     code: '0001' 

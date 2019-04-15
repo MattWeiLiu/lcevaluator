@@ -1,40 +1,40 @@
 project_name: vendor_invoice
 vendor_name: megga
 template_version: v_00_01
-image_size: [1653, 2338]
+image_size: [1700, 2198]
 line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [265,635,435,680]
+    boundingbox: [290, 505, 460, 550]
     format: 
       type: DATE
-      regex: ['%b %d, %Y']
+      regex: ['%b%d%Y']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [195,190,585,270]
+    boundingbox: [235, 70, 585, 150]
   - label: OUR REF
     field: advising_no_of_bank
-    boundingbox: [1360,635,1555,695]
+    boundingbox: [1440, 515, 1575, 555]
   - label: L/C Received from
     field: issuing_bank
-    boundingbox: [840,1115,1390,1265]
+    boundingbox: [870, 975, 1420, 1125]
   - label: 'LETTER OF CREDIT NO'
     field: 'lc_no'  
-    boundingbox: [390,940,850,985]
+    boundingbox: [390, 810, 850, 855]
   - label: AMOUNT
     field: amount
-    boundingbox: [390,1030,850,1075]
+    boundingbox: [390, 900, 850, 945]
   - label: 'EXPIRY DATE'
     field: 'expiry_date'
-    boundingbox: [1035,950,1400,995]
+    boundingbox: [1065, 810, 1400, 865]
   - label: Applicant
     field: applicant
-    boundingbox: [165,1110,720,1165]
+    boundingbox: [195, 970, 720, 1095]
 main_body:
-  - label: Page 3
-    field: page_3
-    index: 3
+  - label: Page 4
+    field: page_4
+    index: 4
     boundingbox: [165,1325,1520,2230]
   - label: Page n
     field: page_n
