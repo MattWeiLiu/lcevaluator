@@ -191,7 +191,7 @@ class CLFormatterAbstract(object):
             except ValueError:
               pass
           return None
-        content = content.replace('\n', '').strip()
+        content = content.replace('\n', '').replace(' ', '').replace('.', '').replace(',', '').strip()
         datetime_object = try_parsing_date(content, format_regex_list)
         if datetime_object is None:
           res = '[E] {}'.format(content)
@@ -278,7 +278,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
           tmp_info['error'] += err
         else:
           tmp_info['error'] = err
-    text = text.strip('-\n ').replace('\n',' ')
+    text = text.strip('-\n _').replace('\n',' ')
     tmp_info.update({
                 'text': text,
                 'boundingbox': utils.fuseBoundingBox(bound_list)
@@ -308,6 +308,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
     header_config = config['header']
     result_info = {}
     for item in header_config:
+
       field = item['field']
       target_box = item['boundingbox']
       if len(target_box) == 0:
@@ -357,9 +358,11 @@ class GeneralCLFormatter(CLFormatterAbstract):
 
       ### Extract swift code infomation from line list
       tmp_result, last_found = self.reformatSwiftInfo(objectList, swifts_result.keys(), swift_regex, last_found, line_height=line_height)
-
+      # print (tmp_result, last_found)
       ### Merge and clean up extracted infomation
+      # print (tmp_result)
       for key, value in tmp_result.items():
+        # print (key)
         texts = tmp_result[key]['text'].strip() + '\n'
         boxes = visionapi.VisionObject.fuseBoundingBox(tmp_result[key]['boundingbox'])
         try:
@@ -377,7 +380,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
       self.swifts_info = final_result
     else:
       self.swifts_info = swifts_result
-
     return swifts_result
 
   def reformatSwiftInfo(self, objectList, codeList, codeRegex, initial_key = None, line_height=30):

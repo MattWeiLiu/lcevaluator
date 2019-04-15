@@ -131,14 +131,14 @@ def get_transferable(content):
     ----------
         value for this item
     """
-    value = ""
+    value = False
     if '40A' in content.keys():
         value = 'TRANSFERABLE' in content['40A'].upper() 
     elif '40B' in content.keys():
         value = 'TRANSFERABLE' in content['40B'].upper() 
-    else:
-        cmLog('[W] 可否轉讓: Missing 40A or 40B (必要欄位)')
-        value = '[W] 可否轉讓: Missing 40A or 40B (必要欄位)'
+    # else:
+        # cmLog('[W] 可否轉讓: Missing 40A or 40B (必要欄位)')
+        # value = '[W] 可否轉讓: Missing 40A or 40B (必要欄位)'
 
     return value
 
@@ -177,7 +177,7 @@ def get_beneficiary_name(content):
     """
     value = ""
     if '59' in content.keys():
-        value = 'FORMOSA PLASTICS CORPORATION' in content['59'].upper()
+        value = 'FORMOSA PLASTICS CORPORATION' in content['59'].replace('\n', ' ').upper()
         if value:
             value = 'FORMOSA PLASTICS CORPORATION'
         else:
@@ -200,7 +200,7 @@ def get_name_correctness(content):
     """
     value = ""
     if '59' in content.keys():
-        value = 'FORMOSA PLASTICS CORPORATION' in content['59'].upper()
+        value = 'FORMOSA PLASTICS CORPORATION' in content['59'].replace('\n', ' ').upper()
     else:
         cmLog('[W] 受益人名稱: Missing 59 (必要欄位)')
         value = '[W] 受益人名稱: Missing 59 (必要欄位)'
@@ -565,7 +565,7 @@ def get_nominated_loading_port(content):
     value = ""
     if "44E" in content.keys():
         value = content['44E']
-        if not('ANY PORT IN TAIWAN' in value or 'ANY TAIWANESE PORT' in value):
+        if not('ANY' in value):
             cmLog('[W] 出口港 : \'{}\' does not match expectation'.format(value))
             value = '[W] 出口港 : \'{}\' does not match expectation'.format(value)
     else:
@@ -586,9 +586,15 @@ def get_partial_shipment(content):
     """
     value = ""
     if '43P' in content.keys():
-        value = content['43P']
+        if 'NOT ALLOWED' in content['43P'].upper() or 'FORBIDDEN' in content['43P'].upper() or 'PROHIBITED' in content['43P'].upper():
+            value = 'NOT ALLOWED'
+        elif 'ALLOWED' in content['43P'].upper() or 'PERMITTED' in content['43P'].upper() or 'YES' in content['43P'].upper():
+            value = 'ALLOWED'
         # ALLOWED/PERMITTED 為 True
         # NOT ALLOWED/FORBIDDEN/PROHIBITED為 False
+        else:
+            cmLog("[W] 可否分批裝運: 無法辨識, 預設『Allow』")
+            value = "[W] 可否分批裝運: 無法辨識, 預設『Allow』"
     else:
         cmLog("[W] 可否分批裝運: Missing 43P, 預設『Allow』")
         value = "[W] 可否分批裝運: Missing 43P, 預設『Allow』"
@@ -607,9 +613,15 @@ def get_transshipment(content):
     """
     value = ""
     if '43T' in content.keys():
-        value = content['43T']
+        if 'NOT ALLOWED' in content['43T'].upper() or 'FORBIDDEN' in content['43T'].upper() or 'PROHIBITED' in content['43T'].upper():
+            value = 'NOT ALLOWED'
+        elif 'ALLOWED' in content['43T'].upper() or 'PERMITTED' in content['43T'].upper() or 'YES' in content['43T'].upper():
+            value = 'ALLOWED'
         # ALLOWED/PERMITTED 為 True
         # NOT ALLOWED/FORBIDDEN/PROHIBITED為 False
+        else:
+            cmLog("[W] 可否分批裝運: 無法辨識, 預設『Allow』")
+            value = "[W] 可否分批裝運: 無法辨識, 預設『Allow』"
     else:
         cmLog("[W] 可否轉運: Missing 43T, 預設『Allow』")
         value = "[W] 可否轉運: Missing 43T, 預設『Allow』"
@@ -1138,8 +1150,8 @@ class CLEvaluator(object):
     checkLists.update(tmp)
     
     ### get main
-    method_main = [get_transferable, get_confirmed, get_beneficiary_name, get_name_correctness, get_UCP660]
-    keylist_main = ['main_part', 'transferable', 'confirmed', 'beneficiary', 'accurate_name', 'ucp660']
+    method_main = [get_revocable, get_transferable, get_confirmed, get_beneficiary_name, get_name_correctness, get_UCP660]
+    keylist_main = ['main_part', 'revocable', 'transferable', 'confirmed', 'beneficiary', 'accurate_name', 'ucp660']
     tmp = self.getValueAndError(ocr_value, method_main, keylist_main)
     checkLists.update(tmp)
     
