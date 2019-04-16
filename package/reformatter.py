@@ -360,10 +360,8 @@ class GeneralCLFormatter(CLFormatterAbstract):
 
       ### Get line list and boundingbox list
       objectList = self.visdoc.getObjectInBoundaryInPage(p, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
-
       ### Extract swift code infomation from line list
       tmp_result, last_found = self.reformatSwiftInfo(objectList, swifts_result.keys(), swift_regex, last_found, line_height=line_height)
-      # print (tmp_result, last_found)
       ### Merge and clean up extracted infomation
       # print (tmp_result)
       for key, value in tmp_result.items():
@@ -371,6 +369,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
         texts = tmp_result[key]['text'].strip() + '\n'
         boxes = visionapi.VisionObject.fuseBoundingBox(tmp_result[key]['boundingbox'])
         try:
+          boxes[0] = boxes[0] - 7
           swifts_result[key]['text'] += texts
           swifts_result[key]['boundingbox'].append(boxes)
           swifts_result[key]['page'].append(p)
