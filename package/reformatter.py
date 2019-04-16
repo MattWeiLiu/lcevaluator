@@ -207,6 +207,7 @@ class CLFormatterAbstract(object):
     newdf = pd.DataFrame(boundList, columns=['xs', 'ys', 'xe', 'ye'])
     newdf['text'] = textList
     newdf = newdf.sort_values(['ys', 'xs'], ascending=[True, True])
+    newdf.to_csv('newdf.csv', mode='a')
     lines = []
     boxes = []
     for index, row in newdf.iterrows():
@@ -222,9 +223,13 @@ class CLFormatterAbstract(object):
                 boxes.append(row[['xs', 'ys', 'xe', 'ye']].tolist())
             else:
                 dif_xs = row['xs'] - boxes[-1][0]
+                dif_x  = row['xs'] - boxes[-1][2]
                 if dif_xs < 0:
                     lines[-1] = row['text'] + lines[-1]
                     boxes[-1] = utils.fuseBoundingBox([boxes[-1], row[['xs', 'ys', 'xe', 'ye']].tolist()])
+                elif dif_x < 70:
+                  lines.append(row['text'])
+                  boxes.append(row[['xs', 'ys', 'xe', 'ye']].tolist())
     return lines, boxes
 
   def dumpToFile(self, fileptah):
@@ -386,7 +391,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
     line_list, bound_list = [], []
     if len(objectList) > 0:
       line_list, bound_list = visionapi.VisionObject.getLinesAndBoundingbox(objectList)
-      line_list, bound_list = self.orderByLines(line_list, bound_list, line_height / 2)
+      line_list, bound_list = self.orderByLines(line_list, bound_list, line_height/2 ) ###這行導致45A被切掉
     last_found = initial_key
     result = {}
     ### Extract swift code infomation from line list

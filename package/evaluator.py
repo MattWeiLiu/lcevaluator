@@ -367,7 +367,7 @@ def get_terms(content):
                     break
         if value is None:
             # termtext = utils.removeInvalidChars(termtext)
-            splitted = termtext.split(' ')
+            splitted = re.split(' |\n', termtext)
             inetersects = set(incoterms).intersection(splitted)
             if len(inetersects) == 1:
                 value = inetersects.pop()
