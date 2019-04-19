@@ -36,10 +36,10 @@ main_body:
   - label: Page 0
     field: page_0
     index: 0
-    boundingbox: [10,980,1630,1960]
+    boundingbox: [10,980,1630,1940]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [10,450,1630,1960]
-swift_regex: ': ?(\d{2} ?[A-Z]?) ?:'
-swift_content: ': ?\d{2} ?[A-Z]? ?: ?.*\n'
+    boundingbox: [10,430,1630,1940]
+swift_regex: ':? ?(\D\d{2} ?[A-Z]?) ?:'
+swift_content: ':? ?\D\d{2} ?[A-Z]? ?: ?.*\n'

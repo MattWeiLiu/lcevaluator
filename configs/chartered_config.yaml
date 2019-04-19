@@ -6,7 +6,7 @@ line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [945, 505, 1160, 536]
+    boundingbox: [940, 505, 1160, 536]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
@@ -28,7 +28,7 @@ header:
     boundingbox: [520, 715, 1380, 770]
   - label: AMOUNT
     field: amount
-    boundingbox: [935,575,1315,625]
+    boundingbox: [925,575,1315,625]
   - label: EXPIRY DATE
     field: expiry_date
     boundingbox: []
@@ -37,5 +37,5 @@ main_body:
     field: page_n
     index: n
     boundingbox: [280, 380, 1440, 1655]
-swift_regex: ': ?(\d{1,2}[A-Z]?) ?:' # used to get swift code
-swift_content: ': ?\d{1,2}[A-Z]? ?: ?.*\n' # used to get swift content 
+swift_regex: ': ?(\d{2}[A-Z]?) ?:' # used to get swift code
+swift_content: ': ?\d{2}[A-Z]? ?: ?.*\n' # used to get swift content 

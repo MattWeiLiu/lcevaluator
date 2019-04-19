@@ -83,6 +83,9 @@ def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, ke
             tmp_img = img
             # tmp_img = skrewImage(tmp_img)
             tmp_img = denoiseImage(tmp_img)
+            # tmp_img = cv2.pyrDown(tmp_img)
+            # tmp_img = cv2.pyrUp(tmp_img)
+            # tmp_img = denoiseImage(tmp_img)
             tmp_img = erodeImage(tmp_img, kernel, iterations)
             # tmp_img = cv2.bitwise_not(tmp_img) 
             # tmp_img = morphologyImage(tmp_img)
@@ -213,7 +216,7 @@ def denoiseImage(image):
     mask = np.zeros(bw.shape, dtype=np.uint8)
     for idx in range(len(contours)):
         x, y, w, h = cv2.boundingRect(contours[idx])
-        mask[y:y+h, x:x+w] = 0
+        # mask[y:y+h, x:x+w] = 0
         if w > 4 and h > 4:
             cv2.rectangle(mask, (x, y), (x+w-1, y+h-1), (255, 255, 255), -1)
 

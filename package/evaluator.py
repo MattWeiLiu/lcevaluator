@@ -111,9 +111,11 @@ def get_revocable(content):
     """
     value = ""
     if '40A' in content.keys():
-        value = not ('IRREVOCABLE' in content['40A'].upper()) 
+        # value = not ('IRREVOCABLE' in content['40A'].upper()) 
+        value = re.search('I ?R ?R ?E ?V ?O ?C ?A ?B ?L ?E', content['40A'].upper()) == None
     elif '40B' in content.keys():
-        value = not ('IRREVOCABLE' in content['40B'].upper())
+        # value = not ('IRREVOCABLE' in content['40B'].upper())
+        value = re.search('I ?R ?R ?E ?V ?O ?C ?A ?B ?L ?E', content['40B'].upper()) == None
     else:
         cmLog('[W] 可否撤銷: Missing 40A or 40B (必要欄位)')
         value = '[W] 可否撤銷: Missing 40A or 40B (必要欄位)'
@@ -133,9 +135,11 @@ def get_transferable(content):
     """
     value = False
     if '40A' in content.keys():
-        value = 'TRANSFERABLE' in content['40A'].upper() 
+        # value = 'TRANSFERABLE' in content['40A'].upper() 
+        value = re.search('T ?R ?A ?N ?S ?F ?E ?R ?A ?B ?L ?E', content['40A'].upper()) != None
     elif '40B' in content.keys():
-        value = 'TRANSFERABLE' in content['40B'].upper() 
+        # value = 'TRANSFERABLE' in content['40B'].upper() 
+        value = re.search('T ?R ?A ?N ?S ?F ?E ?R ?A ?B ?L ?E', content['40B'].upper()) != None
     # else:
         # cmLog('[W] 可否轉讓: Missing 40A or 40B (必要欄位)')
         # value = '[W] 可否轉讓: Missing 40A or 40B (必要欄位)'

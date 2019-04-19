@@ -46,5 +46,5 @@ main_body:
     field: page_n
     index: n
     boundingbox: [90,215,1603,2125]
-swift_regex: ':?: ?(\d{1,2} ?[A-Z]?) ?:'  # used to get swift code
-swift_content: ':?: ?\d{1,2} ?[A-Z]? ?: ?\(.*[\)J] ?\n?' # used to get swift content 
+swift_regex: ':?: ?(\D\d{2} ?[A-Z]?) ?:'  # used to get swift code
+swift_content: ':?: ?\D\d{2} ?[A-Z]? ?: ?\(.*[\)J] ?\n?' # used to get swift content 
