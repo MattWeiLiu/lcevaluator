@@ -82,11 +82,15 @@ def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, ke
 
             tmp_img = img
             # tmp_img = skrewImage(tmp_img)
-            tmp_img = denoiseImage(tmp_img)
-            # tmp_img = cv2.pyrDown(tmp_img)
-            # tmp_img = cv2.pyrUp(tmp_img)
             # tmp_img = denoiseImage(tmp_img)
-            tmp_img = erodeImage(tmp_img, kernel, iterations)
+            if bank_name == 'bktw' or bank_name == 'huanan':   # Cause Dot matrix printer
+                tmp_img = cv2.pyrDown(tmp_img)
+                tmp_img = cv2.pyrUp(tmp_img)
+                tmp_img = cv2.erode(tmp_img, (5, 5), iterations=1)
+                tmp_img = cv2.dilate(tmp_img, (3, 3), iterations=1)
+            else:
+                tmp_img = denoiseImage(tmp_img)
+                tmp_img = erodeImage(tmp_img, kernel, iterations)
             # tmp_img = cv2.bitwise_not(tmp_img) 
             # tmp_img = morphologyImage(tmp_img)
             # tmp_img = thresholdImage(tmp_img, 60, 255) 

@@ -68,6 +68,17 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
+
+    general = utils.loadFileIfExisted(general_path)
+
+    if bank_name is None:
+        jpg_path_list_n = augm.augmentBatchImages(jpg_path_list, bank_name)
+        vision_results = retrieveVisionResponse(credential, jpg_path_list_n, result_root)
+        vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
+        clformatted = formatter.GeneralCLFormatter(vision_doc)
+        bank_name = clformatted.identifyBankName(general)
+        [os.remove(path) for path in jpg_path_list_n]
+        cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
     
     ### 
     # . Preprocessing the image for enhancement
@@ -87,7 +98,6 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     # . Initialize a formatter
     final_result = {}
     clformatted = formatter.GeneralCLFormatter(vision_doc)
-    general = utils.loadFileIfExisted(general_path)
     
     ###
     # . General config must exist
@@ -100,7 +110,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
         if 'bank_titles' not in general:
             print('bank_titles')
         bank_list = [b['name'] for b in general['bank_titles']]
-        if bank_name is None or bank_name.lower() not in bank_list:
+        if bank_name.lower() not in bank_list:
             bank_name = clformatted.identifyBankName(general)
             cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
         

@@ -202,34 +202,63 @@ class CLFormatterAbstract(object):
         err = '[W] Unrecognized format type: {}\n'.format(format_type)
 
     return res, err
+  def mergeByYs(self, line_list, bound_list, threshold=15):
+    new_line_list = []
+    new_bound_list = []
+    for i, line in enumerate(line_list):
+      if len(new_line_list) == 0:
+        new_line_list.append(line)
+        new_bound_list.append(bound_list[i])
+      elif abs(bound_list[i][1] - new_bound_list[-1][1]) < 15:
+        new_line_list[-1] = new_line_list[-1].strip('\n') + line
+        new_bound_list[-1] = [min(new_bound_list[-1][0], bound_list[i][0]), 
+                              min(new_bound_list[-1][1], bound_list[i][1]),
+                              max(new_bound_list[-1][2], bound_list[i][2]),
+                              max(new_bound_list[-1][3], bound_list[i][3])]
+      else:
+        new_line_list.append(line)
+        new_bound_list.append(bound_list[i])
+    return new_line_list, new_bound_list
 
   def orderByLines(self, textList, boundList, threshold=15):
     newdf = pd.DataFrame(boundList, columns=['xs', 'ys', 'xe', 'ye'])
     newdf['text'] = textList
     newdf = newdf.sort_values(['ys', 'xs'], ascending=[True, True])
-    newdf.to_csv('newdf.csv', mode='a')
     lines = []
     boxes = []
     for index, row in newdf.iterrows():
         line = row['text']
         box = row['xs']
         if len(lines) == 0:
+            # print (1)
             lines.append(row['text'])
             boxes.append(row[['xs', 'ys', 'xe', 'ye']].tolist())
         else:
             dif_ys = row['ys'] - boxes[-1][1]
             if dif_ys > threshold:
+                # print (2)
+                # print (index, line)
+                # print ('dif_ys =', dif_ys)
                 lines.append(row['text'])
                 boxes.append(row[['xs', 'ys', 'xe', 'ye']].tolist())
             else:
                 dif_xs = row['xs'] - boxes[-1][0]
-                dif_x  = row['xs'] - boxes[-1][2]
+                # dif_x  = row['xs'] - boxes[-1][2]
                 if dif_xs < 0:
+                    # print (3)
                     lines[-1] = row['text'] + lines[-1]
                     boxes[-1] = utils.fuseBoundingBox([boxes[-1], row[['xs', 'ys', 'xe', 'ye']].tolist()])
-                elif dif_x < 70:
-                  lines.append(row['text'])
-                  boxes.append(row[['xs', 'ys', 'xe', 'ye']].tolist())
+                    # print (index, line)
+                    # print ('dif_xs =', dif_xs, ' dif_x =', dif_x)
+                else:
+                # elif dif_x < 350:
+                    # print (4)
+                    lines.append(row['text'])
+                    boxes.append(row[['xs', 'ys', 'xe', 'ye']].tolist())
+                    # print (index, line)
+                    # print ('dif_xs =', dif_xs, ' dif_x =', dif_x)
+                # else:
+                #     print (5)
     return lines, boxes
 
   def dumpToFile(self, fileptah):
@@ -357,11 +386,11 @@ class GeneralCLFormatter(CLFormatterAbstract):
       else:
         tmp_idx = p_index_list.index('n')
       target_box = body_config[tmp_idx]['boundingbox']
-
       ### Get line list and boundingbox list
       objectList = self.visdoc.getObjectInBoundaryInPage(p, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
       ### Extract swift code infomation from line list
       tmp_result, last_found = self.reformatSwiftInfo(objectList, swifts_result.keys(), swift_regex, last_found, line_height=line_height)
+
       ### Merge and clean up extracted infomation
       # print (tmp_result)
       for key, value in tmp_result.items():
@@ -391,12 +420,17 @@ class GeneralCLFormatter(CLFormatterAbstract):
     if len(objectList) > 0:
       line_list, bound_list = visionapi.VisionObject.getLinesAndBoundingbox(objectList)
       line_list, bound_list = self.orderByLines(line_list, bound_list, line_height/2 ) ###這行導致45A被切掉
+      line_list, bound_list = self.mergeByYs(line_list, bound_list)
+    ###########################
     last_found = initial_key
     result = {}
     ### Extract swift code infomation from line list
+    key_regex = codeRegex
     for idx, line in enumerate(line_list):
-      key_regex = codeRegex
+      # key_regex = codeRegex
       searched = re.search(key_regex, line)  
+      # print (idx, line, searched)
+
 
       if searched is not None:
         last_found = searched.group(1)
@@ -428,7 +462,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
               'text': clenedline,
               'boundingbox': [boxes]
           }
-
     return result, last_found
   
   def updateHeaderWithSwiftCode(self, config):

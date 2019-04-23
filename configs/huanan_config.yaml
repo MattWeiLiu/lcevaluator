@@ -10,7 +10,7 @@ header:
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
-      regex: ['%Y%m%d']
+      regex: ['%Y/%m/%d']
   - label: Advising Bank
     field: advising_bank
     boundingbox: [406,235,1325,295]
@@ -22,7 +22,7 @@ header:
     boundingbox: [1170,560,1485,600]
   - label: L/C Received from
     field: issuing_bank
-    boundingbox: [210,690,990,845]
+    boundingbox: [210,690,990,820]
   - label: Applicant
     field: applicant
     boundingbox: []
@@ -36,11 +36,11 @@ main_body:
   - label: Page 1
     field: page_1
     index: 1
-    boundingbox: [5,710,1650,2050]
+    boundingbox: [5, 750, 1650, 2050]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [5,360,1650,2050]
-swift_regex: '\*?(\d{2}.? +[A-Z]?) ?[:;]'
+    boundingbox: [5, 450, 1650, 2050]
+swift_regex: '(\d{2} +[A-Z]?) ?[:.;•]'
 swift_end_regx: '- - - - -'
-swift_content: '\*?\d{2}.? +[A-Z]? ?:'
+swift_content: '\d{2} +[A-Z]? ?[:.;•]'
