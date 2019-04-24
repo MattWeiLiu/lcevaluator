@@ -30,7 +30,7 @@ def ensureDestinationPath(src_path, dst_path):
             dst_path = src_path
     return dst_path
 
-def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, kernel=(4,4), iterations = 1):
+def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, kernel=(5,5), iterations = 1):
     if isinstance(src_paths, list):
         tmp_list = []
         for i, path in enumerate(src_paths):
@@ -40,8 +40,8 @@ def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, ke
             if bank_name == 'mega' and i == 0:  # remove blue seal on mega lc
                 img1 = cv2.imread(tmp_path)
                 # create NumPy arrays from the boundaries
-                lower = np.array([128, 0, 0], dtype = "uint8")
-                upper = np.array([255, 110, 110], dtype = "uint8")
+                lower = np.array([140, 0, 0], dtype = "uint8")
+                upper = np.array([255, 100, 100], dtype = "uint8")
 
                 # find the colors within the specified boundaries and apply
                 # the mask
@@ -86,8 +86,8 @@ def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, ke
             if bank_name == 'bktw' or bank_name == 'huanan':   # Cause Dot matrix printer
                 tmp_img = cv2.pyrDown(tmp_img)
                 tmp_img = cv2.pyrUp(tmp_img)
-                tmp_img = cv2.erode(tmp_img, (5, 5), iterations=1)
-                tmp_img = cv2.dilate(tmp_img, (3, 3), iterations=1)
+                tmp_img = cv2.erode(tmp_img, (10, 10), iterations=1)
+                tmp_img = cv2.dilate(tmp_img, (6, 6), iterations=1)
             else:
                 tmp_img = denoiseImage(tmp_img)
                 tmp_img = erodeImage(tmp_img, kernel, iterations)

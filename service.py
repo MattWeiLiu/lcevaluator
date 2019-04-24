@@ -10,6 +10,7 @@ from falcon_cors import CORS
 from PIL import Image
 import glob
 from pdf2image import convert_from_path
+import shutil
 
 cors = CORS(allow_origins_list=['http://127.0.0.1:8080'])
 public_cors = CORS(allow_all_origins=True)
@@ -70,21 +71,22 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
 
     general = utils.loadFileIfExisted(general_path)
-
     if bank_name is None:
-        jpg_path_list_n = augm.augmentBatchImages(jpg_path_list, bank_name)
-        vision_results = retrieveVisionResponse(credential, jpg_path_list_n, result_root)
+        jpg_path_list_n = augm.augmentBatchImages([jpg_path_list[0]], bank_name)
+        os.mkdir(result_root+'/tmp')
+        vision_results = retrieveVisionResponse(credential, jpg_path_list_n, result_root+'/tmp')
         vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
         clformatted = formatter.GeneralCLFormatter(vision_doc)
         bank_name = clformatted.identifyBankName(general)
         [os.remove(path) for path in jpg_path_list_n]
+        shutil.rmtree(result_root+'/tmp') 
         cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
     
     ### 
     # . Preprocessing the image for enhancement
     cmLog('[I] Preprocessing image for enhencement ...')
     jpg_path_list = augm.augmentBatchImages(jpg_path_list, bank_name)
-    
+
     ###  
     # . Sending image to Google Vision API and save the response
     vision_results = retrieveVisionResponse(credential, jpg_path_list, result_root)
