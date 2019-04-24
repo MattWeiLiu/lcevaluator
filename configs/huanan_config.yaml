@@ -1,34 +1,34 @@
 project_name: vendor_invoice
 vendor_name: huanan
 template_version: v_00_01
-image_size: [1653, 2338]
+image_size: [3306, 4676]
 line_height: 20
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [1160,460,1400,510]
+    boundingbox: [2320, 920, 2800, 1020]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
       regex: ['%Y/%m/%d']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [406,235,1325,295]
+    boundingbox: [812, 470, 2650, 590]
   - label: OUR REF
     field: advising_no_of_bank
-    boundingbox: [1305,505,1545,550]
+    boundingbox: [2610, 1010, 3090, 1100]
   - label: 'LETTER OF CREDIT NO'
     field: 'lc_no'
-    boundingbox: [1170,560,1485,600]
+    boundingbox: [2610, 1010, 3090, 1100]
   - label: L/C Received from
     field: issuing_bank
-    boundingbox: [210,690,990,820]
+    boundingbox: [420, 1380, 1980, 1640]
   - label: Applicant
     field: applicant
     boundingbox: []
   - label: AMOUNT
     field: amount
-    boundingbox: [1190,630,1595,680]
+    boundingbox: [2380, 1260, 3190, 1360]
   - label: EXPIRY DATE
     field: expiry_date
     boundingbox: []
@@ -36,11 +36,11 @@ main_body:
   - label: Page 1
     field: page_1
     index: 1
-    boundingbox: [5, 750, 1650, 2050]
+    boundingbox: [10, 1500, 3300, 4100]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [5, 450, 1650, 2050]
+    boundingbox: [10, 900, 3300, 4100]
 swift_regex: '(\d{2} +[A-Z]?) ?[:.;•]'
 swift_end_regx: '- - - - -'
 swift_content: '\d{2} +[A-Z]? ?[:.;•]'

@@ -1,23 +1,23 @@
 project_name: vendor_invoice
 vendor_name: citi
 template_version: v_00_01
-image_size: [1653, 2338]
+image_size: [3306, 4676]
 line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [130,400,470,460]
+    boundingbox: [260, 800, 940, 920]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
       regex: ['%b%d%Y']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [940,570,1515,790]
+    boundingbox: [1880, 1140, 3030, 1580]
     pattern: 'FROM ?:?[ \n]?([.\s\S]*)'
   - label: Field Group
     field: field_group
-    boundingbox: [130,770,930,1080]
+    boundingbox: [260, 1540, 1860, 2160]
     line_height: 30
     readby: byline
     item_list:
@@ -36,15 +36,15 @@ header:
         field: 'expiry_date'
   - label: OUR REF
     field: advising_no_of_bank
-    boundingbox: [110,2120,565,2180]
+    boundingbox: [220, 4240, 1130, 4360]
 main_body:
   - label: Page 0
     field: page_0
     index: 0
-    boundingbox: [90,1084,1611,2124]
+    boundingbox: [180, 2168, 3222, 4248]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [90,215,1603,2125]
+    boundingbox: [180, 430, 3206, 4250]
 swift_regex: ':?: ?(\D\d{2} ?[A-Z]?) ?:'  # used to get swift code
 swift_content: ':?: ?\D\d{2} ?[A-Z]? ?: ?\(.*[\)J] ?\n?' # used to get swift content 

@@ -154,14 +154,14 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
         # if lc_no is empty replace by code_20 or code_21 ，only for mega
         
         if final_result['header']['lc_no']['text'] == '':
-            if 'DOCUMENTARY CREDIT N' in final_result['swifts']['code_20']['text'].upper():
+            if 'DOCUMENTARYCREDITN' in final_result['swifts']['code_20']['text'].upper().replace(" ",""):
                 code_20_text = final_result['swifts']['code_20']['text'].replace(':', '\n').split('\n')
                 for i, _ in enumerate(code_20_text):
                     if 'DOCUMENTARY CREDIT N' in _.upper():
                         final_result['header']['lc_no']['text'] = code_20_text[i+1].strip()
                         break
 
-            elif 'DOCUMENTARY CREDIT N' in final_result['swifts']['code_21']['text'].upper():
+            elif 'DOCUMENTARYCREDITN' in final_result['swifts']['code_21']['text'].upper().replace(" ",""):
                 code_20_text = final_result['swifts']['code_21']['text'].replace(':', '\n').split('\n')
                 for i, _ in enumerate(code_20_text):
                     if 'DOCUMENTARY CREDIT N' in _.upper():
@@ -256,6 +256,7 @@ class RequestPdfToJpg:
                 # paths = utils.pdf2Jpg(pdf_path, dst_dir)
                 # output = {'jpg_files':paths}
                 convert_from_path(pdf_path,
+                    dpi = 400,
                     output_folder=dst_dir,
                     output_file='page',
                     fmt='jpg')

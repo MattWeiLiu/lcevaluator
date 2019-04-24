@@ -1,28 +1,28 @@
 project_name: vendor_invoice
 vendor_name: bktw
 template_version: v_00_01
-image_size: [1653, 2338]
+image_size: [3306, 4676]
 line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [800,450,1100,500]
+    boundingbox: [1600, 900, 2200, 1000]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
       regex: ['%b%d%Y']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [490,245,1150,300]
+    boundingbox: [980, 490, 2300, 600]
   - label: OUR REF
     field: advising_no_of_bank
-    boundingbox: [250,515,450,550]
+    boundingbox: [500, 1030, 900, 1100]
   - label: 'LETTER OF CREDIT NO'
     field: 'lc_no'
-    boundingbox: [670,515,1050,560]
+    boundingbox: [1340, 1030, 2100, 1120]
   - label: L/C Received from
     field: issuing_bank
-    boundingbox: [670,555,1150,625]
+    boundingbox: [1340, 1110, 2300, 1250]
   - label: Applicant
     field: applicant
     boundingbox: []
@@ -36,10 +36,10 @@ main_body:
   - label: Page 0
     field: page_0
     index: 0
-    boundingbox: [40,880,1440,1850]
+    boundingbox: [80, 1760, 2880, 3700]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [40,350,1440,1850]
+    boundingbox: [80, 700, 2880, 3700]
 swift_regex: ': ?(\d{2}[A-Z]?) ?:' # used to get swift code
 swift_content: ': ?\d{2}[A-Z]? ?: ?.*\n' # used to get swift content 

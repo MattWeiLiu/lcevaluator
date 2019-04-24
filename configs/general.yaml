@@ -3,22 +3,22 @@ bank_titles:
   #   boundingbox: [940,570,1515,790]
   #   text: CITI
   - name: citi
-    boundingbox: [41,114,310,211]
+    boundingbox: [82, 228, 620, 422]
     text: ORIGINAL
   - name: huanan
-    boundingbox: [406,235,1325,295]
+    boundingbox: [812, 470, 2650, 590]
     text: HUA NAN
   - name: chartered
-    boundingbox: [1300,110,1530,215]
+    boundingbox: [2600, 220, 3060, 430]
     text: Chartered
   - name: wellsfargo
-    boundingbox: [235, 70, 585, 150]
+    boundingbox: [470, 140, 1170, 300]
     text: Wells Fargo Bank
   - name: mega
-    boundingbox: [455, 15, 1290, 70]
+    boundingbox: [910, 30, 2580, 140]
     text: MEGA INTERNATIONAL
   - name: bktw
-    boundingbox: [490,245,1150,300]
+    boundingbox: [980, 490, 2300, 600]
     text: BANK OF TAIWAN
 
 divisions: 
