@@ -30,7 +30,7 @@ def ensureDestinationPath(src_path, dst_path):
             dst_path = src_path
     return dst_path
 
-def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, kernel=(2,2), iterations = 1):
+def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, kernel=(4,4), iterations = 1):
     if isinstance(src_paths, list):
         tmp_list = []
         for i, path in enumerate(src_paths):
@@ -97,7 +97,7 @@ def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, ke
             # tmp_img = cv2.bitwise_not(tmp_img)
             
             image = Image.fromarray(tmp_img)
-            image.save(dst_path, "JPEG", quality=90)
+            image.save(dst_path, "JPEG", quality=110)
 
             tmp_list.append(dst_path)
         return tmp_list
@@ -205,7 +205,7 @@ def morphologyImage(image, morph_type=cv2.MORPH_CLOSE, kernel=(2,2)):
 def denoiseImage(image):
     small = cv2.pyrDown(image)
 
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     grad = cv2.morphologyEx(small, cv2.MORPH_GRADIENT, kernel)
 
     _, bw = cv2.threshold(grad, 0.0, 255.0, cv2.THRESH_BINARY | cv2.THRESH_OTSU)

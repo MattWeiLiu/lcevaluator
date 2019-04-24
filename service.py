@@ -157,14 +157,14 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             if 'DOCUMENTARYCREDITN' in final_result['swifts']['code_20']['text'].upper().replace(" ",""):
                 code_20_text = final_result['swifts']['code_20']['text'].replace(':', '\n').split('\n')
                 for i, _ in enumerate(code_20_text):
-                    if 'DOCUMENTARY CREDIT N' in _.upper():
+                    if 'DOCUMENTARYCREDITN' in _.upper().replace(" ",""):
                         final_result['header']['lc_no']['text'] = code_20_text[i+1].strip()
                         break
 
             elif 'DOCUMENTARYCREDITN' in final_result['swifts']['code_21']['text'].upper().replace(" ",""):
                 code_20_text = final_result['swifts']['code_21']['text'].replace(':', '\n').split('\n')
                 for i, _ in enumerate(code_20_text):
-                    if 'DOCUMENTARY CREDIT N' in _.upper():
+                    if 'DOCUMENTARY CREDIT N' in _.upper().replace(" ",""):
                         final_result['header']['lc_no']['text'] = code_20_text[i+1].strip()
                         break
 
