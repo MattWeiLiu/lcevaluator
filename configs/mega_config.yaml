@@ -21,8 +21,8 @@ header:
     boundingbox: []
   - label: L/C Received from
     field: issuing_bank
-    boundingbox: [32, 1056, 2490, 1160]
-    pattern: 'message from *([.\s\S]*)'
+    boundingbox: [32, 800, 3200, 1230]
+    pattern: 'message from *([^\(]*)'
   - label: Applicant
     field: applicant
     boundingbox: []

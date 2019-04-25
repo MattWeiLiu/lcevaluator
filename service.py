@@ -71,6 +71,9 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
 
     general = utils.loadFileIfExisted(general_path)
+
+    ### 
+    # . Auto-identified bank name
     if bank_name is None:
         jpg_path_list_n = augm.augmentBatchImages([jpg_path_list[0]], bank_name)
         os.mkdir(result_root+'/tmp')
@@ -153,8 +156,13 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             final_result['header']['applicant']['text'] = final_result['swifts']['code_50']['text']
 
         ###
+        # specialized for mega bank
+        if bank_name == 'mega':
+            final_result['header']['advising_no_of_bank']['boundingbox'] = [1634, 470, 2520, 660]
+
+
+        ###
         # if lc_no is empty replace by code_20 or code_21 ，only for mega
-        
         if final_result['header']['lc_no']['text'] == '':
             if 'DOCUMENTARYCREDITN' in final_result['swifts']['code_20']['text'].upper().replace(" ",""):
                 code_20_text = final_result['swifts']['code_20']['text'].replace(':', '\n').split('\n')
