@@ -248,8 +248,10 @@ def get_descrption(content, productnames):
         value for this item
     """
     value = ""
-    if '45A' in content.keys() or '45B' in content.keys():
+    if '45A' in content.keys() or '45B' in content.keys() or '454' in content.keys():
         if '45A' in content.keys(): 
+            temp = content['45A']
+        elif '454' in content.keys(): 
             temp = content['45A']
         else:
             temp = content['45B']
@@ -289,8 +291,10 @@ def get_quantity(content):
         value for this item
     """
     value = ""
-    if '45A' in content.keys() or '45B' in content.keys():
+    if '45A' in content.keys() or '45B' in content.keys() or '454' in content.keys():
         if '45A' in content.keys(): 
+            temp = content['45A']
+        elif '454' in content.keys(): 
             temp = content['45A']
         else:
             temp = content['45B']
@@ -358,8 +362,10 @@ def get_terms(content):
     incoterms = ['CIP', 'DAT', 'DAP', 'DDP', 'CIF', 'EXW', 'FCA', 'CPT', 'FAS', 'FOB', 'CFR']
     
     value = None
-    if '45A' in content.keys() or '45B' in content.keys():
+    if '45A' in content.keys() or '45B' in content.keys() or '454' in content.keys():
         if '45A' in content.keys(): 
+            termtext = content['45A']
+        elif '454' in content.keys(): 
             termtext = content['45A']
         else:
             termtext = content['45B']
@@ -509,6 +515,10 @@ def get_mark_up(content):
     value = "[W] 信用狀溢價: missing 45A"
     if '45A' in content.keys():
         value = content['45A']
+    elif '45B' in content.keys():
+        value = content['45B']
+    elif '454' in content.keys():
+        value = content['454']
     return value
 
 def get_mgmt_mark_up(content):
@@ -651,6 +661,20 @@ def get_movement(content):
     value = ""
     if '45A' in content.keys():
         temp = content['45A']
+        if re.findall('contain', temp, re.IGNORECASE):
+            value = temp
+        else:
+            cmLog("[W] 裝船方式: unable to find movement info in 45A (此欄位不需要看？)")
+            value = "[W] 裝船方式: unable to find movement info in 45A (此欄位不需要看？)"
+    elif '45B' in content.keys():
+        temp = content['45B']
+        if re.findall('contain', temp, re.IGNORECASE):
+            value = temp
+        else:
+            cmLog("[W] 裝船方式: unable to find movement info in 45A (此欄位不需要看？)")
+            value = "[W] 裝船方式: unable to find movement info in 45A (此欄位不需要看？)"
+    elif '454' in content.keys():
+        temp = content['454']
         if re.findall('contain', temp, re.IGNORECASE):
             value = temp
         else:
@@ -921,7 +945,7 @@ def get_shipping_docs(content, config):
 
     ###
     # If 46A or 46B not exists in the swift code then return with empty response
-    if not ('46A' in content.keys() or '46B' in content.keys()):
+    if not ('46A' in content.keys() or '46B' in content.keys() or '464' in content.keys()):
         for item in req_items:
             tmp_key_name = item['name']
             key_list = item['keys']
@@ -935,6 +959,9 @@ def get_shipping_docs(content, config):
         if '46A' in content.keys(): 
             temp = content['46A']
             temp = reformatInParagraphs(temp, '46A', paragraph_pat)
+        elif '464' in content.keys(): 
+            temp = content['46A']
+            temp = reformatInParagraphs(temp, '464', paragraph_pat)
         else:
             temp = content['46B']
             temp = reformatInParagraphs(temp, '46B', paragraph_pat)
