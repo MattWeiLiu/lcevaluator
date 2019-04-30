@@ -13,11 +13,11 @@ header:
       regex: ['%b%d%Y']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [1880, 1140, 3030, 1580]
+    boundingbox: [1800, 1140, 3030, 1580]
     pattern: 'FROM ?:?[ \n]?([.\s\S]*)'
   - label: Field Group
     field: field_group
-    boundingbox: [260, 1540, 1860, 2160]
+    boundingbox: [200, 1540, 1860, 2160]
     line_height: 30
     readby: byline
     item_list:
