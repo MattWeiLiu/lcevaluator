@@ -1022,7 +1022,7 @@ def get_shipping_docs(content, config):
                 'text': candidate_line}
         ###
         # store the remaining lines for reference
-        res_req_docs['remained'] = duplicaed
+        # res_req_docs['remained'] = duplicaed
     return res_req_docs
 
 def get_other_docs(content):

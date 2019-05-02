@@ -36,10 +36,10 @@ main_body:
   - label: Page 0
     field: page_0
     index: 0
-    boundingbox: [80, 1760, 2880, 3700]
+    boundingbox: [30, 1760, 2880, 3700]
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [80, 700, 2880, 3700]
+    boundingbox: [30, 700, 2880, 3700]
 swift_regex: ': ?(\d{2}[A-Z]?) ?:' # used to get swift code
 swift_content: ': ?\d{2}[A-Z]? ?: ?.*\n' # used to get swift content 

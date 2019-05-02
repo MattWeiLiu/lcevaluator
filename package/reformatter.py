@@ -342,7 +342,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
     header_config = config['header']
     result_info = {}
     for item in header_config:
-
       field = item['field']
       target_box = item['boundingbox']
       if len(target_box) == 0:
