@@ -40,7 +40,7 @@ main_body:
   - label: Page N
     field: page_n
     index: n
-    boundingbox: [10, 900, 3300, 4100]
+    boundingbox: [10, 700, 3300, 4100]
 swift_regex: '(\d{2} +[A-Z]?) ?[:.;•]'
 swift_end_regx: '- - - - -'
 swift_content: '\d{2} +[A-Z]? ?[:.;•]'
