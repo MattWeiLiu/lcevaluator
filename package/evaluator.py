@@ -257,7 +257,7 @@ def get_descrption(content, productnames):
             temp = content['45B']
         temp = temp.replace('\n', ' ')
         found = False
-        value = None
+        # value = None
 
         ### find name by pattern
         reg = re.compile('GOODS DESCRIPTION: ?(.*)\n', re.IGNORECASE)
@@ -272,7 +272,7 @@ def get_descrption(content, productnames):
                 if item in temp:
                     value = item
                     break
-        if value is None:
+        if value == "":
             cmLog('[W] 貨品名稱: Not found in 45A ->' + temp)
     else:
         cmLog('[W] 貨品名稱: Missing 45A')
@@ -532,7 +532,7 @@ def get_mgmt_mark_up(content):
     ----------
         value for this item
     """
-    value = ''
+    value = ""
     if '42P' in content.keys():
         cmLog('[W] 溢價處理: {} (目前沒看到過，有待商確)'.format(content['42P']))
         value = '[W] 溢價處理: {} (目前沒看到過，有待商確)'.format(content['42P'])
