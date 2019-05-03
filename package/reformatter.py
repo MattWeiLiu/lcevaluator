@@ -370,9 +370,9 @@ class GeneralCLFormatter(CLFormatterAbstract):
     ### Initialize swift code dictionary
     swifts_result = {}
     for item in swifts:
-      swifts_result[item['code']] = {'text':'', 'boundingbox':[], 'page':[]}
+      swifts_result[item['code']] = {'text':'', 'boundingbox':[[-1, -1, -1, -1]], 'page':[-1]}
       if 'code2' in item.keys():
-        swifts_result[item['code2']] = {'text':'', 'boundingbox':[], 'page':[]}
+        swifts_result[item['code2']] = {'text':'', 'boundingbox':[[-1, -1, -1, -1]], 'page':[-1]}
     
     p_index_list = [page['index'] for page in body_config]
     number_pages = self.visdoc.getNumberOfPages()
@@ -389,7 +389,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
       objectList = self.visdoc.getObjectInBoundaryInPage(p, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
       ### Extract swift code infomation from line list
       tmp_result, last_found = self.reformatSwiftInfo(objectList, swifts_result.keys(), swift_regex, last_found, line_height=line_height)
-
+      # print (tmp_result)
       ### Merge and clean up extracted infomation
       # print (tmp_result)
       for key, value in tmp_result.items():
@@ -399,10 +399,18 @@ class GeneralCLFormatter(CLFormatterAbstract):
         try:
           boxes[0] = boxes[0] - 7
           swifts_result[key]['text'] += texts
-          swifts_result[key]['boundingbox'].append(boxes)
-          swifts_result[key]['page'].append(p)
+          if swifts_result[key]['boundingbox'] == [[-1, -1, -1, -1]] and swifts_result[key]['page'] == [-1]:
+            swifts_result[key]['boundingbox'] = [boxes]
+            swifts_result[key]['page'] = [p]
+          else:
+            swifts_result[key]['boundingbox'].append(boxes)
+            swifts_result[key]['page'].append(p)
         except KeyError as e:
           cmLog('[W] Swift code {} is not in the config file. Content: {}'.format(key,texts))
+          # try:
+          #   swifts_result[key]['boundingbox'].append([-1,-1,-1,-1])
+          #   swifts_result[key]['page'].append(-1)
+          # except:pass
 
     if not detail:
       final_result = {}

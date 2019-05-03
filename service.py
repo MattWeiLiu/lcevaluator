@@ -320,7 +320,7 @@ class RequestImaging:
                 for swift in jf['swifts'].keys():
                     for i, page in enumerate(jf['swifts'][swift]['page']):
                         bbox = tuple(jf['swifts'][swift]['boundingbox'][i])
-                        if len(bbox) == 4:
+                        if len(bbox) == 4 and bbox != (-1,-1,-1,-1):
                             jpg_list[jf['swifts'][swift]['page'][i]].crop(bbox).save( result_root + '/' + swift +'_'+str(i)+'.png' )
                             if swift not in output:
                                 output[swift] = {'page_{}'.format(i):result_root + '/' + swift +'_'+str(i)+'.png'}
