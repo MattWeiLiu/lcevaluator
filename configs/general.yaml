@@ -18,7 +18,7 @@ bank_titles:
     boundingbox: [910, 30, 2580, 140]
     text: MEGA INTERNATIONAL
   - name: bktw
-    boundingbox: [980, 490, 2300, 600]
+    boundingbox: [880, 209, 2500, 350]
     text: BANK OF TAIWAN
 
 divisions: 
