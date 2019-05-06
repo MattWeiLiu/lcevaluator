@@ -345,7 +345,8 @@ class GeneralCLFormatter(CLFormatterAbstract):
       field = item['field']
       target_box = item['boundingbox']
       if len(target_box) == 0:
-        field_info = {field: {'text':"", 'boundingbox':target_box}}
+        # field_info = {field: {'text':"", 'boundingbox':target_box}}
+        field_info = {field: {'text':"", 'boundingbox':[-1, -1, -1, -1]}}
       else:
         item_info = ''
         objectList = self.visdoc.getObjectInBoundaryInPage(0, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)

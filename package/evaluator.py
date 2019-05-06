@@ -109,7 +109,7 @@ def get_revocable(content):
     ----------
         value for this item
     """
-    value = ""
+    value = False
     if '40A' in content.keys():
         # value = not ('IRREVOCABLE' in content['40A'].upper()) 
         value = re.search('I ?R ?R ?E ?V ?O ?C ?A ?B ?L ?E', content['40A'].upper()) == None
@@ -118,7 +118,7 @@ def get_revocable(content):
         value = re.search('I ?R ?R ?E ?V ?O ?C ?A ?B ?L ?E', content['40B'].upper()) == None
     else:
         cmLog('[W] 可否撤銷: Missing 40A or 40B (必要欄位)')
-        value = '[W] 可否撤銷: Missing 40A or 40B (必要欄位)'
+    #     value = '[W] 可否撤銷: Missing 40A or 40B (必要欄位)'
 
     return value   
 
@@ -140,8 +140,8 @@ def get_transferable(content):
     elif '40B' in content.keys():
         # value = 'TRANSFERABLE' in content['40B'].upper() 
         value = re.search('T ?R ?A ?N ?S ?F ?E ?R ?A ?B ?L ?E', content['40B'].upper()) != None
-    # else:
-        # cmLog('[W] 可否轉讓: Missing 40A or 40B (必要欄位)')
+    else:
+        cmLog('[W] 可否轉讓: Missing 40A or 40B (必要欄位)')
         # value = '[W] 可否轉讓: Missing 40A or 40B (必要欄位)'
 
     return value
@@ -207,7 +207,7 @@ def get_name_correctness(content):
         value = 'FORMOSA PLASTICS CORPORATION' in content['59'].replace('\n', ' ').upper()
     else:
         cmLog('[W] 受益人名稱: Missing 59 (必要欄位)')
-        value = '[W] 受益人名稱: Missing 59 (必要欄位)'
+        value = False
     return value
 
 def get_UCP660(content):
@@ -221,17 +221,17 @@ def get_UCP660(content):
     ----------
         value for this item
     """
-    value = ""
+    value = False
     if '40E' in content.keys():
         result = content['40E']
         if 'latest' in content['40E'].lower() or '600' in content['40E'].lower():
             value = True
         else:
             cmLog('[W] 是否依國際商會2007修定之UCP600: {} is not the latest version (UCP 600)'.format(result))
-            value = '[W] 是否依國際商會2007修定之UCP600: {} is not the latest version (UCP 600)'.format(result)
+            # value = '[W] 是否依國際商會2007修定之UCP600: {} is not the latest version (UCP 600)'.format(result)
     else:
         cmLog('[W] 是否依國際商會2007修定之UCP600: Missing 40E')
-        value = '[W] 是否依國際商會2007修定之UCP600: Missing 40E'
+        # value = '[W] 是否依國際商會2007修定之UCP600: Missing 40E'
 
     return value
 

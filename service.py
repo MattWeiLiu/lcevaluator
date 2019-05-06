@@ -312,7 +312,7 @@ class RequestImaging:
                 for head in jf['header'].keys():
                     if type(jf['header'][head]['boundingbox']) is list:
                         bbox = tuple(jf['header'][head]['boundingbox'])
-                        if len(bbox) == 4:
+                        if len(bbox) == 4 and bbox != (-1,-1,-1,-1):
                             jpg_list[0].crop(bbox).save( result_root + '/' +head +'.png' )
                             output[head] = result_root + '/' +head +'.png'
   
