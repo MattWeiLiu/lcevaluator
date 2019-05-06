@@ -351,6 +351,8 @@ class GeneralCLFormatter(CLFormatterAbstract):
         item_info = ''
         objectList = self.visdoc.getObjectInBoundaryInPage(0, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
         textList, boundList = visionapi.VisionObject.getTextAndBoundingbox(objectList)
+        if len(boundList) == 0:
+          boundList = [-1, -1, -1, -1]
         ### extract the field with as a group of subfields
         if 'group' in field:
           field_info = self.__extractGroupFields(textList, boundList, item)

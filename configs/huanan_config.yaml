@@ -16,10 +16,10 @@ header:
     boundingbox: [812, 470, 2650, 590]
   - label: OUR REF
     field: advising_no_of_bank
-    boundingbox: [2610, 1010, 3090, 1100]
+    boundingbox: [2560, 960, 3090, 1100]
   - label: 'LETTER OF CREDIT NO'
     field: 'lc_no'
-    boundingbox: [2610, 1010, 3090, 1100]
+    boundingbox: [2110, 1110, 3090, 1200]
   - label: L/C Received from
     field: issuing_bank
     boundingbox: [420, 1380, 1980, 1640]
