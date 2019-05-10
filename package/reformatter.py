@@ -448,6 +448,10 @@ class GeneralCLFormatter(CLFormatterAbstract):
         last_found = searched.group(1)
         last_found = last_found.replace(' ', '')
         last_found = re.sub('[^0-9a-zA-Z]+', '', last_found)
+        if last_found == '454':
+          last_found = '45A'
+        elif last_found == '464':
+          last_found = '46A'
 
       if last_found:
         clenedline = line

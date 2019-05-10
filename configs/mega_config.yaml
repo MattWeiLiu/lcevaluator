@@ -6,7 +6,7 @@ line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [1620, 410, 2250, 510]
+    boundingbox: [1670, 410, 2250, 510]
     format: 
       type: DATE
       regex: ['%b%d%Y']
@@ -41,5 +41,5 @@ main_body:
     field: page_n
     index: n
     boundingbox: [20, 860, 3260, 3880]
-swift_regex: ':? ?(\D\d{2} ?[A-Z4]?) ?:'
-swift_content: ':? ?\D\d{2} ?[A-Z4]? ?: ?.*\n'
+swift_regex: '^:? ?(\D\d{2} ?[A-Z4]?) ?[.:]'
+swift_content: '^:? ?\D\d{2} ?[A-Z4]? ?[.:] ?.*\n'

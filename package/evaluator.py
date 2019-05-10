@@ -340,7 +340,7 @@ def get_amount(content):
     value = ""
     if '32B' in content.keys():
         value = content['32B'].replace('\n', '') 
-        if len(re.findall('usd', value, re.IGNORECASE)) == 0:
+        if len(re.findall('u ?s ?d', value, re.IGNORECASE)) == 0:
             cmLog('[W] 信用狀金額: {} is not in USD'.format(value))
             value = '[W] 信用狀金額: {} is not in USD'.format(value) 
     else:
