@@ -353,11 +353,13 @@ class GeneralCLFormatter(CLFormatterAbstract):
         textList, boundList = visionapi.VisionObject.getTextAndBoundingbox(objectList)
         if len(boundList) == 0:
           boundList = [-1, -1, -1, -1]
+          field_info = {field: {'text':"", 'boundingbox':[-1, -1, -1, -1]}}
         ### extract the field with as a group of subfields
-        if 'group' in field:
-          field_info = self.__extractGroupFields(textList, boundList, item)
         else:
-          field_info = self.__extractFields(textList, boundList, item)
+          if 'group' in field:
+            field_info = self.__extractGroupFields(textList, boundList, item)
+          else:
+            field_info = self.__extractFields(textList, boundList, item)
       result_info.update(field_info)
     self.header_info = result_info
     return result_info

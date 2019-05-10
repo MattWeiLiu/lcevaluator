@@ -145,6 +145,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
             for key, value in final_result['swifts'].items():
                 newswift['code_'+key] = final_result['swifts'][key]
             final_result['swifts'] = newswift
+
         ###
         # 0 replace O
         if 'O' in final_result['header']['lc_no']['text']:
