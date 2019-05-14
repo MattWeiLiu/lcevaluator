@@ -185,7 +185,7 @@ req_docs:
     - name: 'bill_of_lading' 
       keys: ['b/l', 'bill of lading', 'bills of lading', 'clean on board']
     - name: 'commercial_invoice'
-      keys: ['commercial invoices', 'commercial invoice']
+      keys: ['commercial invoices', 'commercial invoice', 'signed invoice']
     - name: 'packing_list'
       keys: ['packing list']
     - name: 'insurance_policy'
