@@ -398,7 +398,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
       ### Merge and clean up extracted infomation
       # print (tmp_result)
       for key, value in tmp_result.items():
-        # print (key)
         texts = tmp_result[key]['text'].strip() + '\n'
         boxes = visionapi.VisionObject.fuseBoundingBox(tmp_result[key]['boundingbox'])
         try:

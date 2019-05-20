@@ -33,10 +33,6 @@ header:
     field: expiry_date
     boundingbox: []
 main_body:
-  - label: Page 1
-    field: page_1
-    index: 1
-    boundingbox: [10, 1500, 3300, 4100]
   - label: Page N
     field: page_n
     index: n
