@@ -6,8 +6,8 @@ line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [1880, 1010, 2320, 1072]
-    pattern: 'DATE ?:? ?(.*)'
+    boundingbox: [1865, 950, 2320, 1072]
+    pattern: 'DATE ?:?\n? ?(.*)'
     format: 
       type: DATE
       regex: ['%d%b%y']

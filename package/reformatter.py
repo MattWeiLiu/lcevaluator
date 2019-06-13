@@ -191,9 +191,10 @@ class CLFormatterAbstract(object):
             except ValueError:
               pass
           return None
-        content = content.replace('\n', '').replace(' ', '').replace('.', '').replace(',', '').strip()
+        content = content.replace('\n', '').replace(' ', '').replace('.', '').replace(',', '').replace('|', '').replace('i', '').replace('-', '').strip()
         datetime_object = try_parsing_date(content, format_regex_list)
         if datetime_object is None:
+          # print (content)
           res = '[E] {}'.format(content)
           # res = '[E] Unrecognized date {} with formats: {}\n'.format(content, format_regex_list)
         else:
@@ -297,7 +298,9 @@ class GeneralCLFormatter(CLFormatterAbstract):
     ### Extract text based on pattern if specified in config yaml
     if 'pattern' in config.keys():
       pattern = config['pattern']
+      text = text.replace('|', '')
       text_res = self.extract_with_pattern(text, pattern)
+      # print (text)
       if text_res is not None:
         text = text_res
 
