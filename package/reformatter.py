@@ -300,7 +300,6 @@ class GeneralCLFormatter(CLFormatterAbstract):
       pattern = config['pattern']
       text = text.replace('|', '')
       text_res = self.extract_with_pattern(text, pattern)
-      # print (text)
       if text_res is not None:
         text = text_res
 
@@ -397,7 +396,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
       objectList = self.visdoc.getObjectInBoundaryInPage(p, target_box, depth=visionapi.VisionObject.DEPTH.WORDS)
       ### Extract swift code infomation from line list
       tmp_result, last_found = self.reformatSwiftInfo(objectList, swifts_result.keys(), swift_regex, last_found, line_height=line_height)
-      # print (tmp_result)
+      # print (tmp_result, last_found)
       ### Merge and clean up extracted infomation
       # print (tmp_result)
       for key, value in tmp_result.items():
@@ -441,6 +440,7 @@ class GeneralCLFormatter(CLFormatterAbstract):
     ### Extract swift code infomation from line list
     key_regex = codeRegex
     for idx, line in enumerate(line_list):
+      line = line.replace('À', 'A')  ### 如果有變體字從這裡增加。
       # key_regex = codeRegex
       searched = re.search(key_regex, line)  
       # print (idx, line, searched)
