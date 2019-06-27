@@ -15,7 +15,7 @@ bank_titles:
     boundingbox: [470, 140, 1170, 300]
     text: Wells Fargo Bank
   - name: mega
-    boundingbox: [910, 30, 2580, 140]
+    boundingbox: [840, 0, 2560, 440]
     text: MEGA INTERNATIONAL
   - name: bktw
     boundingbox: [880, 209, 2500, 350]
