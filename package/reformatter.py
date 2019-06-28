@@ -105,7 +105,8 @@ def mergeLinesWithFields(line_list, field_list):
             result[found_field]['boundingbox'] = newbox
         else:
             result[found_field]={'text':tmp_line_text.strip(), 
-                                 'boundingbox': tmp_bound_list}  
+                                 'boundingbox': tmp_bound_list} 
+    result.pop('')
     return result
 
 class CLFormatterAbstract(object):

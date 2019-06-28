@@ -6,18 +6,18 @@ line_height: 30
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [260, 800, 940, 920]
+    boundingbox: [260, 400, 940, 920]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
       regex: ['%b%d%Y']
   - label: Advising Bank
     field: advising_bank
-    boundingbox: [1800, 1140, 3030, 1580]
+    boundingbox: [1800, 740, 3030, 1580]
     pattern: 'FROM ?:?[ \n]?([.\s\S]*)'
   - label: Field Group
     field: field_group
-    boundingbox: [200, 1540, 1860, 2160]
+    boundingbox: [200, 1240, 1860, 2160]
     line_height: 30
     readby: byline
     item_list:
@@ -34,9 +34,9 @@ header:
         field: 'amount'
       - label: 'EXPIRY DATE'
         field: 'expiry_date'
-  - label: OUR REF
-    field: advising_no_of_bank
-    boundingbox: [220, 4240, 1130, 4360]
+  # - label: OUR REF
+  #   field: advising_no_of_bank
+  #   boundingbox: [220, 3540, 1130, 4360]
 main_body:
   - label: Page 0
     field: page_0
