@@ -106,7 +106,10 @@ def mergeLinesWithFields(line_list, field_list):
         else:
             result[found_field]={'text':tmp_line_text.strip(), 
                                  'boundingbox': tmp_bound_list} 
-    result.pop('')
+    try:
+      result.pop('')  ## remove header noise
+    except:
+      pass
     return result
 
 class CLFormatterAbstract(object):
