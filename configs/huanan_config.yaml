@@ -6,7 +6,7 @@ line_height: 20
 header:
   - label: Date of Registration
     field: date_of_registration
-    boundingbox: [2120, 940, 2800, 1020]
+    boundingbox: [2070, 910, 2800, 1020]
     pattern: 'DATE ?:? ?(.*)'
     format: 
       type: DATE
