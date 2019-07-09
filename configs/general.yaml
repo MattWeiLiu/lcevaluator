@@ -6,7 +6,7 @@ bank_titles:
     boundingbox: [82, 228, 620, 422]
     text: ORIGINAL
   - name: huanan
-    boundingbox: [812, 470, 2650, 590]
+    boundingbox: [612, 420, 2650, 590]
     text: HUA NAN
   - name: chartered
     boundingbox: [2600, 220, 3060, 430]

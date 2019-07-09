@@ -298,6 +298,7 @@ def get_quantity(content):
             temp = content['45A']
         else:
             temp = content['45B']
+        temp = temp.replace('OOMT', '00MT') ###
         value = None
         numbers_pat = '(\d+[\.,]?\d{0,3}?[\.,]?\d*)'
 
