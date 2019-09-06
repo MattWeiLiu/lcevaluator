@@ -31,6 +31,12 @@ def ensureDestinationPath(src_path, dst_path):
     return dst_path
 
 def augmentBatchImages(src_paths, bank_name, dst_paths=None, grayscaled=True, kernel=(5,5), iterations = 1):
+    '''
+    功能 : augmentation.py的主功能，負責優化信用狀掃描檔，由service/annotateCreditLetter呼叫
+    輸入 : 1.信用狀JPEG圖檔, 2.銀行名稱 3.輸出路徑
+    輸出 : 優化影像
+    附註 : 可以根據不同銀行設計不同的影像優化流程，部分的影像優化策略可以在這份檔案裡面找到，或是參考網路上別人的建議設計新的優化方法
+    '''
     if isinstance(src_paths, list):
         tmp_list = []
         for i, path in enumerate(src_paths):

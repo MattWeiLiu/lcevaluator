@@ -20,6 +20,9 @@ bank_titles:
   - name: bktw
     boundingbox: [880, 209, 2500, 350]
     text: BANK OF TAIWAN
+  - name: hsbc
+    boundingbox: [110, 110, 1290, 400]
+    text: HSBC
 
 divisions: 
   - name: '11A'

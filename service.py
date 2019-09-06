@@ -15,8 +15,13 @@ import shutil
 cors = CORS(allow_origins_list=['http://127.0.0.1:8080'])
 public_cors = CORS(allow_all_origins=True)
 
-
 def requestOCR(credential, jpg_paths):
+    '''
+    功能 : 呼叫vision api 
+    輸入 : 1. gcp金鑰 2. 信用狀JPEG圖檔 
+    輸出 : vision api 分析結果
+    注意 : 確保每張圖都有不同的tmp_key，否則會覆蓋
+    '''
     visionapi.set_vision_credential(credential)
     vision_results = {}
     for path in jpg_paths:
@@ -29,6 +34,11 @@ def requestOCR(credential, jpg_paths):
     return vision_results
 
 def retrieveVisionResponse(credential, jpg_paths, result_root=None):
+    '''
+    功能 : requestOCR的前導程式，用來寫log檔、回傳錯誤訊息
+    輸入 : 1. gcp金鑰 2. 信用狀JPEG圖檔 
+    輸出 : vision api 分析結果
+    '''
     assert isinstance(jpg_paths, list), '[E] "jpg_paths" must be instance of list'
     vision_results = None
     response_path = None
@@ -49,6 +59,11 @@ def retrieveVisionResponse(credential, jpg_paths, result_root=None):
     return vision_results
 
 def validateAllParameters(credential, general_path, jpg_path_list, result_root):
+    '''
+    功能 : 影像處理之前檢查參數
+    輸入 : 1.gcp金鑰 2.general_config.yaml 3.信用狀JPEG圖檔 4.輸出路徑
+    輸出 : 
+    '''
     assert (isinstance(credential, str) and 
             isinstance(general_path, str) and 
             isinstance(result_root, str)), '[E] All parameters has to be string type'
@@ -65,7 +80,12 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
         utils.createDirIfNotExist(result_root)
 
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
-    
+    '''
+    功能 : 信用狀分析流程的主幹，所有的sub function都是由這裡呼叫再將資料回傳
+    輸入 : 1.gcp金鑰 2.general_config.yaml 3.信用狀JPEG圖檔 4.輸出路徑
+    輸出 : 最終分析結果
+    注意 : 分析流程可以參考“台塑信用狀辨識流程圖”
+    '''
     # Validate all parameters
     general_path = os.path.join('./configs', 'general.yaml')
     validateAllParameters(credential, general_path, jpg_path_list, result_root)
@@ -80,7 +100,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
         vision_results = retrieveVisionResponse(credential, jpg_path_list_n, result_root+'/tmp')
         vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
         clformatted = formatter.GeneralCLFormatter(vision_doc)
-        bank_name = clformatted.identifyBankName(general)
+        bank_name = clformatted.identifyBankName(general)  ## 參考general_config.yaml預設的銀行bounding box擷取銀行名稱
         [os.remove(path) for path in jpg_path_list_n]
         shutil.rmtree(result_root+'/tmp') 
         cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
@@ -131,8 +151,8 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
                 }
         else:
             cmLog('[I] Extracting Header and Swift codes for bank {} ...'.format(bank_name))
-            clformatted.extractHeaderInfo(config)
-            clformatted.extractSwiftsInfo(config, general)
+            clformatted.extractHeaderInfo(config)   ## 呼叫reformatter.py分析header的內容
+            clformatted.extractSwiftsInfo(config, general)  ## 呼叫reformatter.py分析Swift的內容
             
             cmLog('[I] Evaluating letter of credit ...')
             evaluated = evaluator.CLEvaluator(clformatted)
@@ -146,6 +166,11 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
                 newswift['code_'+key] = final_result['swifts'][key]
             final_result['swifts'] = newswift
 
+        '''
+        
+        針對回傳的結果做Rule Based的修飾
+
+        '''
         ###
         # 0 replace O
         if 'O' in final_result['header']['lc_no']['text']:
@@ -192,6 +217,11 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
 
 
 def checkIfKeyExists(content, target_key):
+    '''
+    功能 : 檢查post data是否正確
+    輸入 : 1.post info 2.target_key
+    輸出 : Boolean
+    '''
     if not isinstance(content, dict):
         return False
     if not (target_key in content.keys()):
@@ -199,6 +229,11 @@ def checkIfKeyExists(content, target_key):
     return True
 
 class RequestCloudMile:
+    '''
+    功能 : 信用狀分析API
+    輸入 : credential, jpg_path_list, result_root
+    輸出 : 分析結果
+    '''
     cors = public_cors
     def on_post(self, req, resp):
         req_str = req.stream.read()
@@ -240,6 +275,11 @@ class RequestCloudMile:
 
 
 class RequestPdfToJpg:
+    '''
+    功能 : PDF轉JEPG
+    輸入 : pdf_path, dst_dir
+    輸出 : JEPG路徑
+    '''
     cors = public_cors
     def on_post(self, req, resp):
         req_str = req.stream.read()
@@ -278,6 +318,11 @@ class RequestPdfToJpg:
         resp.body = json.dumps(output)
         
 class RequestImaging:
+    '''
+    功能 : 原圖快照，輔助營業員判斷辨識結果
+    輸入 : jpg_path_list, json_path, result_root
+    輸出 : JEPG路徑
+    '''
     cors = public_cors
     def on_post(self, req, resp):
         req_str = req.stream.read()
