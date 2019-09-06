@@ -61,7 +61,7 @@ def retrieveVisionResponse(credential, jpg_paths, result_root=None):
 def validateAllParameters(credential, general_path, jpg_path_list, result_root):
     '''
     功能 : 影像處理之前檢查參數
-    輸入 : 1.gcp金鑰 2.general_config.yaml 3.信用狀JPEG圖檔 4.輸出路徑
+    輸入 : 1.gcp金鑰 2.general.yaml 3.信用狀JPEG圖檔 4.輸出路徑
     輸出 : 
     '''
     assert (isinstance(credential, str) and 
@@ -82,7 +82,7 @@ def validateAllParameters(credential, general_path, jpg_path_list, result_root):
 def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, bank_name=None):
     '''
     功能 : 信用狀分析流程的主幹，所有的sub function都是由這裡呼叫再將資料回傳
-    輸入 : 1.gcp金鑰 2.general_config.yaml 3.信用狀JPEG圖檔 4.輸出路徑
+    輸入 : 1.gcp金鑰 2.general.yaml 3.信用狀JPEG圖檔 4.輸出路徑
     輸出 : 最終分析結果
     注意 : 分析流程可以參考“台塑信用狀辨識流程圖”
     '''
@@ -100,7 +100,7 @@ def annotateCreditLetter(credential, division_code, jpg_path_list, result_root, 
         vision_results = retrieveVisionResponse(credential, jpg_path_list_n, result_root+'/tmp')
         vision_doc = visionapi.VisionDocument.createWithVisionResponse(vision_results)
         clformatted = formatter.GeneralCLFormatter(vision_doc)
-        bank_name = clformatted.identifyBankName(general)  ## 參考general_config.yaml預設的銀行bounding box擷取銀行名稱
+        bank_name = clformatted.identifyBankName(general)  ## 參考general.yaml預設的銀行bounding box擷取銀行名稱
         [os.remove(path) for path in jpg_path_list_n]
         shutil.rmtree(result_root+'/tmp') 
         cmLog('[I] Auto-identified bank name: {}'.format(bank_name))
